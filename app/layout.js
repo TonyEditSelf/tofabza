@@ -8,9 +8,25 @@ import { NextAuthProvider } from "@/components/providers/SessionProvider";
 import { AuthProvider } from "@/context/AuthContext";
 
 export const metadata = {
-  title: "Tofabza — Premium Digital Growth Partner",
+  title: "Tofabza — Web, Automation & Digital Systems | India",
   description:
-    "Tofabza helps businesses grow online with clarity, consistency, and automation. Premium digital marketing, content, and systems.",
+    "Tofabza builds websites, automation systems, and content strategies for growing businesses. Based in India. Direct execution, zero handoffs.",
+  openGraph: {
+    title: "Tofabza — Web, Automation & Digital Systems | India",
+    description:
+      "Tofabza builds websites, automation systems, and content strategies for growing businesses. Based in India. Direct execution, zero handoffs.",
+    url: "https://www.tofabza.com",
+    siteName: "Tofabza",
+    images: [
+      {
+        url: "https://www.tofabza.com/images/og-image.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Tofabza — Digital Systems",
+      },
+    ],
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -23,16 +39,16 @@ export default function RootLayout({ children }) {
               <Navbar />
               <main className="relative">{children}</main>
               <Footer />
-            <Toaster
-              position="top-right"
-              richColors
-              offset="90px"
-              toastOptions={{
-                style: { top: "66px", right: "27px", position: "fixed" },
-              }}
-            />
-            {/* Voice AI Widget */}
-            {/* <iframe
+              <Toaster
+                position="top-right"
+                richColors
+                offset="90px"
+                toastOptions={{
+                  style: { top: "66px", right: "27px", position: "fixed" },
+                }}
+              />
+              {/* Voice AI Widget */}
+              {/* <iframe
               id="audio_iframe"
               src="https://widget.synthflow.ai/widget/v2/c25ffd10-3543-4a16-9081-a41a1bffeb81/1778064210754x862803998782295900"
               allow="microphone"

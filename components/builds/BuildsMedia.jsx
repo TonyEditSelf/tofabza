@@ -9,8 +9,9 @@ const APPS = [
     url: "https://elysian-dusky.vercel.app/",
     video: "/videos/Elysian.mp4",
     description:
-      "Design concept — a luxury real estate website for a bespoke private estate builder. Built to demonstrate high-end service brand design.",
+      "Design concept — a multi-page luxury real estate website for a bespoke private estate builder. Built to demonstrate high-end service brand design.",
     image: "/images/elysian.png",
+    stack: ["Next.js", "Tailwind CSS"],
     caseStudy: {
       problem:
         "Luxury real estate firms often have outdated or generic websites that undercut the premium nature of what they offer.",
@@ -26,15 +27,16 @@ const APPS = [
     url: "https://store-ui-ux.vercel.app/",
     video: "/videos/TonyStores.mp4",
     description:
-      "Design concept — a full premium tech e-commerce storefront for projectors, robotic cleaners, AR glasses and smart devices. Built to demonstrate product-led UI design.",
+      "Design concept — a full-page premium tech e-commerce UI. Product grids, category browsing, trending sections, and brand trust signals — built to demonstrate e-commerce layout and design depth.",
     image: "/images/tonystores.png",
+    stack: ["Next.js", "Tailwind CSS"],
     caseStudy: {
       problem:
         "Premium tech products are often sold through cluttered, trust-deficit storefronts that don't match the quality of what they're selling.",
       solution:
-        "Designed a clean, conversion-focused e-commerce UI with clear product hierarchy, category browsing, trending sections, brand trust signals, and a staff picks feature — all mobile responsive.",
+        "Designed a clean, conversion-focused, mobile responsive e-commerce UI with clear product hierarchy, category browsing, trending sections, a staff picks highlight, brand partner display, and social proof elements — all built to showcase high-end tech products in a way that builds trust and drives sales.",
       outcome:
-        "A fully structured storefront UI concept demonstrating end-to-end e-commerce design thinking — from hero to footer.",
+        "A comprehensive e-commerce UI concept demonstrating product-led design thinking from hero to footer.",
     },
   },
   {
@@ -45,7 +47,7 @@ const APPS = [
     description:
       "Brand color tools — 11 precision tools built on OKLCH color space.",
     image: "/images/cosira.png",
-    stack: ["Next.js", "OKLCH Engine", "Tailwind CSS", "Vercel"],
+    stack: ["Next.js", "OKLCH Engine", "Tailwind CSS"],
     caseStudy: {
       problem:
         "Designers waste hours across scattered tools to build cohesive color systems.",
