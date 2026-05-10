@@ -7,17 +7,23 @@ import { useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import AuthModal from "@/components/layout/AuthModal";
+import { useCart } from "@/context/CartContext";
 
 export default function CartPage() {
   const { data: session, status } = useSession();
+  const { count } = useCart();
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-    if (status === "unauthenticated" || (status === "authenticated" && !session?.user?.profileCompleted)) {
+    if (
+      count > 0 &&
+      (status === "unauthenticated" ||
+        (status === "authenticated" && !session?.user?.profileCompleted))
+    ) {
       setIsAuthModalOpen(true);
     }
-  }, [status, session]);
+  }, [status, session, count]);
 
   if (status === "loading") {
     return (
@@ -29,14 +35,16 @@ export default function CartPage() {
 
   // If not authenticated, we show the background but keep the modal open
   // This prevents content flash while auth is being resolved
+  // NEW: Allow access if the cart is empty OR the user is authorized
   const isAuthorized = status === "authenticated" && session?.user?.profileCompleted;
+  const canViewCart = count === 0 || isAuthorized;
 
   return (
     <div className="pt-40  min-h-screen relative">
       <div className="absolute top-20 left-0 right-0 h-[350px] animated-gradient-bg opacity-40 -z-10" />
 
       <div className="container">
-        {isAuthorized ? (
+        {canViewCart ? (
           <>
             <div className="max-w-4xl  mb-16 animate-fade-up">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/30 bg-navy-800/40 backdrop-blur-sm mb-8">

@@ -52,7 +52,7 @@ export default function WhatIBuild() {
                 className="group relative rounded-2xl p-8 glass-card glass-card-hover transition-all overflow-hidden"
               >
                 {/* Video Overlay (Only for Grow) */}
-                {isGrow && (
+                {/* {isGrow && (
                   <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black">
                     <video
                       src="/videos/grow.mp4"
@@ -63,16 +63,10 @@ export default function WhatIBuild() {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                )}
+                )} */}
 
                 {/* Content */}
-                <div
-                  className={
-                    isGrow
-                      ? "transition-opacity duration-500 group-hover:opacity-0 relative z-10 h-full flex flex-col"
-                      : "relative z-10 h-full flex flex-col"
-                  }
-                >
+                <div className="relative z-10 h-full flex flex-col">
                   {/* Top */}
                   <div className="flex items-center justify-between mb-6">
                     <div className="w-14 h-14 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center group-hover:bg-gold-500/20 transition">

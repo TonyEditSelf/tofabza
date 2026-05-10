@@ -23,8 +23,9 @@ export default function Navbar() {
   const handleCartClick = (e) => {
     e.preventDefault();
     if (
-      status === "unauthenticated" ||
-      (status === "authenticated" && !session?.user?.profileCompleted)
+      count > 0 &&
+      (status === "unauthenticated" ||
+        (status === "authenticated" && !session?.user?.profileCompleted))
     ) {
       openAuthModal("/cart");
     } else {

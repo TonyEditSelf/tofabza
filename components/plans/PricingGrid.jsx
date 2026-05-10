@@ -65,7 +65,7 @@ export default function PricingGrid({ variant = "navy" }) {
   return (
     <div className="max-w-5xl mx-auto space-y-14">
       {/* MICRO */}
-      <div className="text-center pt-28 pb-14 relative">
+      <div id="micro" className="text-center pt-28 pb-14 relative">
         <div className="max-w-5xl mb-16">
           <div className={sectionLabelClass} style={sectionLabelStyle}>
             Micro — Starter Visibility System
@@ -96,9 +96,8 @@ export default function PricingGrid({ variant = "navy" }) {
       <div className="full-bleed-divider" />
       <div className="text-center py-10 bg-navy-900/40">
         <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight mb-4">
-          Micro is a start. <br /> When you're ready for real growth, <br />
-          <span className="text-gold-gradient">the system below </span>
-          is where it begins.
+          Micro is a start. <br /> Real growth starts
+          <span className="text-gold-gradient"> below.</span>
         </h2>
 
         <div className="mt-14 grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -130,7 +129,7 @@ export default function PricingGrid({ variant = "navy" }) {
 
       {/* BUILD */}
       <div className="full-bleed-divider" />
-      <div className="flex flex-col gap-10 py-10">
+      <div id="build" className="flex flex-col gap-10 py-10">
         <div className="max-w-5xl mx-auto text-center mb-4">
           <div className={sectionLabelClass} style={sectionLabelStyle}>
             Build — Web Systems
