@@ -6,12 +6,24 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { Loader2, Lock } from "lucide-react";
 import { useCart } from "@/context/CartContext";
+import { useSession } from "next-auth/react";
+import { useAuth } from "@/context/AuthContext";
 
 export default function CheckoutButton({ amount, items }) {
   const [loading, setLoading] = useState(false);
   const { clear } = useCart();
+  const { data: session, status } = useSession();
+  const { openAuthModal } = useAuth();
 
   const handleCheckout = async () => {
+    if (
+      status === "unauthenticated" ||
+      (status === "authenticated" && !session?.user?.profileCompleted)
+    ) {
+      openAuthModal("/cart");
+      return;
+    }
+
     setLoading(true);
     try {
       // Create Razorpay order (amount in paise)

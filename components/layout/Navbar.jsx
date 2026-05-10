@@ -22,15 +22,7 @@ export default function Navbar() {
 
   const handleCartClick = (e) => {
     e.preventDefault();
-    if (
-      count > 0 &&
-      (status === "unauthenticated" ||
-        (status === "authenticated" && !session?.user?.profileCompleted))
-    ) {
-      openAuthModal("/cart");
-    } else {
-      router.push("/cart");
-    }
+    router.push("/cart");
   };
 
   return (
