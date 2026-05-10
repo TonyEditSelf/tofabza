@@ -2,7 +2,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, ShoppingBag, LogIn, LogOut, User } from "lucide-react";
+import { Menu, X, ShoppingBag, LogIn, LogOut, User, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BRAND, NAV_LINKS } from "@/lib/constants";
 import { useCart } from "@/context/CartContext";
@@ -51,15 +51,55 @@ export default function Navbar() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-10">
-          {NAV_LINKS.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="text-sm font-medium text-foreground/80 hover:text-gold-500 transition-colors"
-            >
-              {l.label}
-            </Link>
-          ))}
+          {NAV_LINKS.map((l) => {
+            if (l.label === "What I Build") {
+              return (
+                <div key={l.href} className="relative group py-2">
+                  <Link
+                    href={l.href}
+                    className="flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-gold-500 transition-colors"
+                  >
+                    {l.label}
+                    <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
+                  </Link>
+
+                  {/* Dropdown Menu */}
+                  <div className="absolute top-full left-0 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 z-50">
+                    <div className="min-w-[160px] bg-navy-900/95 backdrop-blur-xl border border-gold-500/20 rounded-xl p-2 shadow-2xl shadow-black/50">
+                      <Link
+                        href="/services/website-design"
+                        className="block px-4 py-2.5 text-sm text-foreground/70 hover:text-gold-500 hover:bg-gold-500/10 rounded-lg transition-all"
+                      >
+                        Build
+                      </Link>
+                      <Link
+                        href="/services/automation-systems"
+                        className="block px-4 py-2.5 text-sm text-foreground/70 hover:text-gold-500 hover:bg-gold-500/10 rounded-lg transition-all"
+                      >
+                        Automate
+                      </Link>
+                      <Link
+                        href="/services/social-media-growth"
+                        className="block px-4 py-2.5 text-sm text-foreground/70 hover:text-gold-500 hover:bg-gold-500/10 rounded-lg transition-all"
+                      >
+                        Grow
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
+            return (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="text-sm font-medium text-foreground/80 hover:text-gold-500 transition-colors"
+              >
+                {l.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-5">

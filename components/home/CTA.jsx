@@ -21,20 +21,20 @@ export default function CTA() {
             <p className="text-lg text-muted-foreground mb-10">
               Let's build the system that gets you there.
             </p>
-            <div className="flex flex-row gap-4 justify-center">
-              <Link href="/contact">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/contact" className="w-full sm:w-auto">
                 <Button
                   size="lg"
-                  className="bg-gold-gradient text-navy-900 hover:opacity-90 font-semibold px-8 h-14 text-base gold-border-glow"
+                  className="w-full bg-gold-gradient text-navy-900 hover:opacity-90 font-semibold px-8 h-14 text-base gold-border-glow"
                 >
                   Book a Call <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Link href="/plans">
+              <Link href="/plans" className="w-full sm:w-auto">
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-gold-500/40 text-foreground hover:bg-gold-500/10 hover:text-gold-500 px-8 h-14 text-base"
+                  className="w-full border-gold-500/40 text-foreground hover:bg-gold-500/10 hover:text-gold-500 px-8 h-14 text-base"
                 >
                   View Plans
                 </Button>
