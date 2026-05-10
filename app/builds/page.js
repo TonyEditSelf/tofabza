@@ -5,8 +5,7 @@ import BuildsMedia from "@/components/builds/BuildsMedia";
 
 export const metadata = {
   title: "My Builds — Tofabza",
-  description:
-    "Explore a selection of high-performance digital systems and web applications.",
+  description: "Designed and built from scratch. No templates.",
 };
 
 const BuildsPage = () => {
