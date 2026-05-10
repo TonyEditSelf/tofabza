@@ -48,13 +48,13 @@ export default function RootLayout({ children }) {
                 }}
               />
               {/* Voice AI Widget */}
-              {/* <iframe
-              id="audio_iframe"
-              src="https://widget.synthflow.ai/widget/v2/c25ffd10-3543-4a16-9081-a41a1bffeb81/1778064210754x862803998782295900"
-              allow="microphone"
-              scrolling="no"
-              className="fixed bottom-4 right-4 z-[9999] w-[250px] h-[450px] md:w-[360px] md:h-[440px] bg-transparent"
-            /> */}
+              <iframe
+                id="audio_iframe"
+                src="https://widget.synthflow.ai/widget/v2/c25ffd10-3543-4a16-9081-a41a1bffeb81/1778064210754x862803998782295900"
+                allow="microphone"
+                scrolling="no"
+                className="fixed bottom-4 right-4 z-[9999] w-[250px] h-[450px] md:w-[360px] md:h-[440px] bg-transparent"
+              />
             </CartProvider>
           </AuthProvider>
         </NextAuthProvider>
