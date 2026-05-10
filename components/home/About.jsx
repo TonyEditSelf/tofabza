@@ -30,7 +30,7 @@ export default function About() {
         <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight mb-8">
           <span className="text-gold-gradient">One person.</span> <br />
           Every project gets full attention <br />
-          <span className="text-gold-gradient">start to finish.</span>
+          <span className="text-gold-gradient">from start to finish.</span>
         </h2>
         <div className="relative w-32 h-32 mx-auto mb-6 mt-2">
           <div

@@ -15,7 +15,7 @@ export default function CTA() {
             <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight mb-6">
               Whether you're <br />
               <span className="text-gold-gradient">
-                starting out or scaling up
+                starting out or scaling up,
               </span>
             </h2>
             <p className="text-lg text-muted-foreground mb-10">

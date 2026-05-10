@@ -96,9 +96,10 @@ export default function PricingGrid({ variant = "navy" }) {
       <div className="full-bleed-divider" />
       <div className="text-center py-10 bg-navy-900/40">
         <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight mb-4">
-          But most businesses{" "}
-          <span className="text-gold-gradient">outgrow </span>
-          this quickly.
+          Micro is a starting point. <br /> When you're ready for real growth,{" "}
+          <br />
+          <span className="text-gold-gradient">the system below </span>
+          is where it begins.
         </h2>
         <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
           Because posting alone doesn't create growth. At some point, you need
