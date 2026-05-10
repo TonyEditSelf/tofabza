@@ -10,7 +10,7 @@ export const metadata = {
 
 const BuildsPage = () => {
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen py-12">
       <BuildsHero />
       <BuildsMedia />
 
@@ -23,12 +23,12 @@ const BuildsPage = () => {
             <div className="absolute inset-0 animated-gradient-bg opacity-50" />
             <div className="relative z-10">
               <h3 className="font-display text-3xl md:text-4xl font-semibold leading-tight mb-5">
-                Ready to start your{" "}
-                <span className="text-gold-gradient">Next Build</span>?
+                Ready to build{" "}
+                <span className="text-gold-gradient">something real?</span>
               </h3>
               <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-                Explore the plans to find the right fit, or book a call and I'll
-                build a custom package around your goals.
+                Find the right plan or book a call. <br /> I'll build a custom
+                package around your goals.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link

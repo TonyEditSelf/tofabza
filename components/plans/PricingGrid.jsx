@@ -78,10 +78,9 @@ export default function PricingGrid({ variant = "navy" }) {
           </h2>
           {/* Price — fully visible */}
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
-            This is NOT a growth system. <br /> It’s a basic visibility layer to
-            stay active online. Ideal for businesses that just need to appear
-            consistent online. Best used as an entry point before building a
-            real digital system.
+            This is NOT a growth system. It’s a basic visibility layer to stay
+            active online. Ideal for businesses that just need to appear
+            consistent online.
           </p>
         </div>
 
@@ -144,17 +143,17 @@ export default function PricingGrid({ variant = "navy" }) {
             real structure and conversions.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 ">
+        <div className="grid md:grid-cols-2 gap-14 lg:gap-14 ">
           {buildPlans.map((plan) => (
             <PricingCard key={plan.id} plan={plan} variant={variant} />
           ))}
         </div>
 
-        <p className="mt-2">
+        <p className="mt-6">
           <Link
             href="/contact"
-            className="text-md hover:underline"
-            style={{ color: "#D4AF37" }}
+            className="text-xs md:text-sm font-mono uppercase tracking-wider text-gold-500/70 hover:text-gold-500 transition-colors"
+            // style={{ color: "#D4AF37" }}
           >
             E-commerce, full stack applications, mobile apps or advanced
             systems? — Let's talk
@@ -179,16 +178,16 @@ export default function PricingGrid({ variant = "navy" }) {
             operational setup.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-10">
+        <div className="grid md:grid-cols-2 gap-14 lg:gap-14 ">
           {automatePlans.map((plan) => (
             <PricingCard key={plan.id} plan={plan} variant={variant} />
           ))}
         </div>
-        <p className="mt-4">
+        <p className="mt-14">
           <Link
             href="/contact"
-            className="text-md hover:underline"
-            style={{ color: "#D4AF37" }}
+            className="text-xs md:text-sm font-mono uppercase tracking-wider text-gold-500/70 hover:text-gold-500 transition-colors"
+            // style={{ color: "#D4AF37" }}
           >
             Complex workflows, advanced AI systems, or chatbots? — Let's talk
           </Link>
@@ -212,16 +211,16 @@ export default function PricingGrid({ variant = "navy" }) {
             place.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-10">
+        <div className="grid md:grid-cols-2 gap-14 lg:gap-14 ">
           {growPlans.map((plan) => (
             <PricingCard key={plan.id} plan={plan} variant={variant} />
           ))}
         </div>
-        <p className="mt-4">
+        <p className="mt-14">
           <Link
             href="/contact"
-            className="text-md hover:underline"
-            style={{ color: "#D4AF37" }}
+            className="text-xs md:text-sm font-mono uppercase tracking-wider text-gold-500/70 hover:text-gold-500 transition-colors"
+            // style={{ color: "#D4AF37" }}
           >
             Multi-platform or advanced content strategy — Let's talk
           </Link>
@@ -244,24 +243,26 @@ export default function PricingGrid({ variant = "navy" }) {
 
         {/* Combined box — where to start list + final CTA */}
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
           {[
             {
               label: "Just want visibility",
               cta: "Start with Micro",
-              href: "#micro",
               icon: Eye,
+            },
+            {
+              label: "Want to grow online",
+              cta: "Start with Grow",
+              icon: TrendingUp,
             },
             {
               label: "Want real structure",
               cta: "Start with Web System",
-              href: "#build",
               icon: Layout,
             },
             {
               label: "Want full setup",
               cta: "Web + Automation",
-              href: "#automate",
               icon: Zap,
             },
           ].map((item) => {
@@ -276,7 +277,7 @@ export default function PricingGrid({ variant = "navy" }) {
                     .querySelector(item.href)
                     ?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="cream-card rounded-2xl py-8 px-5 text-left hover:opacity-90 transition-all cursor-pointer"
+                className="cream-card rounded-2xl py-8 pl-8 text-left hover:opacity-90 transition-all"
               >
                 <div className="w-14 h-14 rounded-xl bg-gold-gradient flex items-center justify-center mb-5 shadow-lg shadow-gold-500/30">
                   <Icon

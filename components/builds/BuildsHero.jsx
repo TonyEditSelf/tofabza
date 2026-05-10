@@ -26,7 +26,7 @@ export default function BuildsHero() {
             <span className="text-gold-gradient">My Builds</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl">
-            Explore a selection of high-performance digital systems and web applications I've designed and built.
+            Designed and built from scratch. No templates.
           </p>
         </div>
       </div>

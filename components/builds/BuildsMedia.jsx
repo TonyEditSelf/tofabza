@@ -5,6 +5,24 @@ import { ExternalLink, X, Play, ChevronDown, ChevronUp } from "lucide-react";
 const APPS = [
   {
     id: 1,
+    name: "Cosira",
+    url: "https://cosira.vercel.app/",
+    video: "/videos/Cosira.mp4",
+    description:
+      "A suite of 11 precision color tools built on OKLCH — generate palettes, export to CSS, Tailwind, or JSON. Built for designers who care about accuracy.",
+    image: "/images/cosira.png",
+    stack: ["Next.js", "OKLCH Engine", "Tailwind CSS"],
+    caseStudy: {
+      problem:
+        "Designers waste hours across scattered tools to build cohesive color systems.",
+      solution:
+        "Built a unified platform with 11 color tools — palette generation, gradients, tints, mood & culture palettes — all in OKLCH for perceptually accurate results.",
+      outcome:
+        "One-stop color system builder with export to CSS, Tailwind, and JSON.",
+    },
+  },
+  {
+    id: 2,
     name: "Elysian",
     url: "https://elysian-dusky.vercel.app/",
     video: "/videos/Elysian.mp4",
@@ -22,7 +40,7 @@ const APPS = [
     },
   },
   {
-    id: 2,
+    id: 3,
     name: "Tony Stores",
     url: "https://store-ui-ux.vercel.app/",
     video: "/videos/TonyStores.mp4",
@@ -39,24 +57,7 @@ const APPS = [
         "A comprehensive e-commerce UI concept demonstrating product-led design thinking from hero to footer.",
     },
   },
-  {
-    id: 3,
-    name: "Cosira",
-    url: "https://cosira.vercel.app/",
-    video: "/videos/Cosira.mp4",
-    description:
-      "Brand color tools — 11 precision tools built on OKLCH color space.",
-    image: "/images/cosira.png",
-    stack: ["Next.js", "OKLCH Engine", "Tailwind CSS"],
-    caseStudy: {
-      problem:
-        "Designers waste hours across scattered tools to build cohesive color systems.",
-      solution:
-        "Built a unified platform with 11 color tools — palette generation, gradients, tints, mood & culture palettes — all in OKLCH for perceptually accurate results.",
-      outcome:
-        "One-stop color system builder with export to CSS, Tailwind, and JSON.",
-    },
-  },
+
   {
     id: 4,
     name: "Upcoming Project",

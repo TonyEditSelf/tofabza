@@ -35,8 +35,8 @@ export default function WhatIBuild() {
             Capabilities
           </div>
           <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight">
-            What I{" "}
-            <span className="text-gold-gradient">build and implement</span>
+            What I build{" "}
+            <span className="text-gold-gradient">and implement</span>
           </h2>
         </div>
 
