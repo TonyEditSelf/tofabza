@@ -98,7 +98,7 @@ export default function WhatIBuild() {
                   </ul>
 
                   {/* CTA */}
-                  <div className="mt-auto text-xs uppercase tracking-[0.25em] text-gold-500 opacity-0 group-hover:opacity-100 transition-opacity font-semibold">
+                  <div className="mt-auto text-xs uppercase tracking-[0.25em] text-gold-500 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity font-semibold">
                     Explore →
                   </div>
                 </div>

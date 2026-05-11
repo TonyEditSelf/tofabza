@@ -6,6 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { NextAuthProvider } from "@/components/providers/SessionProvider";
 import { AuthProvider } from "@/context/AuthContext";
+// import VoiceWidget from "@/components/VoiceWidget";
 
 export const metadata = {
   title: "Tofabza — Web, Automation & Digital Systems | India",
@@ -48,13 +49,23 @@ export default function RootLayout({ children }) {
                 }}
               />
               {/* Voice AI Widget */}
-              <iframe
+              {/* <iframe
                 id="audio_iframe"
                 src="https://widget.synthflow.ai/widget/v2/c25ffd10-3543-4a16-9081-a41a1bffeb81/1778064210754x862803998782295900"
                 allow="microphone"
+                width="400"
+                height="550"
                 scrolling="no"
-                className="fixed bottom-4 right-4 z-[9999] w-[250px] h-[450px] md:w-[360px] md:h-[440px] bg-transparent"
-              />
+                style={{
+                  position: "fixed",
+                  top: "20px",
+                  bottom: "20px",
+                  right: "20px",
+                  background: "transparent",
+                  border: "none",
+                  zIndex: 999,
+                }}
+              /> */}
             </CartProvider>
           </AuthProvider>
         </NextAuthProvider>
