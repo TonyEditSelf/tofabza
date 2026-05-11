@@ -50,7 +50,7 @@ const ServicePage = ({ params }) => {
             <div className="relative z-10">
               <h3 className="font-display text-3xl md:text-4xl font-semibold leading-tight mb-5">
                 Ready to start with{" "}
-                <span className="text-gold-gradient">{service.title}</span>?
+                <span className="text-gold-gradient">{service.title}?</span>
               </h3>
               <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
                 Explore the plans to find the right fit, or book a call and I'll
