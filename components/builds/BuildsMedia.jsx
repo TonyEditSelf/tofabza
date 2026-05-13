@@ -22,11 +22,11 @@ const APPS = [
     ],
     caseStudy: {
       problem:
-        "Most ecommerce demos are either pure frontend mockups or backend-only APIs. Real clients need both - a polished browsing experience and working systems underneath.",
+        "Most small business ecommerce stores are built on rigid templates — WordPress, Shopify themes — making even simple customizations a battle. They end up looking generic, loading slow, and locking owners into platforms they can't truly control.",
       solution:
-        "Built a full-stack premium electronics store with a powerful admin panel - allowing admins to add products with descriptions and images, assign them to categories (featured, latest, best-selling, fast-selling), and manage hero banners. ImageKit handles fast, optimized image delivery - auto-compressing and resizing product images on the fly so every page loads sharp and quick. Razorpay powers live payment processing across 9 curated product categories. Google Authentication handles secure user sign-in",
+        "Built a full-stack premium electronics store from scratch with a powerful admin panel — allowing admins to add products with descriptions and images, assign them to categories (featured, latest, best-selling, fast-selling), and manage hero banners. ImageKit handles fast, optimized image delivery, auto-compressing and resizing product images on the fly. Razorpay powers live payment processing across 9 curated product categories. Google Authentication handles secure user sign-in.",
       outcome:
-        "A production-deployed store with working cart, orders, payments, and a fully functional admin - admins can manage the entire catalog, collections, and homepage content without touching code. Ready to scale with real inventory.",
+        "A production-deployed store with working cart, orders, payments, and a fully functional admin — admins can manage the entire catalog, collections, and homepage content without touching code. No templates, no platform lock-in. Ready to scale with real inventory.",
     },
   },
   {
