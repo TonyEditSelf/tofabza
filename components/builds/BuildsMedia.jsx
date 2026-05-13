@@ -205,6 +205,7 @@ export default function BuildsMedia() {
                               className="h-4 w-4"
                               fill="currentColor"
                               strokeWidth={0}
+                              controls
                             />
                             Watch video
                           </button>
@@ -306,7 +307,8 @@ export default function BuildsMedia() {
         </div>
       </div>
 
-      {activeApp && (
+      {/* {activeApp && (
+      
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-navy-950/90 p-4 backdrop-blur-md sm:p-6 md:p-12">
           <div
             className="absolute inset-0 cursor-pointer"
@@ -371,6 +373,27 @@ export default function BuildsMedia() {
               </a>
             </div>
           </div>
+        </div>
+      )} */}
+
+      {activeApp && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
+          <button
+            onClick={() => setActiveApp(null)}
+            className="absolute top-4 right-4 z-10 rounded-full bg-white/10 p-3 text-white hover:bg-white/20 transition-colors"
+          >
+            <X className="h-6 w-6" />
+          </button>
+
+          <video
+            src={activeApp.video}
+            className="h-full w-full object-contain"
+            autoPlay
+            loop
+            muted
+            controls
+            playsInline
+          />
         </div>
       )}
     </section>
