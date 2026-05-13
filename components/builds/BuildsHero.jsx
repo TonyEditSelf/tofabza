@@ -2,7 +2,7 @@ import { Layout } from "lucide-react";
 
 export default function BuildsHero() {
   return (
-    <section className="relative overflow-hidden pt-28 pb-14 md:pt-32 md:pb-16">
+    <section className="relative overflow-hidden pt-40 pb-14 md:pt-40 md:pb-16">
       <div className="absolute inset-0 animated-gradient-bg opacity-70" />
       <div className="absolute top-1/3 -left-40 h-[500px] w-[500px] rounded-full bg-gold-500/10 blur-[120px] animate-pulse-soft" />
       <div

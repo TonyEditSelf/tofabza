@@ -123,9 +123,9 @@ export default function BuildsMedia() {
   }, [activeApp]);
 
   return (
-    <section className="pt-14 md:pt-16">
+    <section className="pt-20 md:pt-24 ">
       <div className="container">
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-10 md:gap-14">
           {APPS.map((app) => {
             const isLive = !app.isPlaceholder && !!app.url;
 
@@ -153,12 +153,6 @@ export default function BuildsMedia() {
 
                     {app.image && (
                       <>
-                        {/* <img
-                          src={app.image}
-                          alt=""
-                          aria-hidden="true"
-                          className="absolute inset-0 h-full w-full object-cover scale-110 opacity-20"
-                        /> */}
                         <div className="absolute inset-0 p-4">
                           <img
                             src={app.image}
@@ -178,7 +172,7 @@ export default function BuildsMedia() {
                     </div>
                   </div>
 
-                  <div className="flex flex-col gap-5 p-6 md:p-7 lg:p-8">
+                  <div className="flex flex-col gap-8 p-6 md:gap-5 md:p-7 lg:p-8">
                     <div className="flex flex-col gap-4">
                       <div className="mb-3 flex flex-wrap items-center gap-2">
                         <h3 className="font-display text-2xl font-semibold text-foreground md:text-3xl">

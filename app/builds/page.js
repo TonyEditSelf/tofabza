@@ -9,7 +9,7 @@ export const metadata = {
 
 const BuildsPage = () => {
   return (
-    <div className="min-h-screen pb-24">
+    <div className="min-h-screen pb-7">
       <BuildsHero />
       <BuildsMedia />
 
