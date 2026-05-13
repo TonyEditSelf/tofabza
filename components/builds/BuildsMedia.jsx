@@ -12,12 +12,19 @@ const APPS = [
     description:
       "A full-stack premium electronics store with curated product catalog, cart, orders, admin panel, and live payments.",
     image: "/images/EcomStores.png",
-    stack: ["Next.js", "Supabase", "ImageKit", "Razorpay", "Tailwind CSS"],
+    stack: [
+      "Next.js",
+      "Supabase",
+      "ImageKit",
+      "Razorpay",
+      "Tailwind CSS",
+      "Google Auth",
+    ],
     caseStudy: {
       problem:
         "Most ecommerce demos are either pure frontend mockups or backend-only APIs. Real clients need both - a polished browsing experience and working systems underneath.",
       solution:
-        "Built a full-stack premium electronics store with a powerful admin panel - allowing admins to add products with descriptions and images, assign them to categories (featured, latest, best-selling, fast-selling), and manage hero banners. ImageKit handles fast, optimized image delivery - auto-compressing and resizing product images on the fly so every page loads sharp and quick. Razorpay powers live payment processing across 9 curated product categories.",
+        "Built a full-stack premium electronics store with a powerful admin panel - allowing admins to add products with descriptions and images, assign them to categories (featured, latest, best-selling, fast-selling), and manage hero banners. ImageKit handles fast, optimized image delivery - auto-compressing and resizing product images on the fly so every page loads sharp and quick. Razorpay powers live payment processing across 9 curated product categories. Google Authentication handles secure user sign-in",
       outcome:
         "A production-deployed store with working cart, orders, payments, and a fully functional admin - admins can manage the entire catalog, collections, and homepage content without touching code. Ready to scale with real inventory.",
     },
