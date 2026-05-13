@@ -136,21 +136,22 @@ export default function PricingCard({ plan, variant = "navy" }) {
       </ul>
 
       {plan.buyable ? (
-        <Button
-          size="lg"
-          onClick={handleAdd}
-          className={
-            isInverted
-              ? "bg-gold-gradient text-navy-900 hover:opacity-90 font-semibold h-12 gold-border-glow"
-              : plan.highlight
-                ? "bg-gold-gradient text-navy-900 hover:opacity-90 font-semibold h-12"
-                : isCream
-                  ? "bg-navy-900 text-white hover:bg-navy-800 font-semibold h-12"
-                  : "bg-navy-800 border border-gold-500/30 text-foreground hover:bg-gold-500/10 hover:text-gold-500 font-semibold h-12"
-          }
-        >
-          {plan.cta}
-        </Button>
+        <Link href="/contact" className="w-full">
+          <Button
+            size="lg"
+            className={
+              isInverted
+                ? "w-full bg-gold-gradient text-navy-900 hover:opacity-90 font-semibold h-12 gold-border-glow"
+                : plan.highlight
+                  ? "w-full bg-gold-gradient text-navy-900 hover:opacity-90 font-semibold h-12"
+                  : isCream
+                    ? "w-full bg-navy-900 text-white hover:bg-navy-800 font-semibold h-12"
+                    : "w-full bg-navy-800 border border-gold-500/30 text-foreground hover:bg-gold-500/10 hover:text-gold-500 font-semibold h-12"
+            }
+          >
+            {plan.cta}
+          </Button>
+        </Link>
       ) : (
         <Link href="/contact">
           <Button

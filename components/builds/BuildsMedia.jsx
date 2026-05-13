@@ -23,6 +23,42 @@ const APPS = [
   },
   {
     id: 2,
+    name: "MotionZest Studio - Still Under Development",
+    url: "https://motion-zest-editor.vercel.app/",
+    video: "/videos/MotionZest.mp4",
+    description:
+      "A visual 3D animation editor that outputs clean, tree-shakable Three.js source code — no proprietary runtime. Built for creative developers and motion designers who need timeline-first control over web 3D scenes.",
+    image: "/images/motionzest.png",
+    stack: ["Three.js", "React", "Zustand", "Yjs", "TypeScript", "WebGL"],
+    caseStudy: {
+      problem:
+        "Existing tools like Spline lack timeline depth, Theatre.js is code-first only, and Blender is overkill for web delivery — leaving no visual editor that produces portable, production-ready Three.js output.",
+      solution:
+        "Built a modular visual editor with a non-React imperative WebGL viewport, a keyframe animation engine, and a code generation pipeline that exports named, tree-shaken Three.js imports — resulting in 80–150 KB gzipped bundles.",
+      outcome:
+        "A full scene authoring + animation studio targeting 50,000 objects at 60fps, with planned GLTF import/export, real-time collaboration via Yjs CRDT, and a plugin marketplace.",
+    },
+  },
+  {
+    id: 3,
+    name: "Ecommerce Store",
+    url: "https://ecommerce-store-ten-chi.vercel.app/",
+    video: "/videos/EcomStores.mp4",
+    description:
+      "A full-stack premium electronics store with curated product catalog, cart, orders, admin panel, and live payments.",
+    image: "/images/EcomStores.png",
+    stack: ["Next.js", "Supabase", "ImageKit", "Razorpay", "Tailwind CSS"],
+    caseStudy: {
+      problem:
+        "Most ecommerce demos are either pure frontend mockups or backend-only APIs. Real clients need both — a polished browsing experience and working systems underneath.",
+      solution:
+        "Built a full-stack premium electronics store with a powerful admin panel — allowing admins to add products with descriptions and images, assign them to categories (featured, latest, best-selling, fast-selling), and manage hero banners. ImageKit handles fast, optimized image delivery — auto-compressing and resizing product images on the fly so every page loads sharp and quick. Razorpay powers live payment processing across 9 curated product categories.",
+      outcome:
+        "A production-deployed store with working cart, orders, payments, and a fully functional admin — admins can manage the entire catalog, collections, and homepage content without touching code. Ready to scale with real inventory.",
+    },
+  },
+  {
+    id: 4,
     name: "Elysian",
     url: "https://elysian-dusky.vercel.app/",
     video: "/videos/Elysian.mp4",
@@ -40,7 +76,7 @@ const APPS = [
     },
   },
   {
-    id: 3,
+    id: 5,
     name: "Tony Stores",
     url: "https://store-ui-ux.vercel.app/",
     video: "/videos/TonyStores.mp4",
@@ -59,7 +95,7 @@ const APPS = [
   },
 
   {
-    id: 4,
+    id: 6,
     name: "Upcoming Project",
     url: "",
     description: "A new high-performance build coming soon.",
@@ -142,7 +178,7 @@ export default function BuildsMedia() {
                       )}
                     </div>
                     <div className="text-gold-500 text-xs uppercase tracking-[0.35em] font-semibold">
-                      {app.isPlaceholder ? "Coming Soon" : "Preview"}
+                      {app.isPlaceholder ? "Coming Soon" : "Click to Preview"}
                     </div>
                   </div>
 

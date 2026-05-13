@@ -2,7 +2,15 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, ShoppingBag, LogIn, LogOut, User, ChevronDown } from "lucide-react";
+import {
+  Menu,
+  X,
+  ShoppingBag,
+  LogIn,
+  LogOut,
+  User,
+  ChevronDown,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BRAND, NAV_LINKS } from "@/lib/constants";
 import { useCart } from "@/context/CartContext";
@@ -104,7 +112,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-5">
           {/* Greeting Section */}
-          <div className="hidden lg:flex flex-col items-end mr-2 border-r border-gold-500/10 pr-4 leading-tight">
+          {/* <div className="hidden lg:flex flex-col items-end mr-2 border-r border-gold-500/10 pr-4 leading-tight">
             <span className="text-[10px] text-muted-foreground uppercase tracking-wider">
               Welcome
             </span>
@@ -113,9 +121,9 @@ export default function Navbar() {
                 ? session.user.name || "User"
                 : "Guest"}
             </span>
-          </div>
+          </div> */}
 
-          <Button
+          {/* <Button
             variant="ghost"
             size="icon"
             onClick={handleCartClick}
@@ -128,16 +136,16 @@ export default function Navbar() {
                 {count}
               </span>
             )}
-          </Button>
+          </Button> */}
 
-          {status === "authenticated" ? (
+          {/* {status === "authenticated" ? (
             <Button
               variant="outline"
               size="sm"
               onClick={() => signOut()}
               className="hidden sm:inline-flex border-gold-500/20 text-gold-500 hover:bg-gold-500/10 h-9"
             >
-              {/* <LogOut className="h-4 w-4 mr-2" /> */}
+              <LogOut className="h-4 w-4 mr-2" />
               Logout
             </Button>
           ) : (
@@ -147,16 +155,16 @@ export default function Navbar() {
               onClick={() => openAuthModal()}
               className="hidden sm:inline-flex border-gold-500/20 text-gold-500 hover:bg-gold-500/10 h-9"
             >
-              {/* <LogIn className="h-4 w-4 mr-2" /> */}
+              <LogIn className="h-4 w-4 mr-2" />
               Login
             </Button>
-          )}
+          )} */}
 
-          {/* <Link href="/contact" className="hidden md:inline-flex">
+          <Link href="/contact" className="hidden md:inline-flex">
             <Button className="bg-gold-gradient text-navy-900 hover:opacity-90 font-semibold h-9">
               Book a Call
             </Button>
-          </Link> */}
+          </Link>
           <button
             className="md:hidden text-foreground p-2"
             onClick={() => setOpen(!open)}
@@ -171,7 +179,7 @@ export default function Navbar() {
         <div className="md:hidden border-t border-gold-500/10 bg-navy-900/95 backdrop-blur-xl">
           <div className="container py-5 flex flex-col gap-4">
             {/* Mobile Greeting */}
-            <div className="flex items-center gap-3 pb-4 border-b border-gold-500/10">
+            {/* <div className="flex items-center gap-3 pb-4 border-b border-gold-500/10">
               <div className="w-10 h-10 rounded-full bg-navy-800 flex items-center justify-center border border-gold-500/20">
                 <User className="w-5 h-5 text-gold-500" />
               </div>
@@ -185,7 +193,7 @@ export default function Navbar() {
                     : "Guest"}
                 </span>
               </div>
-            </div>
+            </div> */}
 
             {NAV_LINKS.map((l) => (
               <Link
@@ -199,7 +207,7 @@ export default function Navbar() {
             ))}
 
             <div className="flex flex-col gap-2 pt-2">
-              {status === "authenticated" ? (
+              {/* {status === "authenticated" ? (
                 <Button
                   variant="outline"
                   onClick={() => {
@@ -208,7 +216,7 @@ export default function Navbar() {
                   }}
                   className="w-full border-gold-500/20 text-gold-500 h-11"
                 >
-                  {/* <LogOut className="h-4 w-4 mr-2" /> */}
+                  <LogOut className="h-4 w-4 mr-2" />
                   Logout
                 </Button>
               ) : (
@@ -220,10 +228,10 @@ export default function Navbar() {
                   }}
                   className="w-full border-gold-500/20 text-gold-500 h-11"
                 >
-                  {/* <LogIn className="h-4 w-4 mr-2" /> */}
+                  <LogIn className="h-4 w-4 mr-2" />
                   Login
                 </Button>
-              )}
+              )} */}
 
               <Link href="/contact" onClick={() => setOpen(false)}>
                 <Button className="w-full bg-gold-gradient text-navy-900 font-semibold cursor-pointer h-11">

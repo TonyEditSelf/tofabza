@@ -189,7 +189,9 @@ export default function PricingGrid({ variant = "navy" }) {
             className="text-xs md:text-sm font-mono uppercase tracking-wider text-gold-500/70 hover:text-gold-500 transition-colors"
             // style={{ color: "#D4AF37" }}
           >
-            Complex workflows, advanced AI systems, or chatbots? — Let's talk
+            Payslip/invoice generation, appointment booking, notifications,
+            form-to-CRM, report generation, advanced AI, or chatbots? — Let's
+            talk
           </Link>
         </p>
       </div>
