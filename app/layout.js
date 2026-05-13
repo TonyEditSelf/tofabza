@@ -20,7 +20,7 @@ export const metadata = {
     siteName: "Tofabza",
     images: [
       {
-        url: "https://www.tofabza.com/images/og-image.jpeg",
+        url: "https://www.tofabza.com/images/og-image.webp",
         width: 1200,
         height: 630,
         alt: "Tofabza — Digital Systems",
@@ -48,24 +48,6 @@ export default function RootLayout({ children }) {
                   style: { top: "66px", right: "27px", position: "fixed" },
                 }}
               />
-              {/* Voice AI Widget */}
-              {/* <iframe
-                id="audio_iframe"
-                src="https://widget.synthflow.ai/widget/v2/c25ffd10-3543-4a16-9081-a41a1bffeb81/1778064210754x862803998782295900"
-                allow="microphone"
-                width="400"
-                height="550"
-                scrolling="no"
-                style={{
-                  position: "fixed",
-                  top: "20px",
-                  bottom: "20px",
-                  right: "20px",
-                  background: "transparent",
-                  border: "none",
-                  zIndex: 999,
-                }}
-              /> */}
             </CartProvider>
           </AuthProvider>
         </NextAuthProvider>
