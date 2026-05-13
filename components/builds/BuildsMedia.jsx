@@ -35,7 +35,7 @@ const APPS = [
     url: "https://cosira.vercel.app/",
     video: "/videos/Cosira.mp4",
     description:
-      "A suite of 11 precision color tools built on OKLCH - generate palettes, export to CSS, Tailwind, or JSON. Built for designers who care about accuracy.",
+      "A suite of 11 precision color tools built on OKLCH - generate palettes, export to CSS, Tailwind, or JSON. Built for designers who care about accuracy. Cosira is a desktop app. Its not available in the mobile view, but you can check out the video to see it in action.",
     image: "/images/cosira.png",
     stack: ["Next.js", "OKLCH Engine", "Tailwind CSS"],
     caseStudy: {
