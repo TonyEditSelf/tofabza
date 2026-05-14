@@ -22,6 +22,7 @@ import { useAuth } from "@/context/AuthContext";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [whatIBuildOpen, setWhatIBuildOpen] = useState(false); // ← ADDED
   const { authModalOpen, authRedirectPath, setAuthModalOpen, openAuthModal } =
     useAuth();
   const { count } = useCart();
@@ -195,16 +196,64 @@ export default function Navbar() {
               </div>
             </div> */}
 
-            {NAV_LINKS.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="text-foreground/80 hover:text-gold-500"
-              >
-                {l.label}
-              </Link>
-            ))}
+            {NAV_LINKS.map((l) => {
+              if (l.label === "What I Build") {
+                return (
+                  <div key={l.href}>
+                    {/* Tap to toggle submenu */}
+                    <button
+                      onClick={() => setWhatIBuildOpen((prev) => !prev)}
+                      className="flex items-center justify-between w-full text-foreground/80 hover:text-gold-500 transition-colors"
+                    >
+                      <span>{l.label}</span>
+                      <ChevronDown
+                        className={`h-4 w-4 transition-transform duration-200 ${
+                          whatIBuildOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+
+                    {/* Submenu items */}
+                    {whatIBuildOpen && (
+                      <div className="mt-2 ml-3 flex flex-col gap-3 border-l border-gold-500/30 pl-4">
+                        <Link
+                          href="/services/website-design"
+                          onClick={() => setOpen(false)}
+                          className="text-sm text-foreground/70 hover:text-gold-500 transition-colors"
+                        >
+                          Build
+                        </Link>
+                        <Link
+                          href="/services/automation-systems"
+                          onClick={() => setOpen(false)}
+                          className="text-sm text-foreground/70 hover:text-gold-500 transition-colors"
+                        >
+                          Automate
+                        </Link>
+                        <Link
+                          href="/services/social-media-growth"
+                          onClick={() => setOpen(false)}
+                          className="text-sm text-foreground/70 hover:text-gold-500 transition-colors"
+                        >
+                          Grow
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              return (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="text-foreground/80 hover:text-gold-500"
+                >
+                  {l.label}
+                </Link>
+              );
+            })}
 
             <div className="flex flex-col gap-2 pt-2">
               {/* {status === "authenticated" ? (

@@ -57,12 +57,6 @@ export default function PricingCard({ plan, variant = "navy" }) {
 
   return (
     <div className={cardClass} style={invertedStyle}>
-      {/* {plan.highlight && (
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-gold-gradient text-navy-900 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-lg shadow-gold-500/40 whitespace-nowrap">
-          <Sparkles className="h-3.5 w-3.5" /> Most Popular
-        </div>
-      )} */}
-
       <div className="mb-6">
         <div
           className="text-sm uppercase tracking-[0.25em] mb-3 font-semibold"
@@ -76,8 +70,8 @@ export default function PricingCard({ plan, variant = "navy" }) {
           <span
             className={
               isInverted
-                ? "font-display text-5xl md:text-6xl font-semibold text-gold-gradient"
-                : "font-display text-5xl md:text-6xl font-semibold"
+                ? "font-display text-5xl md:text-4xl font-semibold text-gold-gradient"
+                : "font-display text-5xl md:text-4xl font-semibold"
             }
             style={!isInverted && priceColor ? { color: priceColor } : {}}
           >
