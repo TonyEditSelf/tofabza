@@ -60,9 +60,8 @@ const APPS = [
       problem:
         "Existing tools like Spline lack timeline depth, Theatre.js is code-first only, and Blender is overkill for web delivery - leaving no visual editor that produces portable, production-ready Three.js output.",
       solution:
-        "Built a modular visual editor with a non-React imperative WebGL viewport, a keyframe animation engine, and a code generation pipeline that exports named, tree-shaken Three.js imports - resulting in 80-150 KB gzipped bundles.",
-      outcome:
-        "A full scene authoring + animation studio targeting 50,000 objects at 60fps, with planned GLTF import/export, real-time collaboration via Yjs CRDT, and a plugin marketplace.",
+        "Building a modular visual editor with a non-React imperative WebGL viewport, a keyframe animation engine, and a code generation pipeline that exports named, tree-shaken Three.js imports.",
+      outcome: "A full scene authoring + animation studio.",
     },
   },
 

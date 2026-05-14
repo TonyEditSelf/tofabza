@@ -327,8 +327,7 @@ export default function PricingGrid({ variant = "navy" }) {
               </h2>
               <p className="text-lg text-muted-foreground mb-10">
                 No guessing. No confusion. I'll look at your current setup and
-                tell you what's missing, what to fix first, and what will
-                actually grow your business.
+                tell you what's missing, what to fix first.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/contact">
