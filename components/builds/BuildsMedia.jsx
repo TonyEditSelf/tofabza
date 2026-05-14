@@ -71,7 +71,7 @@ const APPS = [
     url: "https://elysian-dusky.vercel.app/",
     video: "/videos/Elysian.mp4",
     description:
-      "Design concept - a multi-page luxury real estate website for a bespoke private estate builder. Built to demonstrate high-end service brand design.",
+      "Design concept - a multi-page luxury real estate website for estate builders. Built to demonstrate high-end service brand design.",
     image: "/images/elysian.png",
     stack: ["Next.js", "Tailwind CSS"],
     caseStudy: {
