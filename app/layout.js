@@ -1,4 +1,3 @@
-// app/layout.js
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { CartProvider } from "@/context/CartContext";
@@ -6,6 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { NextAuthProvider } from "@/components/providers/SessionProvider";
 import { AuthProvider } from "@/context/AuthContext";
+import useEffect from "react";
 // import VoiceWidget from "@/components/VoiceWidget";
 
 export const metadata = {

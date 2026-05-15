@@ -1,4 +1,4 @@
-// components/home/About.jsx
+"use client";
 import { User, Crosshair, MessageSquare } from "lucide-react";
 import Image from "next/image";
 
@@ -49,6 +49,8 @@ export default function About() {
               alt="Tony Eappen"
               width={112}
               height={112}
+              onContextMenu={(e) => e.preventDefault()}
+              draggable={false}
               className="w-full h-full object-cover"
             />
           </div>
