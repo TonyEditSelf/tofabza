@@ -53,22 +53,22 @@ const ServicePage = ({ params }) => {
                 <span className="text-gold-gradient">{service.title}?</span>
               </h3>
               <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-                Explore the plans to find the right fit, or book a call and I'll
-                build a custom package around your goals.
+                Right now I'm building for free — one project, no fee, just
+                three simple commitments in return.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link
                   href="/plans"
                   className="inline-flex items-center justify-center h-12 px-7 rounded-lg bg-gold-gradient text-navy-900 font-semibold hover:opacity-90 transition-opacity gold-border-glow"
                 >
-                  View Plans
+                  Book a Free Slot
                 </Link>
-                <Link
+                {/* <Link
                   href="/contact"
                   className="inline-flex items-center justify-center h-12 px-7 rounded-lg border border-gold-500/40 text-foreground hover:bg-gold-500/10 hover:text-gold-500 font-semibold transition-colors"
                 >
                   Book a Call
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>

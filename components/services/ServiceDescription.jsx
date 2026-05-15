@@ -11,7 +11,7 @@ export default function ServiceDescription({ service }) {
             Overview
           </div>
           <h2 className="font-display text-3xl md:text-5xl font-semibold leading-tight mb-6">
-            What you <span className="text-gold-gradient">actually get</span>.
+            What you <span className="text-gold-gradient">actually get.</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
             {service.description}

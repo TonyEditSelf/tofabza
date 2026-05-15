@@ -40,16 +40,16 @@ const APPS = [
     stack: ["Next.js", "OKLCH Engine", "Tailwind CSS"],
     caseStudy: {
       problem:
-        "Designers waste hours across scattered tools to build cohesive color systems.",
+        "Designers waste hours juggling scattered tools — color pickers, palette generators, contrast checkers — with no unified system and no perceptual accuracy.",
       solution:
         "Built a unified platform with 11 color tools - palette generation, gradients, tints, mood & culture palettes - all in OKLCH for perceptually accurate results.",
       outcome:
-        "One-stop color system builder with export to CSS, Tailwind, and JSON.",
+        "A one-stop color system builder with 11 tools, OKLCH accuracy, and direct export to CSS, Tailwind, and JSON — no tab-switching, no guesswork.",
     },
   },
   {
     id: 3,
-    name: "MotionZest Studio - Still Under Development",
+    name: "MotionZest Studio - In progress",
     url: "https://motion-zest-editor.vercel.app/",
     video: "/videos/MotionZest.mp4",
     description:
@@ -71,7 +71,7 @@ const APPS = [
     url: "https://elysian-dusky.vercel.app/",
     video: "/videos/Elysian.mp4",
     description:
-      "Design concept - a multi-page luxury real estate website for estate builders. Built to demonstrate high-end service brand design.",
+      "A multi-page luxury real estate website for estate builders. Built to demonstrate high-end service brand design.",
     image: "/images/elysian.png",
     stack: ["Next.js", "Tailwind CSS"],
     caseStudy: {

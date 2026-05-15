@@ -9,8 +9,8 @@ export default function WhatYouGet() {
             Outcomes
           </div>
           <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight">
-            What <span className="text-gold-gradient">changes</span> when you
-            have a <span className="text-gold-gradient">system</span>
+            What actually <span className="text-gold-gradient">changes </span>{" "}
+            when you have a <span className="text-gold-gradient">system</span>
           </h2>
         </div>
 

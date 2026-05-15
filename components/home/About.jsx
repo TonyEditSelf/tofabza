@@ -28,11 +28,17 @@ export default function About() {
           About Tofabza
         </div>
         <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight mb-8">
-          <span className="text-gold-gradient">One person.</span> <br />
-          Every project gets full attention <br />
-          <span className="text-gold-gradient">from start to finish.</span>
+          <span className="text-gold-gradient">
+            Direct execution. <br />{" "}
+          </span>
+          Zero handoffs.
         </h2>
-        <div className="relative w-32 h-32 mx-auto mb-6 mt-2">
+        <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
+          Because I do everything myself — strategy, design, build, launch — I
+          physically can't handle more than 3 clients at a time. You get my full
+          attention from the first call to final delivery.
+        </p>
+        <div className="relative w-32 h-32 mx-auto mt-6 mb-6">
           <div
             className="absolute inset-0 rounded-full border-2 border-dashed border-gold-500/50 animate-spin"
             style={{ animationDuration: "15s" }}
@@ -48,9 +54,9 @@ export default function About() {
           </div>
         </div>
         <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
-          I'm Tony Eappen — I build digital systems for businesses serious about
-          structured growth. Your websites, apps, automation and content — built
-          to work as one system.
+          I'm Tony Eappen. I build digital systems for businesses serious about
+          structured growth — your website, automations, and content built to
+          work as one system.
         </p>
 
         <div className="mt-14 grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -84,6 +90,11 @@ export default function About() {
             );
           })}
         </div>
+        <p className="text-xs md:text-sm font-mono uppercase tracking-wider text-gold-500/70 hover:text-gold-500 transition-colors mt-10 px-5">
+          I guarantee a 24-hour response on every active project. If I can't
+          solve your bottleneck, I'll tell you in the first call — so neither of
+          us wastes time.
+        </p>
       </div>
     </section>
   );

@@ -83,6 +83,7 @@ export default function WhatIBuild() {
 
                   {/* Description */}
                   <p className="text-muted-foreground mb-5">{s.desc}</p>
+                  <p className="text-muted-foreground mb-5">{s.explain}</p>
 
                   {/* 🔥 Sub items (this is the upgrade) */}
                   <ul className="space-y-2 mb-6">

@@ -13,24 +13,22 @@ export default function CTA() {
           <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-gold-500/10 blur-[120px]" />
           <div className="relative z-10 max-w-4xl mx-auto">
             <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight mb-6">
-              Whether you're <br />
+              5 founding slots open. No fee — <br />
               <span className="text-gold-gradient">
-                starting out or scaling up,
+                just three commitments.
               </span>
             </h2>
-            <p className="text-lg text-muted-foreground mb-10">
-              Let's build the system that gets you there.
-            </p>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className="w-full sm:w-auto">
+              <Link href="/plans" className="w-full sm:w-auto">
                 <Button
                   size="lg"
                   className="w-full bg-gold-gradient text-navy-900 hover:opacity-90 font-semibold px-8 h-14 text-base gold-border-glow"
                 >
-                  Book a Call <ArrowRight className="ml-2 h-5 w-5" />
+                  Book a Free Slot <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Link href="/plans" className="w-full sm:w-auto">
+              {/* <Link href="/plans" className="w-full sm:w-auto">
                 <Button
                   size="lg"
                   variant="outline"
@@ -38,7 +36,7 @@ export default function CTA() {
                 >
                   View Plans
                 </Button>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

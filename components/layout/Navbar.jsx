@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 import { BRAND, NAV_LINKS } from "@/lib/constants";
 import { useCart } from "@/context/CartContext";
 import { useSession, signOut } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
 import AuthModal from "./AuthModal";
 import { useAuth } from "@/context/AuthContext";
@@ -28,6 +28,7 @@ export default function Navbar() {
   const { count } = useCart();
   const { data: session, status } = useSession();
   const router = useRouter();
+  const pathname = usePathname();
 
   const handleCartClick = (e) => {
     e.preventDefault();
@@ -103,7 +104,7 @@ export default function Navbar() {
               <Link
                 key={l.href}
                 href={l.href}
-                className="text-sm font-medium text-foreground/80 hover:text-gold-500 transition-colors"
+                className={`text-sm font-medium transition-colors hover:text-gold-500 px-3 py-1 rounded-full border ${pathname === l.href ? "text-gold-500 border-gold-500/40" : "text-foreground/80 border-gold-500/0"}`}
               >
                 {l.label}
               </Link>
@@ -163,7 +164,7 @@ export default function Navbar() {
 
           <Link href="/contact" className="hidden md:inline-flex">
             <Button className="bg-gold-gradient text-navy-900 hover:opacity-90 font-semibold h-9">
-              Book a Call
+              Book a Free Slot
             </Button>
           </Link>
           <button
@@ -248,7 +249,7 @@ export default function Navbar() {
                   key={l.href}
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="text-foreground/80 hover:text-gold-500"
+                  className={`hover:text-gold-500 transition-colors ${pathname === l.href ? "text-gold-500" : "text-foreground/80"}`}
                 >
                   {l.label}
                 </Link>

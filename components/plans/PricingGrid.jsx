@@ -78,9 +78,9 @@ export default function PricingGrid({ variant = "navy" }) {
           </h2>
           {/* Price — fully visible */}
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
-            This is NOT a growth system. It’s a basic visibility layer to stay
-            active online. Ideal for businesses that just need to appear
-            consistent online.
+            This is not a growth system. It's a visibility layer — so you stay
+            active online while you figure out the bigger picture. Good for
+            businesses that just need to show up consistently.
           </p>
         </div>
 
@@ -134,13 +134,13 @@ export default function PricingGrid({ variant = "navy" }) {
             Build — Web Systems
           </div>
           <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight mb-4">
-            <span style={{ color: "#F5EFE6" }}>Websites that convert — </span>{" "}
+            A digital home that works
             <br />
-            <span className="text-gold-gradient">not just impress.</span>
+            <span className="text-gold-gradient"> while you sleep.</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
-            One-time project fee. Most businesses upgrade here when they want
-            real structure and conversions.
+            One-time build. No ongoing fees. Most businesses start here when
+            they're done with slow, generic websites that don't convert.
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-14 lg:gap-14 ">
@@ -170,12 +170,15 @@ export default function PricingGrid({ variant = "navy" }) {
             Automate — Business Systems
           </div>
           <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight mb-4">
-            <span style={{ color: "#F5EFE6" }}>Systems that </span>
-            <span className="text-gold-gradient">save time.</span>
+            Stop doing manually <br />
+            <span className="text-gold-gradient">
+              what a system can do for you.
+            </span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
-            One-time setup fee. Often combined with Web Systems for full
-            operational setup.
+            One-time setup. Often paired with a Web System for a full
+            operational build. You stop chasing leads — the system does it for
+            you.
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-14 lg:gap-14 ">
@@ -205,12 +208,15 @@ export default function PricingGrid({ variant = "navy" }) {
             Grow — Content Systems
           </div>
           <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight mb-4">
-            <span style={{ color: "#F5EFE6" }}>Content that </span>
-            <span className="text-gold-gradient">compounds.</span>
+            Your brand stays visible —{" "}
+            <span className="text-gold-gradient">
+              without you spending hours on your phone.
+            </span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
-            Monthly retainer. Best used after Web + Automation systems are in
-            place.
+            Monthly retainer. I take your ideas and turn them into posts, reels,
+            and captions — scheduled and ready to go. Best paired with a Web
+            System so traffic has somewhere to land.
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-14 lg:gap-14 ">
@@ -312,7 +318,8 @@ export default function PricingGrid({ variant = "navy" }) {
           className="text-base text-center md:text-lg leading-relaxed"
           style={{ color: "#C8BFAD" }}
         >
-          Still unsure? I'll tell you exactly what to build first.
+          Still unsure? Tell me what's broken and I'll tell you what to fix
+          first — no pitch, no pressure.
         </p>
 
         <div className="container">
@@ -322,12 +329,16 @@ export default function PricingGrid({ variant = "navy" }) {
             <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-gold-500/10 blur-[120px]" />
             <div className="relative z-10 max-w-4xl mx-auto">
               <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight mb-6">
-                Let's build your{" "}
-                <span className="text-gold-gradient">system.</span>
+                5 case study slots.{" "}
+                <span className="text-gold-gradient">
+                  One system that actually works.
+                </span>
               </h2>
               <p className="text-lg text-muted-foreground mb-10">
-                No guessing. No confusion. I'll look at your current setup and
-                tell you what's missing, what to fix first.
+                I'll look at your current setup, tell you exactly what's
+                missing, and build it — at an 80% discount in exchange for
+                honest feedback and a review. Once the slots are gone, the price
+                goes up.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/contact">
@@ -335,7 +346,8 @@ export default function PricingGrid({ variant = "navy" }) {
                     size="lg"
                     className="bg-gold-gradient text-navy-900 hover:opacity-90 font-semibold px-8 h-14 text-base gold-border-glow"
                   >
-                    Book a Call <ArrowRight className="ml-2 h-5 w-5" />
+                    Apply for a case study slot{" "}
+                    <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
               </div>
