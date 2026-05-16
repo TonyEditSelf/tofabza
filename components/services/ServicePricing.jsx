@@ -10,7 +10,8 @@ export default function ServicePricing({ service }) {
             Pricing
           </div>
           <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight mb-5">
-            Plans for <span className="text-gold-gradient">{service.title}</span>.
+            Plans for{" "}
+            <span className="text-gold-gradient">{service.title}</span>.
           </h2>
           <p className="text-muted-foreground">
             Pick a tier that fits where you are today. Upgrade anytime.
