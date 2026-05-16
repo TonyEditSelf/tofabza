@@ -13,7 +13,7 @@ export default function CTA() {
           <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-gold-500/10 blur-[120px]" />
           <div className="relative z-10 max-w-4xl mx-auto">
             <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight mb-6">
-              5 founding slots open. No fee — <br />
+              5 slots open. No fee — <br />
               <span className="text-gold-gradient">
                 just three commitments.
               </span>

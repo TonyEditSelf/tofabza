@@ -315,7 +315,7 @@ const PlansPage = () => {
                 </p>
                 <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight mb-6">
                   <span style={{ color: "#F5EFE6" }}>Apply for a </span>
-                  <span className="text-gold-gradient">founding slot.</span>
+                  <span className="text-gold-gradient">free slot.</span>
                 </h2>
                 <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto leading-relaxed">
                   Tell me what's broken. I'll tell you within 24 hours if I can
