@@ -202,9 +202,9 @@ export default function ServiceDescription({ service }) {
               const iconMap = section.iconMap || {};
               const gridClass =
                 section.variant === "wideCards"
-                  ? "md:grid-cols-2 xl:grid-cols-3"
+                  ? "md:grid-cols-2"
                   : section.variant === "listGrid"
-                    ? "md:grid-cols-2 xl:grid-cols-3"
+                    ? "md:grid-cols-2"
                     : "md:grid-cols-2";
 
               return (
