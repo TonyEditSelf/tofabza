@@ -185,7 +185,7 @@ export default function ServiceDescription({ service }) {
                         {section.text}
                       </p>
                     </div>
-                    <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
+                    <div className="grid md:grid-cols-2 gap-5">
                       {section.items.map((column) => (
                         <StackColumn
                           key={column.title}
