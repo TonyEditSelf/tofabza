@@ -29,6 +29,11 @@ export default function Navbar() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const pathname = usePathname();
+  const isWhatIBuildActive = [
+    "/services/website-design",
+    "/services/automation-systems",
+    "/services/social-media-growth",
+  ].includes(pathname);
 
   const handleCartClick = (e) => {
     e.preventDefault();
@@ -67,10 +72,14 @@ export default function Navbar() {
                 <div key={l.href} className="relative group py-2">
                   <Link
                     href={l.href}
-                    className="flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-gold-500 transition-colors"
+                    className={`flex items-center gap-1 text-sm font-medium px-3 py-1 rounded-full border transition-colors ${
+                      isWhatIBuildActive
+                        ? "text-gold-500 border-gold-500/40"
+                        : "text-foreground/80 border-gold-500/0 hover:text-gold-500 hover:border-gold-500/30"
+                    }`}
                   >
                     {l.label}
-                    <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
+                    <ChevronDown className={`h-4 w-4 transition-transform ${isWhatIBuildActive ? "text-gold-500" : ""} group-hover:rotate-180`} />
                   </Link>
 
                   {/* Dropdown Menu */}
@@ -78,19 +87,31 @@ export default function Navbar() {
                     <div className="min-w-[160px] bg-navy-900/95 backdrop-blur-xl border border-gold-500/20 rounded-xl p-2 shadow-2xl shadow-black/50">
                       <Link
                         href="/services/website-design"
-                        className="block px-4 py-2.5 text-sm text-foreground/70 hover:text-gold-500 hover:bg-gold-500/10 rounded-lg transition-all"
+                        className={`block px-4 py-2.5 text-sm rounded-lg transition-all ${
+                          pathname === "/services/website-design"
+                            ? "text-gold-500 bg-gold-500/10"
+                            : "text-foreground/70 hover:text-gold-500 hover:bg-gold-500/10"
+                        }`}
                       >
                         Build
                       </Link>
                       <Link
                         href="/services/automation-systems"
-                        className="block px-4 py-2.5 text-sm text-foreground/70 hover:text-gold-500 hover:bg-gold-500/10 rounded-lg transition-all"
+                        className={`block px-4 py-2.5 text-sm rounded-lg transition-all ${
+                          pathname === "/services/automation-systems"
+                            ? "text-gold-500 bg-gold-500/10"
+                            : "text-foreground/70 hover:text-gold-500 hover:bg-gold-500/10"
+                        }`}
                       >
                         Automate
                       </Link>
                       <Link
                         href="/services/social-media-growth"
-                        className="block px-4 py-2.5 text-sm text-foreground/70 hover:text-gold-500 hover:bg-gold-500/10 rounded-lg transition-all"
+                        className={`block px-4 py-2.5 text-sm rounded-lg transition-all ${
+                          pathname === "/services/social-media-growth"
+                            ? "text-gold-500 bg-gold-500/10"
+                            : "text-foreground/70 hover:text-gold-500 hover:bg-gold-500/10"
+                        }`}
                       >
                         Grow
                       </Link>
@@ -204,13 +225,17 @@ export default function Navbar() {
                     {/* Tap to toggle submenu */}
                     <button
                       onClick={() => setWhatIBuildOpen((prev) => !prev)}
-                      className="flex items-center justify-between w-full text-foreground/80 hover:text-gold-500 transition-colors"
+                      className={`flex items-center justify-between w-full px-3 py-2 rounded-full border transition-colors ${
+                        isWhatIBuildActive
+                          ? "text-gold-500 border-gold-500/40"
+                          : "text-foreground/80 border-gold-500/0 hover:text-gold-500 hover:border-gold-500/30"
+                      }`}
                     >
                       <span>{l.label}</span>
                       <ChevronDown
                         className={`h-4 w-4 transition-transform duration-200 ${
-                          whatIBuildOpen ? "rotate-180" : ""
-                        }`}
+                          isWhatIBuildActive ? "text-gold-500" : ""
+                        } ${whatIBuildOpen ? "rotate-180" : ""}`}
                       />
                     </button>
 
@@ -220,21 +245,33 @@ export default function Navbar() {
                         <Link
                           href="/services/website-design"
                           onClick={() => setOpen(false)}
-                          className="text-sm text-foreground/70 hover:text-gold-500 transition-colors"
+                          className={`text-sm transition-colors ${
+                            pathname === "/services/website-design"
+                              ? "text-gold-500"
+                              : "text-foreground/70 hover:text-gold-500"
+                          }`}
                         >
                           Build
                         </Link>
                         <Link
                           href="/services/automation-systems"
                           onClick={() => setOpen(false)}
-                          className="text-sm text-foreground/70 hover:text-gold-500 transition-colors"
+                          className={`text-sm transition-colors ${
+                            pathname === "/services/automation-systems"
+                              ? "text-gold-500"
+                              : "text-foreground/70 hover:text-gold-500"
+                          }`}
                         >
                           Automate
                         </Link>
                         <Link
                           href="/services/social-media-growth"
                           onClick={() => setOpen(false)}
-                          className="text-sm text-foreground/70 hover:text-gold-500 transition-colors"
+                          className={`text-sm transition-colors ${
+                            pathname === "/services/social-media-growth"
+                              ? "text-gold-500"
+                              : "text-foreground/70 hover:text-gold-500"
+                          }`}
                         >
                           Grow
                         </Link>
