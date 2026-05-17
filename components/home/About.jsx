@@ -6,17 +6,17 @@ const PILLARS = [
   {
     icon: User,
     title: "Ownership",
-    desc: "One person. Full focus. No handoffs.",
+    desc: "One person. No handoffs.",
   },
   {
     icon: Crosshair,
     title: "Precision",
-    desc: "Every decision is tied to a clear outcome — nothing is built without a reason.",
+    desc: "Every decision tied to a clear outcome.",
   },
   {
     icon: MessageSquare,
     title: "Clarity",
-    desc: "Direct communication. No confusion. No delays. No noise.",
+    desc: "Direct communication. No delays. No noise.",
   },
 ];
 
@@ -34,9 +34,8 @@ export default function About() {
           Zero handoffs.
         </h2>
         <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
-          Because I do everything myself — strategy, design, build, launch — I
-          physically can't handle more than 3 clients at a time. You get my full
-          attention from the first call to final delivery.
+          Because I do everything myself, I take on a maximum of 3 clients at a
+          time. You get full attention from first call to final delivery.
         </p>
         <div className="relative w-32 h-32 mx-auto mt-6 mb-6">
           <div
@@ -57,8 +56,8 @@ export default function About() {
         </div>
         <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
           I'm Tony Eappen. I build digital systems for businesses serious about
-          structured growth — your website, automations, and content built to
-          work as one system.
+          structured growth — website, automations, and content working as one
+          system.
         </p>
 
         <div className="mt-14 grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -92,10 +91,8 @@ export default function About() {
             );
           })}
         </div>
-        <p className="text-xs md:text-sm font-mono uppercase tracking-wider text-gold-500/70 hover:text-gold-500 transition-colors mt-10 px-5">
-          I guarantee a 24-hour response on every active project. If I can't
-          solve your bottleneck, I'll tell you in the first call — so neither of
-          us wastes time.
+        <p className="text-xs md:text-sm font-mono uppercase tracking-wider text-gold-500 mt-10 px-5">
+          24-hour response guaranteed on every active project.
         </p>
       </div>
     </section>

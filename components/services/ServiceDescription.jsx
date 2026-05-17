@@ -10,6 +10,12 @@ import {
   MessageSquare,
   Brain,
   TimerReset,
+  Layout,
+  PenTool,
+  Target,
+  Cog,
+  Share2,
+  Video,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -22,6 +28,12 @@ const ICONS = {
   MessageSquare,
   Brain,
   TimerReset,
+  Layout,
+  PenTool,
+  Target,
+  Cog,
+  Share2,
+  Video,
 };
 
 function SectionCard({ item, icon: iconName }) {
@@ -53,23 +65,48 @@ function SectionCard({ item, icon: iconName }) {
 
 function StackColumn({ title, items }) {
   return (
-    <div className="cream-card rounded-2xl p-6 md:p-7 h-full">
-      <h3
-        className="font-display text-xl md:text-2xl font-semibold mb-4"
+    <div className="group relative h-full overflow-hidden rounded-2xl border border-gold-500/15 bg-[linear-gradient(180deg,rgba(12,30,48,0.96),rgba(8,22,35,0.92))] p-6 md:p-7 shadow-[0_18px_45px_rgba(11,28,44,0.18)]">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.14),transparent_58%)] opacity-80" />
+      <div className="relative z-10">
+        <div className="flex items-center justify-between gap-3 mb-5">
+          <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground">
+            {title}
+          </h3>
+          <span className="h-2.5 w-2.5 rounded-full bg-gold-500 shadow-[0_0_14px_rgba(212,175,55,0.55)]" />
+        </div>
+        <div className="space-y-2">
+          {items.map((item) => (
+            <span
+              key={item}
+              className="flex items-center rounded-xl border border-white/10 bg-white/5 px-3.5 py-2 text-sm text-foreground/85 backdrop-blur-sm transition-colors group-hover:border-gold-500/25 group-hover:bg-gold-500/8"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CaseStudyCard({ item }) {
+  return (
+    <div className="cream-card rounded-2xl p-6 md:p-7 h-full border border-gold-500/10 shadow-[0_10px_30px_rgba(11,28,44,0.08)]">
+      <div className="inline-block text-[10px] uppercase tracking-[0.28em] text-gold-500 mb-4 border border-gold-500/20 rounded-full px-3 py-1.5">
+        {item.label}
+      </div>
+      <h4
+        className="font-display text-xl md:text-2xl font-semibold mb-3"
         style={{ color: "#0B1C2C" }}
       >
-        {title}
-      </h3>
-      <div className="flex flex-wrap gap-2">
-        {items.map((item) => (
-          <span
-            key={item}
-            className="inline-flex items-center rounded-full border border-gold-500/20 bg-white/40 px-3 py-1 text-sm text-navy-800"
-          >
-            {item}
-          </span>
-        ))}
-      </div>
+        {item.title}
+      </h4>
+      <p
+        className="text-sm md:text-base leading-relaxed"
+        style={{ color: "#1a2c3c" }}
+      >
+        {item.desc}
+      </p>
     </div>
   );
 }
@@ -172,27 +209,88 @@ export default function ServiceDescription({ service }) {
               }
 
               if (section.variant === "stack") {
+                const stackColumnsClass =
+                  section.columnsClass || "md:grid-cols-2 lg:grid-cols-3";
                 return (
-                  <div key={section.eyebrow || section.title}>
-                    <div className="max-w-6xl mb-8">
-                      <div className="inline-block text-xs uppercase tracking-[0.3em] text-gold-500 mb-4 border border-gold-500/30 rounded-full px-4 py-1.5">
+                  <div
+                    key={section.eyebrow || section.title}
+                    className="glass-card rounded-3xl p-8 md:p-12 relative overflow-hidden border border-gold-500/15 shadow-[0_20px_60px_rgba(11,28,44,0.14)]"
+                  >
+                    <div className="absolute inset-0 animated-gradient-bg opacity-25" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(212,175,55,0.14),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(19,43,71,0.85),transparent_40%)]" />
+                    <div className="relative z-10">
+                      <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-8">
+                        <div className="max-w-4xl">
+                          <div className="inline-block text-xs uppercase tracking-[0.3em] text-gold-500 mb-4 border border-gold-500/30 rounded-full px-4 py-1.5">
+                            {section.eyebrow}
+                          </div>
+                          <h3 className="font-display text-3xl md:text-4xl font-semibold leading-tight mb-4">
+                            {section.title}
+                          </h3>
+                          <p className="text-muted-foreground max-w-5xl">
+                            {section.text}
+                          </p>
+                        </div>
+                        <div className="inline-flex items-center gap-2 rounded-full border border-gold-500/20 bg-navy-900/40 px-4 py-2 text-[10px] uppercase tracking-[0.28em] text-gold-300 backdrop-blur-sm">
+                          <span className="h-1.5 w-1.5 rounded-full bg-gold-500" />
+                          Modern stack
+                        </div>
+                      </div>
+
+                      <div className={`grid ${stackColumnsClass} gap-4 md:gap-5`}>
+                        {section.items.map((column) => (
+                          <StackColumn
+                            key={column.title}
+                            title={column.title}
+                            items={column.items}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+
+              if (section.variant === "caseStudy") {
+                return (
+                  <div
+                    key={section.eyebrow || section.title}
+                    className="glass-card rounded-3xl p-8 md:p-12 relative overflow-hidden"
+                  >
+                    <div className="absolute inset-0 animated-gradient-bg opacity-35" />
+                    <div className="relative z-10">
+                      <div className="inline-block text-xs uppercase tracking-[0.3em] text-gold-500 mb-5 border border-gold-500/30 rounded-full px-4 py-1.5">
                         {section.eyebrow}
                       </div>
-                      <h3 className="font-display text-3xl md:text-4xl font-semibold leading-tight mb-4">
-                        {section.title}
-                      </h3>
-                      <p className="text-muted-foreground max-w-6xl">
-                        {section.text}
-                      </p>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-5">
-                      {section.items.map((column) => (
-                        <StackColumn
-                          key={column.title}
-                          title={column.title}
-                          items={column.items}
-                        />
-                      ))}
+                      <div className="max-w-6xl mb-8">
+                        <h3 className="font-display text-3xl md:text-5xl font-semibold leading-tight mb-4">
+                          {section.title}
+                        </h3>
+                        {section.text ? (
+                          <p className="text-muted-foreground text-lg leading-relaxed max-w-4xl">
+                            {section.text}
+                          </p>
+                        ) : null}
+                      </div>
+
+                      <div className="grid md:grid-cols-3 gap-5">
+                        {section.items.map((item) => (
+                          <CaseStudyCard key={item.title} item={item} />
+                        ))}
+                      </div>
+
+                      {Array.isArray(section.tags) && section.tags.length > 0 ? (
+                        <div className="mt-7 flex flex-wrap gap-2">
+                          {section.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="inline-flex items-center rounded-full border border-gold-500/20 bg-white/40 px-3 py-1 text-sm text-navy-800"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      ) : null}
                     </div>
                   </div>
                 );
@@ -201,11 +299,12 @@ export default function ServiceDescription({ service }) {
               const items = section.items || [];
               const iconMap = section.iconMap || {};
               const gridClass =
-                section.variant === "wideCards"
+                section.columnsClass ||
+                (section.variant === "wideCards"
                   ? "md:grid-cols-2"
                   : section.variant === "listGrid"
                     ? "md:grid-cols-2"
-                    : "md:grid-cols-2";
+                    : "md:grid-cols-2");
 
               return (
                 <div key={section.eyebrow || section.title}>

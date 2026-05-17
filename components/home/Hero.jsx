@@ -33,10 +33,10 @@ export default function Hero() {
 
           <h1 className="font-display text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.05] font-semibold mb-6">
             I build digital systems <br /> designed to <br />
-            <span className="text-gold-gradient">Grow Businesses. </span>
+            <span className="text-gold-gradient">grow businesses. </span>
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-4xl leading-relaxed mb-10">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-7xl leading-relaxed mb-10">
             Website, automation, or content — built so your business keeps
             moving even when you're not watching.
           </p>
