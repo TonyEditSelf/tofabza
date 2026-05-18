@@ -16,8 +16,56 @@ import {
   Cog,
   Share2,
   Video,
+  Code2,
+  Instagram,
+  Facebook,
+  Linkedin,
+  Youtube,
+  Twitter,
+  CalendarDays,
+  Scissors,
+  NotebookPen,
+  Palette,
+  Smartphone,
+  ShieldCheck,
+  CreditCard,
+  ShoppingBag,
+  ImageIcon,
+  Megaphone,
 } from "lucide-react";
 import Image from "next/image";
+import {
+  SiN8N,
+  SiNextdotjs,
+  SiReact,
+  SiTailwindcss,
+  SiFlutter,
+  SiSupabase,
+  SiNodedotjs,
+  SiRazorpay,
+  SiShopify,
+  SiGoogleauthenticator,
+  SiCanva,
+  SiBuffer,
+  SiMeta,
+  SiNotion,
+  SiInstagram,
+  SiTiktok,
+  SiLinkedin,
+  SiFacebook,
+  SiYoutube,
+  SiYoutubeshorts,
+  SiX,
+  SiGoogle,
+  SiGooglegemini,
+  SiMake,
+  SiZapier,
+  SiOpenai,
+  SiElevenlabs,
+  SiAirtable,
+  SiSlack,
+  SiCalendly,
+} from "react-icons/si";
 
 const ICONS = {
   Bot,
@@ -34,6 +82,52 @@ const ICONS = {
   Cog,
   Share2,
   Video,
+  Code2,
+  Instagram,
+  Facebook,
+  Linkedin,
+  Youtube,
+  Twitter,
+  CalendarDays,
+  Scissors,
+  NotebookPen,
+  Palette,
+  Smartphone,
+  ShieldCheck,
+  CreditCard,
+  ShoppingBag,
+  ImageIcon,
+  Megaphone,
+  SiN8N,
+  SiNextdotjs,
+  SiReact,
+  SiTailwindcss,
+  SiFlutter,
+  SiSupabase,
+  SiNodedotjs,
+  SiRazorpay,
+  SiShopify,
+  SiGoogleauthenticator,
+  SiCanva,
+  SiBuffer,
+  SiMeta,
+  SiNotion,
+  SiInstagram,
+  SiTiktok,
+  SiLinkedin,
+  SiFacebook,
+  SiYoutube,
+  SiYoutubeshorts,
+  SiX,
+  SiGoogle,
+  SiGooglegemini,
+  SiMake,
+  SiZapier,
+  SiOpenai,
+  SiElevenlabs,
+  SiAirtable,
+  SiSlack,
+  SiCalendly,
 };
 
 function SectionCard({ item, icon: iconName }) {
@@ -76,12 +170,22 @@ function StackColumn({ title, items }) {
         </div>
         <div className="space-y-2">
           {items.map((item) => (
-            <span
-              key={item}
-              className="flex items-center rounded-xl border border-white/10 bg-white/5 px-3.5 py-2 text-sm text-foreground/85 backdrop-blur-sm transition-colors group-hover:border-gold-500/25 group-hover:bg-gold-500/8"
+            <div
+              key={typeof item === "string" ? item : item.title || item.label}
+              className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-3.5 py-2 text-sm text-foreground/85 backdrop-blur-sm transition-colors group-hover:border-gold-500/25 group-hover:bg-gold-500/8"
             >
-              {item}
-            </span>
+              {typeof item === "object" && item?.icon ? (
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-gold-500/20 bg-gold-500/10 text-gold-300">
+                  {(() => {
+                    const Icon = ICONS[item.icon] || Workflow;
+                    return <Icon className="h-4 w-4" />;
+                  })()}
+                </span>
+              ) : null}
+              <span className="min-w-0">
+                {typeof item === "string" ? item : item.title || item.label}
+              </span>
+            </div>
           ))}
         </div>
       </div>

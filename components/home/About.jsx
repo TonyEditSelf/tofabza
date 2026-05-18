@@ -37,7 +37,7 @@ export default function About() {
           Because I do everything myself, I take on a maximum of 3 clients at a
           time. You get full attention from first call to final delivery.
         </p>
-        <div className="relative w-32 h-32 mx-auto mt-6 mb-6">
+        <div className="relative w-40 h-40 mx-auto mt-6 mb-6">
           <div
             className="absolute inset-0 rounded-full border-2 border-dashed border-gold-500/50 animate-spin"
             style={{ animationDuration: "15s" }}
@@ -46,8 +46,8 @@ export default function About() {
             <Image
               src="/images/tony.png"
               alt="Tony Eappen"
-              width={112}
-              height={112}
+              width={160}
+              height={160}
               onContextMenu={(e) => e.preventDefault()}
               draggable={false}
               className="w-full h-full object-cover"
