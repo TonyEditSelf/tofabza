@@ -89,7 +89,10 @@ export default function Footer() {
           <span>
             © {new Date().getFullYear()} {BRAND.name}. All rights reserved.
           </span>
-          <span>Crafted with precision.</span>
+          <div className="flex items-center gap-4">
+            <Link href="/admin" className="hover:text-gold-500 transition-colors">Admin Portal</Link>
+            <span>Crafted with precision.</span>
+          </div>
         </div>
       </div>
     </footer>

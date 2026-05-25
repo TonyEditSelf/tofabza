@@ -1,6 +1,8 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+import CredentialsProvider from "next-auth/providers/credentials";
 import { getDb } from "@/lib/mongodb";
+import bcrypt from "bcryptjs";
 
 export const authOptions = {
   providers: [
@@ -8,10 +10,43 @@ export const authOptions = {
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
+    CredentialsProvider({
+      name: "Credentials",
+      credentials: {
+        email: { label: "Email", type: "email" },
+        password: { label: "Password", type: "password" }
+      },
+      async authorize(credentials) {
+        if (!credentials?.email || !credentials?.password) {
+          return null;
+        }
+        
+        const db = await getDb();
+        const user = await db.collection("users").findOne({ email: credentials.email });
+        
+        if (!user || !user.password) {
+          return null;
+        }
+
+        const isPasswordValid = await bcrypt.compare(credentials.password, user.password);
+        
+        if (!isPasswordValid) {
+          return null;
+        }
+
+        return {
+          id: user._id.toString(),
+          email: user.email,
+          name: user.name,
+          image: user.image,
+          role: user.role
+        };
+      }
+    })
   ],
   callbacks: {
     async signIn({ user, account, profile }) {
-      if (account.provider === "google") {
+      if (account?.provider === "google") {
         try {
           const db = await getDb();
           const existingUser = await db.collection("users").findOne({ email: user.email });
@@ -21,6 +56,7 @@ export const authOptions = {
               email: user.email,
               name: user.name,
               image: user.image,
+              role: "user",
               createdAt: new Date(),
               updatedAt: new Date(),
               profileCompleted: false,
@@ -34,26 +70,37 @@ export const authOptions = {
       }
       return true;
     },
+    async jwt({ token, user }) {
+      // user is only available on sign-in
+      if (user) {
+        token.role = user.role;
+        token.id = user.id;
+      }
+      return token;
+    },
     async session({ session, token }) {
+      if (token) {
+        session.user.id = token.id;
+        session.user.role = token.role;
+        session.user.email = token.email; // ensure email is passed
+      }
+      
+      // We can also fetch the latest from DB if needed, but let's try relying on token first
       try {
         const db = await getDb();
-        const userData = await db.collection("users").findOne({ email: session.user.email });
-        
+        const userData = await db.collection("users").findOne({ email: token.email });
         if (userData) {
-          session.user.id = userData._id.toString();
-          session.user.phone = userData.phone || null;
-          session.user.profileCompleted = !!userData.phone;
-          session.user.dbName = userData.name;
-          session.user.cart = userData.cart || [];
+          session.user.role = userData.role || "user";
         }
-      } catch (error) {
-        console.error("Session callback error:", error);
+      } catch (e) {
+        console.error("Session DB error:", e);
       }
+
       return session;
     },
   },
-  pages: {
-    signIn: "/", // Redirect to home if something goes wrong
+  session: {
+    strategy: "jwt", // Required for CredentialsProvider
   },
   secret: process.env.NEXTAUTH_SECRET,
 };
