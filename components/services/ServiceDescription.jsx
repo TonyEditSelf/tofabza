@@ -159,11 +159,11 @@ function SectionCard({ item, icon: iconName }) {
 
 function StackColumn({ title, items }) {
   return (
-    <div className="group relative h-full overflow-hidden rounded-2xl border border-gold-500/15 bg-[linear-gradient(180deg,rgba(12,30,48,0.96),rgba(8,22,35,0.92))] p-6 md:p-7 shadow-[0_18px_45px_rgba(11,28,44,0.18)]">
+    <div className="group relative h-full min-w-0 overflow-hidden rounded-2xl border border-gold-500/15 bg-[linear-gradient(180deg,rgba(12,30,48,0.96),rgba(8,22,35,0.92))] p-5 sm:p-6 md:p-7 shadow-[0_18px_45px_rgba(11,28,44,0.18)]">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.14),transparent_58%)] opacity-80" />
       <div className="relative z-10">
         <div className="flex items-center justify-between gap-3 mb-5">
-          <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground">
+          <h3 className="min-w-0 font-display text-xl md:text-2xl font-semibold leading-tight text-foreground">
             {title}
           </h3>
           <span className="h-2.5 w-2.5 rounded-full bg-gold-500 shadow-[0_0_14px_rgba(212,175,55,0.55)]" />
@@ -172,7 +172,7 @@ function StackColumn({ title, items }) {
           {items.map((item) => (
             <div
               key={typeof item === "string" ? item : item.title || item.label}
-              className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-3.5 py-2 text-sm text-foreground/85 backdrop-blur-sm transition-colors group-hover:border-gold-500/25 group-hover:bg-gold-500/8"
+              className="flex min-w-0 items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-foreground/85 backdrop-blur-sm transition-colors group-hover:border-gold-500/25 group-hover:bg-gold-500/8 sm:px-3.5"
             >
               {typeof item === "object" && item?.icon ? (
                 <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-gold-500/20 bg-gold-500/10 text-gold-300">
@@ -182,7 +182,7 @@ function StackColumn({ title, items }) {
                   })()}
                 </span>
               ) : null}
-              <span className="min-w-0">
+              <span className="min-w-0 flex-1 whitespace-normal break-words leading-snug">
                 {typeof item === "string" ? item : item.title || item.label}
               </span>
             </div>
@@ -313,12 +313,10 @@ export default function ServiceDescription({ service }) {
               }
 
               if (section.variant === "stack") {
-                const stackColumnsClass =
-                  section.columnsClass || "md:grid-cols-2 lg:grid-cols-3";
                 return (
                   <div
                     key={section.eyebrow || section.title}
-                    className="glass-card rounded-3xl p-8 md:p-12 relative overflow-hidden border border-gold-500/15 shadow-[0_20px_60px_rgba(11,28,44,0.14)]"
+                    className="glass-card rounded-3xl p-5 sm:p-8 md:p-12 relative overflow-hidden border border-gold-500/15 shadow-[0_20px_60px_rgba(11,28,44,0.14)]"
                   >
                     <div className="absolute inset-0 animated-gradient-bg opacity-25" />
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(212,175,55,0.14),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(19,43,71,0.85),transparent_40%)]" />
@@ -341,7 +339,7 @@ export default function ServiceDescription({ service }) {
                         </div>
                       </div>
 
-                      <div className={`grid ${stackColumnsClass} gap-4 md:gap-5`}>
+                      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,13rem),1fr))] gap-4 md:gap-5">
                         {section.items.map((column) => (
                           <StackColumn
                             key={column.title}
