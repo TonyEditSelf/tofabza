@@ -37,19 +37,19 @@ const PlansPage = () => {
 
       <div className="container">
         {/* ── HERO ── */}
-        <div className="text-center max-w-4xl mx-auto mb-20  animate-fade-up">
+        <div className="text-center max-w-4xl mx-auto mb-20 animate-fade-up">
           <div className="inline-block text-xs uppercase tracking-[0.3em] text-gold-500 mb-6 border border-gold-500/30 rounded-full px-4 py-1.5">
             Founding Member Program
           </div>
 
-          <h1 className="font-display text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.05] font-semibold mb-8">
+          <h1 className="font-display text-5xl md:text-7xl lg:text-[5.4rem] leading-[1.05] font-semibold mb-8">
             I'm not charging a <span className="text-gold-gradient">fee.</span>
             <br />
             I'm asking for{" "}
             <span className="text-gold-gradient">three things.</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed text-center">
             I'm opening{" "}
             <span className="text-gold-500 font-semibold">5 slots</span> to
             build one focused digital system — a website, an automation setup,
@@ -278,7 +278,7 @@ const PlansPage = () => {
                 style={{ minWidth: "160px" }}
               >
                 <p
-                  className="text-xs uppercase tracking-[0.2em] mb-2"
+                  className="text-xs font-bold uppercase tracking-[0.2em] mb-2"
                   style={{ color: tier.active ? "#C65D2A" : "#6a7a8a" }}
                 >
                   {tier.label}
@@ -304,47 +304,47 @@ const PlansPage = () => {
 
         {/* ── FINAL CTA ── */}
         <div className="py-20">
-          <div className="container">
-            <div className="relative rounded-3xl overflow-hidden glass-card p-8 md:p-16 text-center">
-              <div className="absolute inset-0 animated-gradient-bg opacity-60" />
-              <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-gold-500/20 blur-[120px]" />
-              <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-gold-500/10 blur-[120px]" />
-              <div className="relative z-10 max-w-3xl mx-auto">
-                <p className="text-xs uppercase tracking-[0.3em] text-gold-500 mb-6">
-                  {SLOTS_REMAINING} slots remaining
-                </p>
-                <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight mb-6">
-                  <span style={{ color: "#F5EFE6" }}>Apply for a </span>
-                  <span className="text-gold-gradient">free slot.</span>
-                </h2>
-                <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto leading-relaxed">
-                  Tell me what's broken. I'll tell you within 24 hours if I can
-                  fix it — and how. No pitch. No pressure.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link href="/contact">
-                    <Button
-                      size="lg"
-                      className="bg-gold-gradient text-navy-900 hover:opacity-90 font-semibold px-8 h-14 text-base gold-border-glow"
-                    >
-                      Apply now <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </Link>
-                  <Link href="/builds">
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="border-gold-500/30 text-foreground hover:bg-gold-500/10 hover:text-gold-500 font-semibold px-8 h-14 text-base"
-                    >
-                      View past builds
-                    </Button>
-                  </Link>
-                </div>
+          {/* <div className="container"> */}
+          <div className="relative rounded-3xl overflow-hidden glass-card p-8 md:p-16 text-center">
+            <div className="absolute inset-0 animated-gradient-bg opacity-60" />
+            <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-gold-500/20 blur-[120px]" />
+            <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-gold-500/10 blur-[120px]" />
+            <div className="relative z-10 max-w-3xl mx-auto">
+              <p className="text-xs uppercase tracking-[0.3em] text-gold-500 mb-6">
+                {SLOTS_REMAINING} slots remaining
+              </p>
+              <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight mb-6">
+                <span style={{ color: "#F5EFE6" }}>Apply for a </span>
+                <span className="text-gold-gradient">free slot.</span>
+              </h2>
+              <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto leading-relaxed">
+                Tell me what's broken. I'll tell you within 24 hours if I can
+                fix it — and how. No pitch. No pressure.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center w-full px-4 sm:px-0 max-w-md mx-auto">
+                <Link href="/contact" className="w-full">
+                  <Button
+                    size="lg"
+                    className="w-full bg-gold-gradient text-navy-900 hover:opacity-90 font-semibold h-14 text-base gold-border-glow"
+                  >
+                    Apply now <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link href="/builds" className="w-full">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="w-full border-gold-500/30 text-foreground hover:bg-gold-500/10 hover:text-gold-500 font-semibold h-14 text-base"
+                  >
+                    View past builds
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
+      {/* </div> */}
     </div>
   );
 };

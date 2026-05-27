@@ -10,7 +10,7 @@ export default function HowItWorks() {
             Process
           </div>
           <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight">
-            How it <span className="text-gold-gradient">works</span>.
+            How it <span className="text-gold-gradient">works.</span>
           </h2>
         </div>
 

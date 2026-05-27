@@ -70,10 +70,15 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      // fontFamily: {
+      //   sans: ["Inter", "ui-sans-serif", "system-ui"],
+      //   display: ["Playfair Display", "serif"],
+      // },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui"],
-        display: ["Playfair Display", "serif"],
+        display: ["Space Grotesk", "sans-serif"], // Updated to Space Grotesk
       },
+
       keyframes: {
         "fade-up": {
           "0%": { opacity: "0", transform: "translateY(16px)" },

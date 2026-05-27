@@ -23,7 +23,7 @@ export default function Hero() {
       />
 
       <div className="container relative z-10 py-20">
-        <div className="max-w-4xl animate-fade-up">
+        <div className="max-w-5xl animate-fade-up">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/30 bg-navy-800/40 backdrop-blur-sm mb-8">
             <Sparkles className="h-4 w-4 text-gold-500" />
             <span className="text-xs uppercase tracking-[0.2em] text-gold-400 font-medium">
