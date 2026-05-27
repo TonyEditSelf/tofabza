@@ -50,8 +50,20 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        navy: { 900: "#0B1C2C", 800: "#0E2238", 700: "#132B47" },
-        gold: { 500: "#D4AF37", 600: "#C9A227", 400: "#E6C766" },
+
+        // NAVY — unchanged
+        navy: {
+          900: "#0B1C2C",
+          800: "#0E2238",
+          700: "#132B47",
+        },
+
+        // CHANGED: gold → burnt sienna
+        gold: {
+          500: "#C65D2A",
+          600: "#A84820",
+          400: "#E08055",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -88,8 +100,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require("tailwindcss-animate"),
-    require("@tailwindcss/typography")
-  ],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 };

@@ -59,7 +59,7 @@ export default function WhatIBuild() {
                 {isAutomate && (
                   <>
                     <div className="pointer-events-none absolute inset-0 rounded-2xl border border-gold-400/50" />
-                    <div className="pointer-events-none absolute inset-0 rounded-2xl bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.14),transparent_58%)]" />
+                    <div className="pointer-events-none absolute inset-0 rounded-2xl]" />
                     <div className="pointer-events-none absolute left-0 top-0 h-full w-px bg-gradient-to-b from-gold-300/80 via-gold-400/40 to-transparent" />
                   </>
                 )}

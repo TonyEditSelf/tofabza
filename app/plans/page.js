@@ -176,7 +176,7 @@ const PlansPage = () => {
                   >
                     <CheckCircle2
                       className="h-3 w-3"
-                      style={{ color: "#D4AF37" }}
+                      style={{ color: "#C65D2A" }}
                     />
                   </div>
                   <span
@@ -279,7 +279,7 @@ const PlansPage = () => {
               >
                 <p
                   className="text-xs uppercase tracking-[0.2em] mb-2"
-                  style={{ color: tier.active ? "#D4AF37" : "#6a7a8a" }}
+                  style={{ color: tier.active ? "#C65D2A" : "#6a7a8a" }}
                 >
                   {tier.label}
                 </p>

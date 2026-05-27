@@ -6,25 +6,33 @@
 
 @layer base {
   :root {
+    /* NAVY — unchanged */
     --background: 210 45% 8%;
     --foreground: 40 30% 96%;
     --card: 210 45% 10%;
     --card-foreground: 40 30% 96%;
     --popover: 210 45% 10%;
     --popover-foreground: 40 30% 96%;
-    --primary: 43 65% 52%;
-    --primary-foreground: 210 50% 8%;
+
+    /* CHANGED: gold → burnt sienna */
+    --primary: 22 66% 47%; /* #C65D2A */
+    --primary-foreground: 40 30% 96%;
     --secondary: 210 40% 15%;
     --secondary-foreground: 40 30% 96%;
     --muted: 210 40% 15%;
     --muted-foreground: 40 15% 70%;
-    --accent: 43 65% 52%;
-    --accent-foreground: 210 50% 8%;
+    --accent: 22 66% 47%; /* #C65D2A */
+    --accent-foreground: 40 30% 96%;
+
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
+
+    /* NAVY — unchanged */
     --border: 210 30% 20%;
     --input: 210 30% 18%;
-    --ring: 43 65% 52%;
+
+    /* CHANGED: gold → sienna */
+    --ring: 22 66% 47%; /* #C65D2A */
     --radius: 0.75rem;
   }
 
@@ -36,6 +44,7 @@
   }
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    /* NAVY — unchanged */
     background: radial-gradient(
       ellipse at top,
       #0e2238 0%,
@@ -53,37 +62,44 @@
 }
 
 @layer utilities {
+  /* CHANGED: gold gradient → sienna gradient */
   .text-gold-gradient {
-    background: linear-gradient(135deg, #e6c766 0%, #d4af37 50%, #c9a227 100%);
+    background: linear-gradient(135deg, #e08055 0%, #c65d2a 50%, #a84820 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
   .bg-gold-gradient {
-    background: linear-gradient(135deg, #e6c766 0%, #d4af37 50%, #c9a227 100%);
+    background: linear-gradient(135deg, #e08055 0%, #c65d2a 50%, #a84820 100%);
   }
+
+  /* NAVY — unchanged */
   .bg-navy-gradient {
     background: linear-gradient(135deg, #0b1c2c 0%, #0e2238 50%, #132b47 100%);
   }
+
+  /* CHANGED: gold rgba → sienna rgba */
   .glass-card {
     background: rgba(14, 34, 56, 0.5);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(198, 93, 42, 0.15);
   }
   .glass-card-hover {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .glass-card-hover:hover {
-    border-color: rgba(212, 175, 55, 0.4);
-    box-shadow: 0 0 40px rgba(212, 175, 55, 0.15);
+    border-color: rgba(198, 93, 42, 0.4);
+    box-shadow: 0 0 40px rgba(198, 93, 42, 0.15);
     transform: translateY(-4px);
   }
   .gold-border-glow {
     box-shadow:
-      0 0 0 1px rgba(212, 175, 55, 0.3),
-      0 0 30px rgba(212, 175, 55, 0.1);
+      0 0 0 1px rgba(198, 93, 42, 0.3),
+      0 0 30px rgba(198, 93, 42, 0.1);
   }
+
+  /* NAVY — unchanged */
   .animated-gradient-bg {
     background: linear-gradient(
       120deg,
@@ -96,17 +112,32 @@
     background-size: 400% 400%;
     animation: gradient-shift 12s ease infinite;
   }
+
+  /* CHANGED: gold rgba → sienna rgba */
   .section-divider {
     height: 1px;
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(212, 175, 55, 0.3),
+      rgba(198, 93, 42, 0.3),
       transparent
     );
   }
+  .full-bleed-divider {
+    width: 100%;
+    position: relative;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(198, 93, 42, 0.3),
+      transparent
+    );
+    margin-left: 0;
+    left: 0;
+  }
 
-  /* === Theme C: Cream sections === */
+  /* CREAM — unchanged structure, sienna accent refs */
   .cream-section {
     background: #f8f3e8;
     color: #0b1c2c;
@@ -126,38 +157,23 @@
     box-shadow: 0 2px 12px rgba(11, 28, 44, 0.05);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
-
-  .full-bleed-divider {
-    width: 100%;
-    position: relative;
-    height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(212, 175, 55, 0.3),
-      transparent
-    );
-    margin-left: 0;
-    left: 0;
-  }
-
   .cream-card:hover {
-    border-color: rgba(212, 175, 55, 0.5);
-    box-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
+    border-color: rgba(198, 93, 42, 0.5);
+    box-shadow: 0 0 40px rgba(198, 93, 42, 0.2);
     transform: translateY(-4px);
   }
   .cream-card-highlight {
     background: linear-gradient(
       180deg,
-      rgba(212, 175, 55, 0.15) 0%,
+      rgba(198, 93, 42, 0.15) 0%,
       #efe8d6 100%
     );
-    border: 1px solid rgba(212, 175, 55, 0.5);
-    box-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
+    border: 1px solid rgba(198, 93, 42, 0.5);
+    box-shadow: 0 0 40px rgba(198, 93, 42, 0.2);
   }
 }
 
-/* subtle scrollbar */
+/* Scrollbar — navy track, sienna thumb */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -165,9 +181,9 @@
   background: #0b1c2c;
 }
 ::-webkit-scrollbar-thumb {
-  background: #d4af37;
+  background: #c65d2a;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #c9a227;
+  background: #a84820;
 }

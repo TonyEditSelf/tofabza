@@ -79,7 +79,9 @@ export default function Navbar() {
                     }`}
                   >
                     {l.label}
-                    <ChevronDown className={`h-4 w-4 transition-transform ${isWhatIBuildActive ? "text-gold-500" : ""} group-hover:rotate-180`} />
+                    <ChevronDown
+                      className={`h-4 w-4 transition-transform ${isWhatIBuildActive ? "text-gold-500" : ""} group-hover:rotate-180`}
+                    />
                   </Link>
 
                   {/* Dropdown Menu */}
