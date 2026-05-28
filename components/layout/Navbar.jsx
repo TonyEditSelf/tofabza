@@ -2,15 +2,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import {
-  Menu,
-  X,
-  ShoppingBag,
-  LogIn,
-  LogOut,
-  User,
-  ChevronDown,
-} from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BRAND, NAV_LINKS } from "@/lib/constants";
 import { useCart } from "@/context/CartContext";
@@ -136,55 +128,6 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-5">
-          {/* Greeting Section */}
-          {/* <div className="hidden lg:flex flex-col items-end mr-2 border-r border-gold-500/10 pr-4 leading-tight">
-            <span className="text-[10px] text-muted-foreground uppercase tracking-wider">
-              Welcome
-            </span>
-            <span className="text-xs font-semibold text-gold-500 truncate max-w-[120px]">
-              {status === "authenticated"
-                ? session.user.name || "User"
-                : "Guest"}
-            </span>
-          </div> */}
-
-          {/* <Button
-            variant="ghost"
-            size="icon"
-            onClick={handleCartClick}
-            className="text-gold-500 hover:text-gold-400 hover:bg-navy-800 relative inline-flex"
-          >
-            Cart
-            <ShoppingBag className="h-5 w-5" />
-            {count > 0 && (
-              <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-gold-gradient text-navy-900 text-[10px] font-bold flex items-center justify-center">
-                {count}
-              </span>
-            )}
-          </Button> */}
-
-          {/* {status === "authenticated" ? (
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => signOut()}
-              className="hidden sm:inline-flex border-gold-500/20 text-gold-500 hover:bg-gold-500/10 h-9"
-            >
-              <LogOut className="h-4 w-4 mr-2" />
-              Logout
-            </Button>
-          ) : (
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => openAuthModal()}
-              className="hidden sm:inline-flex border-gold-500/20 text-gold-500 hover:bg-gold-500/10 h-9"
-            >
-              <LogIn className="h-4 w-4 mr-2" />
-              Login
-            </Button>
-          )} */}
-
           <Link href="/contact" className="hidden md:inline-flex">
             <Button className="bg-gold-gradient text-navy-900 hover:opacity-90 font-semibold h-9">
               Book a Free Slot
@@ -203,23 +146,6 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden border-t border-gold-500/10 bg-navy-900/95 backdrop-blur-xl">
           <div className="container py-5 flex flex-col gap-4">
-            {/* Mobile Greeting */}
-            {/* <div className="flex items-center gap-3 pb-4 border-b border-gold-500/10">
-              <div className="w-10 h-10 rounded-full bg-navy-800 flex items-center justify-center border border-gold-500/20">
-                <User className="w-5 h-5 text-gold-500" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-[10px] text-muted-foreground uppercase tracking-wider">
-                  Welcome
-                </span>
-                <span className="text-sm font-semibold text-gold-500">
-                  {status === "authenticated"
-                    ? session.user.name || "User"
-                    : "Guest"}
-                </span>
-              </div>
-            </div> */}
-
             {NAV_LINKS.map((l) => {
               if (l.label === "What I Build") {
                 return (
@@ -296,32 +222,6 @@ export default function Navbar() {
             })}
 
             <div className="flex flex-col gap-2 pt-2">
-              {/* {status === "authenticated" ? (
-                <Button
-                  variant="outline"
-                  onClick={() => {
-                    signOut();
-                    setOpen(false);
-                  }}
-                  className="w-full border-gold-500/20 text-gold-500 h-11"
-                >
-                  <LogOut className="h-4 w-4 mr-2" />
-                  Logout
-                </Button>
-              ) : (
-                <Button
-                  variant="outline"
-                  onClick={() => {
-                    openAuthModal();
-                    setOpen(false);
-                  }}
-                  className="w-full border-gold-500/20 text-gold-500 h-11"
-                >
-                  <LogIn className="h-4 w-4 mr-2" />
-                  Login
-                </Button>
-              )} */}
-
               <Link href="/contact" onClick={() => setOpen(false)}>
                 <Button className="w-full bg-gold-gradient text-navy-900 font-semibold cursor-pointer h-11">
                   Book a Call
