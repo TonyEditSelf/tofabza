@@ -4,11 +4,40 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { getDb } from "@/lib/mongodb";
 import bcrypt from "bcryptjs";
 
+const googleClientId =
+  process.env.GOOGLE_CLIENT_ID ||
+  process.env.AUTH_GOOGLE_ID ||
+  process.env.GOOGLE_ID;
+const googleClientSecret =
+  process.env.GOOGLE_CLIENT_SECRET ||
+  process.env.AUTH_GOOGLE_SECRET ||
+  process.env.GOOGLE_SECRET;
+
+const maskEmail = (email) => {
+  if (!email || typeof email !== "string") return email;
+  const [name, domain] = email.split("@");
+  if (!domain) return email;
+  return `${name.slice(0, 2)}***@${domain}`;
+};
+
+const findUserByEmail = async (db, email) => {
+  if (!email) return null;
+
+  return db.collection("users").findOne({
+    email: { $regex: `^${email.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`, $options: "i" },
+  });
+};
+
 export const authOptions = {
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      clientId: googleClientId,
+      clientSecret: googleClientSecret,
+      authorization: {
+        params: {
+          prompt: "select_account",
+        },
+      },
     }),
     CredentialsProvider({
       name: "Credentials",
@@ -22,7 +51,7 @@ export const authOptions = {
         }
         
         const db = await getDb();
-        const user = await db.collection("users").findOne({ email: credentials.email });
+        const user = await findUserByEmail(db, credentials.email);
         
         if (!user || !user.password) {
           return null;
@@ -49,10 +78,14 @@ export const authOptions = {
       if (account?.provider === "google") {
         try {
           const db = await getDb();
-          const existingUser = await db.collection("users").findOne({ email: user.email });
+          const existingUser = await findUserByEmail(db, user.email);
 
-          if (!existingUser) {
-            await db.collection("users").insertOne({
+          if (existingUser) {
+            user.id = existingUser._id.toString();
+            user.role = existingUser.role || "user";
+            user.profileCompleted = existingUser.profileCompleted || false;
+          } else {
+            const insertResult = await db.collection("users").insertOne({
               email: user.email,
               name: user.name,
               image: user.image,
@@ -61,7 +94,16 @@ export const authOptions = {
               updatedAt: new Date(),
               profileCompleted: false,
             });
+            user.id = insertResult.insertedId.toString();
+            user.role = "user";
+            user.profileCompleted = false;
           }
+          console.info("[NextAuth] signIn callback resolved user", {
+            provider: account.provider,
+            email: maskEmail(user.email),
+            hasId: Boolean(user.id),
+            role: user.role,
+          });
           return true;
         } catch (error) {
           console.error("Error saving user to DB:", error);
@@ -71,11 +113,41 @@ export const authOptions = {
       return true;
     },
     async jwt({ token, user }) {
-      // user is only available on sign-in
+      const email = user?.email || token.email;
+
       if (user) {
-        token.role = user.role;
         token.id = user.id;
+        token.role = user.role;
+        token.profileCompleted = user.profileCompleted;
+        token.dbHydrated = Boolean(user.id && user.role);
+        console.info("[NextAuth] jwt callback received user", {
+          email: maskEmail(user.email),
+          hasId: Boolean(user.id),
+          role: user.role,
+          dbHydrated: token.dbHydrated,
+        });
       }
+
+      if (email && !token.dbHydrated) {
+        try {
+          const db = await getDb();
+          const userData = await findUserByEmail(db, email);
+          if (userData) {
+            token.id = userData._id.toString();
+            token.role = userData.role || "user";
+            token.profileCompleted = userData.profileCompleted || false;
+            token.dbHydrated = true;
+            console.info("[NextAuth] jwt hydrated token from Mongo", {
+              email: maskEmail(email),
+              hasId: Boolean(token.id),
+              role: token.role,
+            });
+          }
+        } catch (e) {
+          console.error("JWT DB error:", e);
+        }
+      }
+
       return token;
     },
     async session({ session, token }) {
@@ -83,17 +155,7 @@ export const authOptions = {
         session.user.id = token.id;
         session.user.role = token.role;
         session.user.email = token.email; // ensure email is passed
-      }
-      
-      // We can also fetch the latest from DB if needed, but let's try relying on token first
-      try {
-        const db = await getDb();
-        const userData = await db.collection("users").findOne({ email: token.email });
-        if (userData) {
-          session.user.role = userData.role || "user";
-        }
-      } catch (e) {
-        console.error("Session DB error:", e);
+        session.user.profileCompleted = token.profileCompleted;
       }
 
       return session;
@@ -103,6 +165,19 @@ export const authOptions = {
     strategy: "jwt", // Required for CredentialsProvider
   },
   secret: process.env.NEXTAUTH_SECRET,
+  useSecureCookies: process.env.NODE_ENV === "production",
+  logger: {
+    error(code, metadata) {
+      console.error("[NextAuth][error]", code, {
+        message: metadata?.error?.message,
+        name: metadata?.error?.name,
+        providerId: metadata?.providerId,
+      });
+    },
+    warn(code) {
+      console.warn("[NextAuth][warn]", code);
+    },
+  },
 };
 
 const handler = NextAuth(authOptions);

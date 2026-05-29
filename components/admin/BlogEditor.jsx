@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import axios from "axios";
+import { useSession } from "next-auth/react";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { format } from "date-fns";
@@ -34,7 +35,38 @@ const formSchema = z.object({
   publishedAt: z.date().optional().nullable(),
 });
 
+const objectIdPattern = /^[a-f\d]{24}$/i;
+
+const getObjectIdString = (value) => {
+  if (!value) return null;
+
+  if (typeof value === "string") {
+    return objectIdPattern.test(value) ? value : null;
+  }
+
+  if (typeof value === "object") {
+    const nestedId = value._id || value.id || value.$oid;
+    if (nestedId && nestedId !== value) {
+      return getObjectIdString(nestedId);
+    }
+
+    if (typeof value.toString === "function") {
+      const stringValue = value.toString();
+      return objectIdPattern.test(stringValue) ? stringValue : null;
+    }
+  }
+
+  return null;
+};
+
+const getObjectIdArray = (values) => {
+  if (!Array.isArray(values)) return [];
+
+  return values.map(getObjectIdString).filter(Boolean);
+};
+
 export default function BlogEditor({ initialData = null, onSave }) {
+  const { data: session } = useSession();
   const [categories, setCategories] = useState([]);
   const [uploading, setUploading] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
@@ -48,7 +80,7 @@ export default function BlogEditor({ initialData = null, onSave }) {
       excerpt: initialData?.excerpt || "",
       content: initialData?.content || "",
       featuredImage: initialData?.featuredImage || "",
-      categories: initialData?.categories || [],
+      categories: getObjectIdArray(initialData?.categories),
       tags: initialData?.tags?.join(", ") || "",
       seoTitle: initialData?.seoTitle || "",
       seoDescription: initialData?.seoDescription || "",
@@ -76,7 +108,14 @@ export default function BlogEditor({ initialData = null, onSave }) {
     const fetchCategories = async () => {
       try {
         const res = await axios.get("/api/blog/categories");
-        setCategories(res.data);
+        setCategories(
+          res.data
+            .map((category) => ({
+              ...category,
+              _id: getObjectIdString(category._id),
+            }))
+            .filter((category) => category._id),
+        );
       } catch (e) {
         console.error("Failed to load categories");
       }
@@ -123,8 +162,27 @@ export default function BlogEditor({ initialData = null, onSave }) {
 
     const payload = {
       ...data,
+      author:
+        getObjectIdString(initialData?.author) ||
+        getObjectIdString(session?.user?.id),
+      categories: getObjectIdArray(data.categories),
       tags: data.tags ? data.tags.split(",").map(t => t.trim()).filter(Boolean) : [],
     };
+
+    if (process.env.NODE_ENV === "development") {
+      console.debug("[BlogEditor] save payload relationship fields", {
+        rawAuthor: initialData?.author,
+        rawAuthorType: typeof initialData?.author,
+        sessionAuthor: session?.user?.id,
+        sessionAuthorType: typeof session?.user?.id,
+        payloadAuthor: payload.author,
+        rawCategories: data.categories,
+        rawCategoriesTypes: Array.isArray(data.categories)
+          ? data.categories.map((category) => typeof category)
+          : typeof data.categories,
+        payloadCategories: payload.categories,
+      });
+    }
 
     setIsSaving(true);
     try {
@@ -335,11 +393,11 @@ export default function BlogEditor({ initialData = null, onSave }) {
                   id={`cat-${category._id}`} 
                   checked={watch("categories").includes(category._id)}
                   onCheckedChange={(checked) => {
-                    const current = watch("categories");
+                    const current = getObjectIdArray(watch("categories"));
                     const updated = checked 
                       ? [...current, category._id]
                       : current.filter(id => id !== category._id);
-                    setValue("categories", updated, { shouldDirty: true });
+                    setValue("categories", updated, { shouldDirty: true, shouldValidate: true });
                   }}
                 />
                 <Label htmlFor={`cat-${category._id}`} className="text-sm font-normal cursor-pointer">

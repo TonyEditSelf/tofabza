@@ -2,7 +2,7 @@ import { Layout } from "lucide-react";
 
 export default function BuildsHero() {
   return (
-    <section className="relative overflow-hidden pt-40 pb-14 md:pt-40 md:pb-16">
+    <section className="relative overflow-hidden pt-40 pb-14 md:pt-56 md:pb-16">
       <div className="absolute inset-0 animated-gradient-bg opacity-70" />
       <div className="absolute top-1/3 -left-40 h-[500px] w-[500px] rounded-full bg-gold-500/10 blur-[120px] animate-pulse-soft" />
       <div
@@ -24,7 +24,8 @@ export default function BuildsHero() {
           </div>
 
           <div className="mt-8 flex flex-col gap-6">
-            <h1 className="font-display text-5xl font-semibold leading-[1.04] md:text-7xl">
+            {/* <h1 className="font-display text-5xl font-semibold leading-[1.04] md:text-7xl"> */}
+            <h1 className="font-display text-5xl md:text-7xl lg:text-[5.4rem] leading-[1.05] font-semibold mb-8">
               <span className="text-gold-gradient">My Builds</span>
             </h1>
             <p className="max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">

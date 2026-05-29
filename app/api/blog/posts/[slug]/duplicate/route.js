@@ -2,41 +2,59 @@ import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "../../../../auth/[...nextauth]/route";
 import { getDb } from "@/lib/mongodb";
-import { v4 as uuidv4 } from "uuid";
+import {
+  jsonError,
+  requireAdmin,
+  serializePost,
+  slugify,
+} from "@/lib/blog-backend";
 
 export async function POST(request, { params }) {
-  const session = await getServerSession(authOptions);
-  if (!session || session.user.role !== "admin") {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
   try {
-    const slug = params.slug;
     const db = await getDb();
-    
-    const post = await db.collection("blogPosts").findOne({ slug });
-    
+    const session = await getServerSession(authOptions);
+    await requireAdmin(db, session);
+
+    const post = await db.collection("blogPosts").findOne({ slug: params.slug });
     if (!post) {
       return NextResponse.json({ error: "Post not found" }, { status: 404 });
     }
 
-    // Prepare duplicate
-    const duplicate = { ...post };
-    delete duplicate._id;
-    
-    // Create new slug
-    const suffix = uuidv4().split("-")[0]; // Use a short UUID segment to ensure uniqueness
-    duplicate.slug = `${post.slug}-copy-${suffix}`;
-    duplicate.title = `${post.title} (Copy)`;
-    duplicate.status = "draft";
-    duplicate.createdAt = new Date();
-    duplicate.updatedAt = new Date();
-    duplicate.publishedAt = null;
+    const baseSlug = `${slugify(post.slug || post.title)}-copy`;
+    let slug = baseSlug;
+    let suffix = 2;
+
+    while (await db.collection("blogPosts").findOne({ slug })) {
+      slug = `${baseSlug}-${suffix}`;
+      suffix += 1;
+    }
+
+    const now = new Date();
+    const duplicate = {
+      title: `${post.title} (Copy)`,
+      slug,
+      excerpt: post.excerpt || "",
+      content: post.content || "",
+      featuredImage: post.featuredImage || "",
+      categories: Array.isArray(post.categories) ? post.categories : [],
+      tags: Array.isArray(post.tags) ? post.tags : [],
+      status: "draft",
+      author: post.author,
+      publishedAt: null,
+      createdAt: now,
+      updatedAt: now,
+      seoTitle: post.seoTitle || "",
+      seoDescription: post.seoDescription || "",
+    };
 
     const insertResult = await db.collection("blogPosts").insertOne(duplicate);
-    
-    return NextResponse.json({ _id: insertResult.insertedId, ...duplicate }, { status: 201 });
+    const createdPost = await db
+      .collection("blogPosts")
+      .findOne({ _id: insertResult.insertedId });
+
+    return NextResponse.json(serializePost(createdPost), { status: 201 });
   } catch (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    console.error("[Blog Post Duplicate]", error);
+    return jsonError(error);
   }
 }

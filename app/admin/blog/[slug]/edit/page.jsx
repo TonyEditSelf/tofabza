@@ -40,6 +40,10 @@ export default function EditBlogPostPage({ params }) {
         router.push(`/admin/blog/${data.slug}/edit`);
       }
     } catch (error) {
+      console.error("[EditBlogPostPage] Failed to update post", {
+        status: error.response?.status,
+        response: error.response?.data,
+      });
       toast.error(error.response?.data?.error || "Failed to update post");
       throw error;
     }

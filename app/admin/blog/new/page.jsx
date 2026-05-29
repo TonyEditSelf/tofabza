@@ -18,6 +18,10 @@ export default function NewBlogPostPage() {
       // Redirect to edit mode for autosaving
       router.push(`/admin/blog/${res.data.slug}/edit`);
     } catch (error) {
+      console.error("[NewBlogPostPage] Failed to create post", {
+        status: error.response?.status,
+        response: error.response?.data,
+      });
       toast.error(error.response?.data?.error || "Failed to create post");
       throw error;
     }
