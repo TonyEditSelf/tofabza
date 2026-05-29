@@ -30,9 +30,9 @@ const ServicePage = ({ params }) => {
       <div className="container pt-28">
         <Link
           href="/#WhatIBuild"
-          className="inline-flex items-center gap-2 text-md text-muted-foreground hover:text-gold-500 transition-colors"
+          className="inline-flex items-center gap-2 text-md text-muted-foreground hover:text-brand-500 transition-colors"
         >
-          <span className="text-gold-gradient">← Back to 'What I Build'</span>
+          <span className="text-brand-gradient">← Back to 'What I Build'</span>
         </Link>
       </div>
 
@@ -50,7 +50,7 @@ const ServicePage = ({ params }) => {
             <div className="relative z-10">
               <h3 className="font-display text-3xl md:text-4xl font-semibold leading-tight mb-5">
                 Ready to start with{" "}
-                <span className="text-gold-gradient">{service.title}?</span>
+                <span className="text-brand-gradient">{service.title}?</span>
               </h3>
               <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
                 Right now I'm building for free — one project, no fee, just
@@ -59,13 +59,13 @@ const ServicePage = ({ params }) => {
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link
                   href="/plans"
-                  className="inline-flex items-center justify-center h-12 px-7 rounded-lg bg-gold-gradient text-navy-900 font-semibold hover:opacity-90 transition-opacity gold-border-glow"
+                  className="inline-flex items-center justify-center h-12 px-7 rounded-lg bg-brand-gradient text-navy-900 font-semibold hover:opacity-90 transition-opacity brand-border-glow"
                 >
                   Book a Free Slot
                 </Link>
                 {/* <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center h-12 px-7 rounded-lg border border-gold-500/40 text-foreground hover:bg-gold-500/10 hover:text-gold-500 font-semibold transition-colors"
+                  className="inline-flex items-center justify-center h-12 px-7 rounded-lg border border-brand-500/40 text-foreground hover:bg-brand-500/10 hover:text-brand-500 font-semibold transition-colors"
                 >
                   Book a Call
                 </Link> */}

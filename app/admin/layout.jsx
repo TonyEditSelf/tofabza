@@ -1,15 +1,17 @@
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
 import Link from "next/link";
 import { BookText, Settings, LayoutDashboard } from "lucide-react";
 import SignOutButton from "@/components/admin/SignOutButton";
 
 export default async function AdminLayout({ children }) {
   const session = await getServerSession(authOptions);
+  const hasAdminEntry = cookies().get("tofabza-admin-entry")?.value === "active";
 
-  if (!session || session.user.role !== "admin") {
-    redirect("/api/auth/signin?callbackUrl=/admin");
+  if (!session || session.user.role !== "admin" || !hasAdminEntry) {
+    redirect("/admin-auth/login");
   }
 
   return (
@@ -17,7 +19,7 @@ export default async function AdminLayout({ children }) {
       {/* Sidebar */}
       <aside className="w-64 border-r border-border bg-card flex flex-col hidden md:flex">
         <div className="p-6 border-b border-border">
-          <h2 className="text-xl font-bold text-gold-gradient tracking-tight">Tofabza Admin</h2>
+          <h2 className="text-xl font-bold text-brand-gradient tracking-tight">Tofabza Admin</h2>
         </div>
         
         <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
@@ -64,7 +66,7 @@ export default async function AdminLayout({ children }) {
       <main className="flex-1 flex flex-col h-screen overflow-hidden">
         {/* Mobile Header */}
         <header className="md:hidden flex items-center justify-between p-4 border-b border-border bg-card">
-          <h2 className="text-lg font-bold text-gold-gradient">Tofabza Admin</h2>
+          <h2 className="text-lg font-bold text-brand-gradient">Tofabza Admin</h2>
         </header>
 
         <div className="flex-1 overflow-y-auto p-4 md:p-8">

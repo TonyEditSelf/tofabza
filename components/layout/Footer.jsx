@@ -3,19 +3,20 @@ import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
 // import { FaWhatsapp } from "react-icons/fa";
 import { BRAND, NAV_LINKS } from "@/lib/constants";
+import AdminPortalLink from "./AdminPortalLink";
 
 export default function Footer() {
   return (
-    <footer className="relative mt-24 border-t border-gold-500/10 bg-navy-900/50">
+    <footer className="relative mt-24 border-t border-brand-500/10 bg-navy-900/50">
       <div className="section-divider" />
       <div className="container py-16 grid md:grid-cols-4 gap-10">
         <div className="md:col-span-2">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-11 h-11 rounded-lg bg-gold-gradient flex items-center justify-center text-navy-900 font-display font-bold text-lg">
+            <div className="w-11 h-11 rounded-lg bg-brand-gradient flex items-center justify-center text-navy-900 font-display font-bold text-lg">
               TK
             </div>
             <div className="flex flex-col leading-tight">
-              <span className="text-base font-semibold text-gold-gradient">
+              <span className="text-base font-semibold text-brand-gradient">
                 {BRAND.shortName}
               </span>
               <span className="text-[10px] tracking-[0.25em] text-muted-foreground uppercase">
@@ -29,7 +30,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold text-gold-500 mb-4 tracking-wide uppercase">
+          <h4 className="text-sm font-semibold text-brand-500 mb-4 tracking-wide uppercase">
             Navigate
           </h4>
           <ul className="space-y-3">
@@ -37,7 +38,7 @@ export default function Footer() {
               <li key={l.href}>
                 <Link
                   href={l.href}
-                  className="text-muted-foreground hover:text-gold-500 transition-colors text-sm"
+                  className="text-muted-foreground hover:text-brand-500 transition-colors text-sm"
                 >
                   {l.label}
                 </Link>
@@ -47,21 +48,21 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold text-gold-500 mb-4 tracking-wide uppercase">
+          <h4 className="text-sm font-semibold text-brand-500 mb-4 tracking-wide uppercase">
             Contact
           </h4>
           <ul className="space-y-3 text-sm text-muted-foreground">
             <li className="flex items-start gap-2">
-              <Mail className="h-4 w-4 mt-0.5 text-gold-500" />
+              <Mail className="h-4 w-4 mt-0.5 text-brand-500" />
               {BRAND.email}
             </li>
             <li className="flex items-start gap-2">
-              <Phone className="h-4 w-4 mt-0.5 text-gold-500" />
+              <Phone className="h-4 w-4 mt-0.5 text-brand-500" />
               {BRAND.phone}
             </li>
             <li className="flex items-start gap-2">
               <svg
-                className="h-4 w-4 mt-0.5 text-gold-500"
+                className="h-4 w-4 mt-0.5 text-brand-500"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -72,25 +73,25 @@ export default function Footer() {
                 href={`https://wa.me/${BRAND.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-gold-500 transition-colors"
+                className="hover:text-brand-500 transition-colors"
               >
                 WhatsApp
               </a>
             </li>
             <li className="flex items-start gap-2">
-              <MapPin className="h-4 w-4 mt-0.5 text-gold-500" />
+              <MapPin className="h-4 w-4 mt-0.5 text-brand-500" />
               {BRAND.location}
             </li>
           </ul>
         </div>
       </div>
-      <div className="border-t border-gold-500/10">
+      <div className="border-t border-brand-500/10">
         <div className="container py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-muted-foreground">
           <span>
             © {new Date().getFullYear()} {BRAND.name}. All rights reserved.
           </span>
           <div className="flex items-center gap-4">
-            <Link href="/admin" className="hover:text-gold-500 transition-colors">Admin Portal</Link>
+            <AdminPortalLink className="hover:text-brand-500 transition-colors" />
             <span>Crafted with precision.</span>
           </div>
         </div>

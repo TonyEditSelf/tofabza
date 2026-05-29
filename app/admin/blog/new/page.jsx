@@ -35,7 +35,7 @@ export default function NewBlogPostPage() {
             <ArrowLeft className="h-5 w-5" />
           </Button>
         </Link>
-        <h1 className="text-3xl font-bold text-gold-gradient">Create Article</h1>
+        <h1 className="text-3xl font-bold text-brand-gradient">Create Article</h1>
       </div>
       
       <BlogEditor onSave={handleSave} />

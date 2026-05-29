@@ -35,14 +35,14 @@ export async function POST(request) {
     // Send email via Resend
     const html = `
       <div style="font-family: 'Inter', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #0B1C2C; color: #ffffff; padding: 32px; border-radius: 12px;">
-        <h1 style="color: #D4AF37; font-size: 24px; margin: 0 0 24px;">New Contact Inquiry</h1>
+        <h1 style="color: #C65D2A; font-size: 24px; margin: 0 0 24px;">New Contact Inquiry</h1>
         <table style="width:100%; border-collapse: collapse;">
-          <tr><td style="padding: 8px 0; color: #D4AF37; width: 140px;"><strong>Name:</strong></td><td style="padding: 8px 0;">${name}</td></tr>
-          <tr><td style="padding: 8px 0; color: #D4AF37;"><strong>Email:</strong></td><td style="padding: 8px 0;">${email}</td></tr>
-          <tr><td style="padding: 8px 0; color: #D4AF37;"><strong>Service:</strong></td><td style="padding: 8px 0;">${service}</td></tr>
+          <tr><td style="padding: 8px 0; color: #C65D2A; width: 140px;"><strong>Name:</strong></td><td style="padding: 8px 0;">${name}</td></tr>
+          <tr><td style="padding: 8px 0; color: #C65D2A;"><strong>Email:</strong></td><td style="padding: 8px 0;">${email}</td></tr>
+          <tr><td style="padding: 8px 0; color: #C65D2A;"><strong>Service:</strong></td><td style="padding: 8px 0;">${service}</td></tr>
         </table>
-        <div style="margin-top: 24px; padding: 20px; background: #0E2238; border-left: 3px solid #D4AF37; border-radius: 6px;">
-          <div style="color: #D4AF37; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px;">Message</div>
+        <div style="margin-top: 24px; padding: 20px; background: #0E2238; border-left: 3px solid #C65D2A; border-radius: 6px;">
+          <div style="color: #C65D2A; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px;">Message</div>
           <div style="line-height: 1.6; white-space: pre-wrap;">${message.replace(/[<>]/g, "")}</div>
         </div>
         <div style="margin-top: 32px; font-size: 12px; color: #888;">Sent from Tofabza contact form</div>

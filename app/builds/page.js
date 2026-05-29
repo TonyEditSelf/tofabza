@@ -21,7 +21,7 @@ const BuildsPage = () => {
             <div className="relative z-10">
               <h3 className="mb-5 font-display text-3xl font-semibold leading-tight md:text-4xl">
                 Ready to build{" "}
-                <span className="text-gold-gradient">something real?</span>
+                <span className="text-brand-gradient">something real?</span>
               </h3>
               <p className="mx-auto mb-8 max-w-xl text-muted-foreground">
                 Find the right plan or book a call. <br /> I&apos;ll build a
@@ -30,13 +30,13 @@ const BuildsPage = () => {
               <div className="flex flex-col justify-center gap-3 sm:flex-row">
                 <Link
                   href="/plans"
-                  className="inline-flex h-12 items-center justify-center rounded-lg bg-gold-gradient px-7 font-semibold text-navy-900 transition-opacity hover:opacity-90 gold-border-glow"
+                  className="inline-flex h-12 items-center justify-center rounded-lg bg-brand-gradient px-7 font-semibold text-navy-900 transition-opacity hover:opacity-90 brand-border-glow"
                 >
                   View Plans
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex h-12 items-center justify-center rounded-lg border border-gold-500/40 px-7 font-semibold text-foreground transition-colors hover:bg-gold-500/10 hover:text-gold-500"
+                  className="inline-flex h-12 items-center justify-center rounded-lg border border-brand-500/40 px-7 font-semibold text-foreground transition-colors hover:bg-brand-500/10 hover:text-brand-500"
                 >
                   Book a Call
                 </Link>

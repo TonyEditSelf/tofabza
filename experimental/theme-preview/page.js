@@ -1,7 +1,7 @@
 // app/theme-preview/page.js
 const THEMES = [
   {
-    name: "Option A — Deep Black + Electric Gold",
+    name: "Option A — Deep Black + Electric Brand",
     bg: "linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #141414 100%)",
     cardBg: "rgba(20,20,20,0.7)",
     border: "rgba(255,215,0,0.35)",
@@ -25,13 +25,13 @@ const THEMES = [
     vibe: "Premium · Warm · Refined",
   },
   {
-    name: "Option C — Navy + Cream + Gold",
+    name: "Option C — Navy + Cream + Brand",
     bg: "linear-gradient(135deg, #0B1C2C 0%, #0E2238 60%, #132B47 100%)",
     cardBg: "rgba(248,243,232,0.96)",
-    border: "rgba(212,175,55,0.5)",
-    glow: "0 0 60px rgba(212,175,55,0.15)",
-    accent: "linear-gradient(135deg, #E6C766 0%, #D4AF37 50%, #C9A227 100%)",
-    accentSolid: "#D4AF37",
+    border: "rgba(198,93,42,0.5)",
+    glow: "0 0 60px rgba(198,93,42,0.15)",
+    accent: "linear-gradient(135deg, #E08055 0%, #C65D2A 50%, #A84820 100%)",
+    accentSolid: "#C65D2A",
     text: "#0B1C2C",
     muted: "#5a6a7a",
     vibe: "Spacious · Elegant · Approachable",

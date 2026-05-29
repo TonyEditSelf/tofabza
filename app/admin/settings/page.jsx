@@ -61,7 +61,7 @@ export default function AdminSettingsPage() {
 
   return (
     <div className="max-w-2xl mx-auto py-8">
-      <h1 className="text-3xl font-bold mb-8 text-gold-gradient">Account Settings</h1>
+      <h1 className="text-3xl font-bold mb-8 text-brand-gradient">Account Settings</h1>
       
       <Card className="glass-card">
         <form onSubmit={handleSubmit}>

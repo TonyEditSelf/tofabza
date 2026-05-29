@@ -11,14 +11,14 @@ export default function Cart({ variant = "navy" }) {
   const wrapperClass = isCream
     ? "cream-card rounded-2xl p-8"
     : "glass-card rounded-2xl p-8";
-  const textColor = isCream ? "#0B1C2C" : "";
-  const mutedColor = isCream ? "#5a6a7a" : "";
+  const textColor = isCream ? "var(--navy-900)" : "";
+  const mutedColor = isCream ? "var(--muted-text)" : "";
 
   if (count === 0) {
     return (
       <div className={`${wrapperClass} text-center`}>
-        <div className="w-16 h-16 rounded-full bg-gold-500/15 border border-gold-500/30 flex items-center justify-center mx-auto mb-4">
-          <ShoppingBag className="h-7 w-7 text-gold-600" />
+        <div className="w-16 h-16 rounded-full bg-brand-500/15 border border-brand-500/30 flex items-center justify-center mx-auto mb-4">
+          <ShoppingBag className="h-7 w-7 text-brand-600" />
         </div>
         <h3
           className="font-display text-2xl font-semibold mb-2"
@@ -33,7 +33,7 @@ export default function Cart({ variant = "navy" }) {
           You haven't added any plans yet.
         </p>
         <a href="/plans">
-          <button className="bg-gold-gradient text-navy-900 font-semibold px-6 py-3 rounded-xl text-sm hover:opacity-90 transition">
+          <button className="bg-brand-gradient text-navy-900 font-semibold px-6 py-3 rounded-xl text-sm hover:opacity-90 transition">
             Browse Plans
           </button>
         </a>
@@ -59,7 +59,7 @@ export default function Cart({ variant = "navy" }) {
         {items.map((item) => (
           <div
             key={item.id}
-            className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-gold-500/15 last:border-0"
+            className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-brand-500/15 last:border-0"
           >
             <div className="flex-1">
               <div
@@ -81,7 +81,7 @@ export default function Cart({ variant = "navy" }) {
                 <Button
                   size="icon"
                   variant="outline"
-                  className="h-8 w-8 border-gold-500/30"
+                  className="h-8 w-8 border-brand-500/30"
                   onClick={() => updateQty(item.id, item.qty - 1)}
                 >
                   <Minus className="h-3 w-3" />
@@ -95,7 +95,7 @@ export default function Cart({ variant = "navy" }) {
                 <Button
                   size="icon"
                   variant="outline"
-                  className="h-8 w-8 border-gold-500/30"
+                  className="h-8 w-8 border-brand-500/30"
                   onClick={() => updateQty(item.id, item.qty + 1)}
                 >
                   <Plus className="h-3 w-3" />
@@ -110,7 +110,7 @@ export default function Cart({ variant = "navy" }) {
                 </Button>
               </div>
 
-              <div className="font-semibold text-gold-600 min-w-[5rem] text-right">
+              <div className="font-semibold text-brand-600 min-w-[5rem] text-right">
                 ₹{(item.price * item.qty).toLocaleString("en-IN")}
               </div>
             </div>
@@ -118,14 +118,14 @@ export default function Cart({ variant = "navy" }) {
         ))}
       </div>
 
-      <div className="flex items-center justify-between pt-4 border-t border-gold-500/30 mb-6">
+      <div className="flex items-center justify-between pt-4 border-t border-brand-500/30 mb-6">
         <span
           className="text-lg font-semibold"
           style={isCream ? { color: textColor } : {}}
         >
           Total
         </span>
-        <span className="font-display text-3xl font-semibold text-gold-gradient">
+        <span className="font-display text-3xl font-semibold text-brand-gradient">
           ₹{total.toLocaleString("en-IN")}
         </span>
       </div>

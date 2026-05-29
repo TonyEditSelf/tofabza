@@ -48,7 +48,7 @@ export async function PATCH(request) {
           subject: "New User Registration Complete - Tofabza",
           html: `
             <div style="font-family: sans-serif; padding: 20px; color: #0B1C2C;">
-              <h2 style="color: #D4AF37;">New User Signed Up!</h2>
+              <h2 style="color: #C65D2A;">New User Signed Up!</h2>
               <p><strong>Name:</strong> ${name}</p>
               <p><strong>Email:</strong> ${session.user.email}</p>
               <p><strong>Phone:</strong> ${phone}</p>

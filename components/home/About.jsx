@@ -22,13 +22,13 @@ const PILLARS = [
 
 export default function About() {
   return (
-    <section className="py-28 border-b border-gold-500/10 relative">
+    <section className="py-28 border-b border-brand-500/10 relative">
       <div className="container max-w-6xl text-center">
-        <div className="inline-block text-xs uppercase tracking-[0.3em] text-gold-500 mb-6 border border-gold-500/30 rounded-full px-4 py-1.5">
+        <div className="inline-block text-xs uppercase tracking-[0.3em] text-brand-500 mb-6 border border-brand-500/30 rounded-full px-4 py-1.5">
           About Tofabza
         </div>
         <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight mb-8">
-          <span className="text-gold-gradient">
+          <span className="text-brand-gradient">
             Direct execution. <br />{" "}
           </span>
           Zero handoffs.
@@ -39,7 +39,7 @@ export default function About() {
         </p>
         <div className="relative w-40 h-40 mx-auto mt-6 mb-6">
           <div
-            className="absolute inset-0 rounded-full border-2 border-dashed border-gold-500/50 animate-spin"
+            className="absolute inset-0 rounded-full border-2 border-dashed border-brand-500/50 animate-spin"
             style={{ animationDuration: "15s" }}
           />
           <div className="absolute inset-2 rounded-full overflow-hidden">
@@ -68,22 +68,22 @@ export default function About() {
                 key={p.title}
                 className="cream-card rounded-2xl p-8 text-left"
               >
-                <div className="w-14 h-14 rounded-xl bg-gold-gradient flex items-center justify-center mb-5 shadow-lg shadow-gold-500/30">
+                <div className="w-14 h-14 rounded-xl bg-brand-gradient flex items-center justify-center mb-5 shadow-lg shadow-brand-500/30">
                   <Icon
                     className="h-6 w-6"
-                    style={{ color: "#0B1C2C" }}
+                    style={{ color: "var(--navy-900)" }}
                     strokeWidth={2.2}
                   />
                 </div>
                 <h3
                   className="font-display text-2xl font-semibold mb-3"
-                  style={{ color: "#0B1C2C" }}
+                  style={{ color: "var(--navy-900)" }}
                 >
                   {p.title}
                 </h3>
                 <p
                   className="text-sm leading-relaxed"
-                  style={{ color: "#5a6a7a" }}
+                  style={{ color: "var(--muted-text)" }}
                 >
                   {p.desc}
                 </p>
@@ -91,7 +91,7 @@ export default function About() {
             );
           })}
         </div>
-        <p className="text-xs md:text-sm font-mono uppercase tracking-wider text-gold-500 mt-10 px-5">
+        <p className="text-xs md:text-sm font-mono uppercase tracking-wider text-brand-500 mt-10 px-5">
           24-hour response guaranteed on every active project.
         </p>
       </div>

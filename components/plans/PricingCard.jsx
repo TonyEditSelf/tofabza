@@ -19,40 +19,40 @@ export default function PricingCard({ plan, variant = "navy" }) {
 
   // Card wrapper styling
   const cardClass = isInverted
-    ? "glass-card-hover relative rounded-3xl p-8 md:p-10 flex flex-col h-full transition-all duration-500 scale-[1.04] gold-border-glow"
+    ? "glass-card-hover relative rounded-3xl p-8 md:p-10 flex flex-col h-full transition-all duration-500 scale-[1.04] brand-border-glow"
     : isCream
       ? "cream-card scale-[1.04] relative rounded-3xl p-8 md:p-10 flex flex-col h-full transition-all duration-500"
       : plan.highlight
-        ? "glass-card-hover bg-gradient-to-b from-gold-500/10 to-transparent border border-gold-500/40 gold-border-glow scale-[1.02] relative rounded-3xl p-8 md:p-10 flex flex-col h-full transition-all duration-500"
+        ? "glass-card-hover bg-gradient-to-b from-brand-500/10 to-transparent border border-brand-500/40 brand-border-glow scale-[1.02] relative rounded-3xl p-8 md:p-10 flex flex-col h-full transition-all duration-500"
         : "glass-card glass-card-hover relative rounded-3xl p-8 md:p-10 flex flex-col h-full transition-all duration-500";
 
   // Inline style for inverted (navy) card so we don't need new utility classes
   const invertedStyle = isInverted
     ? {
-        background: "linear-gradient(180deg, #0E2238 0%, #0B1C2C 100%)",
-        border: "1px solid rgba(212, 175, 55, 0.5)",
+        background: "linear-gradient(180deg, var(--navy-800) 0%, var(--navy-900) 100%)",
+        border: "1px solid rgba(var(--brand-500-rgb), 0.5)",
         boxShadow:
-          "0 0 60px rgba(212, 175, 55, 0.25), 0 20px 40px rgba(0,0,0,0.4)",
+          "0 0 60px rgba(var(--brand-500-rgb), 0.25), 0 20px 40px rgba(0,0,0,0.4)",
         transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
       }
     : {};
 
   // Text colors
-  const priceColor = isInverted ? "#F8F3E8" : isCream ? "#0B1C2C" : undefined;
+  const priceColor = isInverted ? "var(--cream-bg)" : isCream ? "var(--navy-900)" : undefined;
   const taglineColor = isInverted
-    ? "rgba(248,243,232,0.7)"
+    ? "rgba(var(--cream-bg-rgb),0.7)"
     : isCream
-      ? "#5a6a7a"
+      ? "var(--muted-text)"
       : undefined;
   const featureColor = isInverted
-    ? "rgba(248,243,232,0.9)"
+    ? "rgba(var(--cream-bg-rgb),0.9)"
     : isCream
       ? "#1a2c3c"
       : undefined;
   const periodColor = isInverted
-    ? "rgba(248,243,232,0.6)"
+    ? "rgba(var(--cream-bg-rgb),0.6)"
     : isCream
-      ? "#5a6a7a"
+      ? "var(--muted-text)"
       : undefined;
 
   return (
@@ -61,7 +61,7 @@ export default function PricingCard({ plan, variant = "navy" }) {
         <div
           className="text-sm uppercase tracking-[0.25em] mb-3 font-semibold"
           style={{
-            color: isInverted ? "#D4AF37" : isCream ? "#C9A227" : "#D4AF37",
+            color: isInverted ? "var(--brand-500)" : isCream ? "var(--brand-600)" : "var(--brand-500)",
           }}
         >
           {plan.name}
@@ -70,7 +70,7 @@ export default function PricingCard({ plan, variant = "navy" }) {
           <span
             className={
               isInverted
-                ? "font-display text-5xl md:text-4xl font-semibold text-gold-gradient"
+                ? "font-display text-5xl md:text-4xl font-semibold text-brand-gradient"
                 : "font-display text-5xl md:text-4xl font-semibold"
             }
             style={!isInverted && priceColor ? { color: priceColor } : {}}
@@ -105,14 +105,14 @@ export default function PricingCard({ plan, variant = "navy" }) {
               className="shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center"
               style={{
                 background: isInverted
-                  ? "rgba(212,175,55,0.2)"
-                  : "rgba(212,175,55,0.15)",
-                border: `1px solid rgba(212,175,55,${isInverted ? 0.6 : 0.4})`,
+                  ? "rgba(var(--brand-500-rgb),0.2)"
+                  : "rgba(var(--brand-500-rgb),0.15)",
+                border: `1px solid rgba(var(--brand-500-rgb),${isInverted ? 0.6 : 0.4})`,
               }}
             >
               <Check
                 className="h-3 w-3"
-                style={{ color: isInverted ? "#E6C766" : "#C9A227" }}
+                style={{ color: isInverted ? "var(--brand-400)" : "var(--brand-600)" }}
               />
             </div>
             <span
@@ -135,12 +135,12 @@ export default function PricingCard({ plan, variant = "navy" }) {
             size="lg"
             className={
               isInverted
-                ? "w-full bg-gold-gradient text-navy-900 hover:opacity-90 font-semibold h-12 gold-border-glow"
+                ? "w-full bg-brand-gradient text-navy-900 hover:opacity-90 font-semibold h-12 brand-border-glow"
                 : plan.highlight
-                  ? "w-full bg-gold-gradient text-navy-900 hover:opacity-90 font-semibold h-12"
+                  ? "w-full bg-brand-gradient text-navy-900 hover:opacity-90 font-semibold h-12"
                   : isCream
                     ? "w-full bg-navy-900 text-white hover:bg-navy-800 font-semibold h-12"
-                    : "w-full bg-navy-800 border border-gold-500/30 text-foreground hover:bg-gold-500/10 hover:text-gold-500 font-semibold h-12"
+                    : "w-full bg-navy-800 border border-brand-500/30 text-foreground hover:bg-brand-500/10 hover:text-brand-500 font-semibold h-12"
             }
           >
             {plan.cta}
@@ -153,7 +153,7 @@ export default function PricingCard({ plan, variant = "navy" }) {
             className={
               isCream
                 ? "w-full bg-navy-900 text-white hover:bg-navy-800 font-semibold h-12"
-                : "w-full bg-navy-800 border border-gold-500/40 text-foreground hover:bg-gold-500/10 hover:text-gold-500 font-semibold h-12"
+                : "w-full bg-navy-800 border border-brand-500/40 text-foreground hover:bg-brand-500/10 hover:text-brand-500 font-semibold h-12"
             }
           >
             {plan.cta}

@@ -27,13 +27,13 @@ export default async function BlogIndexPage({ searchParams }) {
 
   return (
     <div className="min-h-screen bg-background pt-40 relative">
-      <div className="absolute border-b border-gold-500/30 top-20 left-0 right-0 h-[540px] animated-gradient-bg opacity-40 -z-10" />
+      <div className="absolute border-b border-brand-500/30 top-20 left-0 right-0 h-[540px] animated-gradient-bg opacity-40 -z-10" />
 
       <div className="container px-4 md:px-8">
         <div className="text-center max-w-4xl mx-auto mb-16 animate-fade-up">
           <h1 className="font-display text-4xl md:text-7xl lg:text-[5.5rem] leading-[1.05] font-semibold mb-6">
             Tofabza{" "}
-            <span className="text-gold-gradient font-display text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.05] font-semibold">
+            <span className="text-brand-gradient font-display text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.05] font-semibold">
               Journal
             </span>
           </h1>
@@ -102,7 +102,7 @@ export default async function BlogIndexPage({ searchParams }) {
                       <Clock className="w-3 h-3 mr-1" /> {featuredPost.readingTime} min read
                     </span>
                   </div>
-                  <h2 className="text-3xl font-bold font-display group-hover:text-gold-gradient transition-colors">
+                  <h2 className="text-3xl font-bold font-display group-hover:text-brand-gradient transition-colors">
                     {featuredPost.title}
                   </h2>
                   <p className="text-muted-foreground line-clamp-3 text-lg">
@@ -155,7 +155,7 @@ export default async function BlogIndexPage({ searchParams }) {
                       )}
                     </div>
                     <CardContent className="flex-1 p-6 space-y-4">
-                      <h3 className="text-xl font-bold font-display group-hover:text-gold-gradient line-clamp-2">
+                      <h3 className="text-xl font-bold font-display group-hover:text-brand-gradient line-clamp-2">
                         {post.title}
                       </h3>
                       <p className="text-muted-foreground line-clamp-3 text-sm">

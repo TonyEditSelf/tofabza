@@ -41,7 +41,7 @@ export default async function BlogPostPage({ params }) {
       {/* Article Header */}
       <div className="bg-navy-gradient pt-24 pb-16 px-4 md:px-8 border-b border-border">
         <div className="max-w-4xl mx-auto space-y-8">
-          <Link href="/blog" className="inline-flex items-center text-accent hover:text-gold-500 transition-colors">
+          <Link href="/blog" className="inline-flex items-center text-accent hover:text-brand-500 transition-colors">
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Journal
           </Link>
           
@@ -104,10 +104,10 @@ export default async function BlogPostPage({ params }) {
           <div className="lg:w-3/4">
             <article 
               className="prose prose-invert prose-lg max-w-none 
-                prose-headings:font-display prose-headings:text-gold-gradient 
-                prose-a:text-accent hover:prose-a:text-gold-400 prose-a:transition-colors
+                prose-headings:font-display prose-headings:text-brand-gradient 
+                prose-a:text-accent hover:prose-a:text-brand-400 prose-a:transition-colors
                 prose-blockquote:border-l-accent prose-blockquote:bg-accent/5 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:not-italic prose-blockquote:font-normal prose-blockquote:text-foreground
-                prose-pre:bg-[#0B1C2C] prose-pre:border prose-pre:border-border
+                prose-pre:bg-navy-900 prose-pre:border prose-pre:border-border
                 prose-img:rounded-xl prose-img:shadow-lg"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
@@ -138,7 +138,7 @@ export default async function BlogPostPage({ params }) {
       {relatedPosts.length > 0 && (
         <div className="bg-navy-gradient border-t border-border py-16">
           <div className="max-w-6xl mx-auto px-4 md:px-8">
-            <h2 className="text-3xl font-display font-bold text-gold-gradient mb-8">Related Articles</h2>
+            <h2 className="text-3xl font-display font-bold text-brand-gradient mb-8">Related Articles</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {relatedPosts.map((relatedPost) => (
                 <Link key={relatedPost._id} href={`/blog/${relatedPost.slug}`} className="group block h-full">
@@ -155,7 +155,7 @@ export default async function BlogPostPage({ params }) {
                       )}
                     </div>
                     <CardContent className="flex-1 p-6 space-y-4">
-                      <h3 className="text-xl font-bold font-display group-hover:text-gold-gradient line-clamp-2">
+                      <h3 className="text-xl font-bold font-display group-hover:text-brand-gradient line-clamp-2">
                         {relatedPost.title}
                       </h3>
                       <div className="flex items-center text-sm text-muted-foreground mt-auto pt-4">

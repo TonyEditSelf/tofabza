@@ -99,11 +99,11 @@ export default function AuthModal({ isOpen, onOpenChange, onSuccess, callbackUrl
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[400px] bg-navy-900 border-gold-500/20 backdrop-blur-xl">
+      <DialogContent className="sm:max-w-[400px] bg-navy-900 border-brand-500/20 backdrop-blur-xl">
         <DialogHeader>
           <DialogTitle className="text-2xl font-display font-semibold text-center">
             {step === 1 ? "Welcome to " : "Complete Your "}
-            <span className="text-gold-gradient">Tofabza</span>
+            <span className="text-brand-gradient">Tofabza</span>
           </DialogTitle>
           <DialogDescription className="text-center text-muted-foreground pt-2">
             {step === 1 
@@ -117,14 +117,14 @@ export default function AuthModal({ isOpen, onOpenChange, onSuccess, callbackUrl
             <div className="space-y-4">
               <Button
                 variant="outline"
-                className="w-full h-12 border-gold-500/20 hover:bg-gold-500/5 hover:text-gold-500 transition-all group"
+                className="w-full h-12 border-brand-500/20 hover:bg-brand-500/5 hover:text-brand-500 transition-all group"
                 onClick={handleGoogleSignIn}
                 disabled={loading}
               >
                 {loading ? (
                   <Loader2 className="mr-2 h-5 w-5 animate-spin" />
                 ) : (
-                  <Chrome className="mr-2 h-5 w-5 text-gold-500 group-hover:scale-110 transition-transform" />
+                  <Chrome className="mr-2 h-5 w-5 text-brand-500 group-hover:scale-110 transition-transform" />
                 )}
                 Continue with Google
               </Button>
@@ -135,7 +135,7 @@ export default function AuthModal({ isOpen, onOpenChange, onSuccess, callbackUrl
           ) : (
             <form onSubmit={handleProfileSubmit} className="space-y-5">
               <div className="space-y-2">
-                <Label htmlFor="name" className="text-xs uppercase tracking-wider text-gold-500/80">Full Name</Label>
+                <Label htmlFor="name" className="text-xs uppercase tracking-wider text-brand-500/80">Full Name</Label>
                 <div className="relative">
                   <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <Input
@@ -143,13 +143,13 @@ export default function AuthModal({ isOpen, onOpenChange, onSuccess, callbackUrl
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="John Doe"
-                    className="pl-10 bg-navy-800/50 border-gold-500/10 focus:border-gold-500/50"
+                    className="pl-10 bg-navy-800/50 border-brand-500/10 focus:border-brand-500/50"
                     required
                   />
                 </div>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="phone" className="text-xs uppercase tracking-wider text-gold-500/80">Phone Number</Label>
+                <Label htmlFor="phone" className="text-xs uppercase tracking-wider text-brand-500/80">Phone Number</Label>
                 <p className="text-[11px] text-muted-foreground leading-relaxed italic">
                   Please provide your phone number so that we can contact you to provide the required services.
                 </p>
@@ -160,7 +160,7 @@ export default function AuthModal({ isOpen, onOpenChange, onSuccess, callbackUrl
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="+91 98765 43210"
-                    className="pl-10 bg-navy-800/50 border-gold-500/10 focus:border-gold-500/50"
+                    className="pl-10 bg-navy-800/50 border-brand-500/10 focus:border-brand-500/50"
                     required
                     type="tel"
                   />
@@ -168,7 +168,7 @@ export default function AuthModal({ isOpen, onOpenChange, onSuccess, callbackUrl
               </div>
               <Button
                 type="submit"
-                className="w-full h-12 bg-gold-gradient text-navy-900 font-semibold hover:opacity-90 transition-opacity"
+                className="w-full h-12 bg-brand-gradient text-navy-900 font-semibold hover:opacity-90 transition-opacity"
                 disabled={loading}
               >
                 {loading ? (

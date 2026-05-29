@@ -203,7 +203,7 @@ export default function BlogManagementPage() {
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <h1 className="text-3xl font-bold text-gold-gradient">Blog Articles</h1>
+        <h1 className="text-3xl font-bold text-brand-gradient">Blog Articles</h1>
         <Link href="/admin/blog/new">
           <Button>
             <Plus className="mr-2 w-4 h-4" /> Add New Blog
@@ -260,7 +260,7 @@ export default function BlogManagementPage() {
             {loading ? (
               <TableRow>
                 <TableCell colSpan={columns.length} className="h-24 text-center">
-                  <Loader2 className="h-6 w-6 animate-spin mx-auto text-gold-gradient" />
+                  <Loader2 className="h-6 w-6 animate-spin mx-auto text-brand-gradient" />
                 </TableCell>
               </TableRow>
             ) : table.getRowModel().rows?.length ? (

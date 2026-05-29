@@ -37,6 +37,9 @@ module.exports = {
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
+          text: "#5a6a7a",
+          warm: "#C8BFAD",
+          cool: "#8a9aaa",
         },
         accent: {
           DEFAULT: "hsl(var(--accent))",
@@ -58,11 +61,16 @@ module.exports = {
           700: "#132B47",
         },
 
-        // CHANGED: gold → burnt sienna
-        gold: {
+        // Sienna brand accents
+        brand: {
           500: "#C65D2A",
           600: "#A84820",
           400: "#E08055",
+        },
+        cream: {
+          bg: "#F8F3E8",
+          surface: "#EFE8D6",
+          text: "#F5EFE6",
         },
       },
       borderRadius: {
@@ -84,7 +92,7 @@ module.exports = {
           "0%": { opacity: "0", transform: "translateY(16px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
-        "gold-shimmer": {
+        "brand-shimmer": {
           "0%": { backgroundPosition: "-200% 0" },
           "100%": { backgroundPosition: "200% 0" },
         },
@@ -99,7 +107,7 @@ module.exports = {
       },
       animation: {
         "fade-up": "fade-up 0.8s ease-out forwards",
-        "gold-shimmer": "gold-shimmer 3s linear infinite",
+        "brand-shimmer": "brand-shimmer 3s linear infinite",
         "pulse-soft": "pulse-soft 3s ease-in-out infinite",
         "gradient-shift": "gradient-shift 12s ease infinite",
       },

@@ -30,11 +30,11 @@ export default function PricingGrid({ variant = "navy" }) {
 
   const sectionLabelClass = `inline-block text-xs uppercase tracking-[0.3em] mb-4 border rounded-full px-4 py-1.5`;
   const sectionLabelStyle = {
-    color: isCream ? "#C9A227" : "#D4AF37",
-    borderColor: isCream ? "rgba(201,162,39,0.3)" : "rgba(212,175,55,0.3)",
+    color: isCream ? "var(--brand-600)" : "var(--brand-500)",
+    borderColor: isCream ? "rgba(var(--brand-600-rgb),0.3)" : "rgba(var(--brand-500-rgb),0.3)",
   };
 
-  const headingStyle = { color: isCream ? "#0B1C2C" : "#F5EFE6" };
+  const headingStyle = { color: isCream ? "var(--navy-900)" : "var(--cream-text)" };
 
   // Taglines — slightly brighter than before
   const taglineStyle = { color: "#A8B8C8" };
@@ -43,21 +43,21 @@ export default function PricingGrid({ variant = "navy" }) {
   const bodyNoteStyle = { color: isCream ? "#1a2c3c" : "#D6CBBA" };
 
   const dividerStyle = {
-    borderColor: isCream ? "rgba(201,162,39,0.2)" : "rgba(212,175,55,0.15)",
+    borderColor: isCream ? "rgba(var(--brand-600-rgb),0.2)" : "rgba(var(--brand-500-rgb),0.15)",
   };
 
   // Dark lifted block — navy-800 on navy-900
   const darkBlockStyle = {
-    background: isCream ? "#0B1C2C" : "#0E2238",
-    border: `1px solid ${isCream ? "rgba(201,162,39,0.25)" : "rgba(212,175,55,0.2)"}`,
+    background: isCream ? "var(--navy-900)" : "var(--navy-800)",
+    border: `1px solid ${isCream ? "rgba(var(--brand-600-rgb),0.25)" : "rgba(var(--brand-500-rgb),0.2)"}`,
     borderRadius: "1rem",
     padding: "2rem",
   };
 
   // Inner nested block inside dark block
   const innerBlockStyle = {
-    background: isCream ? "rgba(255,255,255,0.08)" : "rgba(19,43,71,0.7)",
-    border: `1px solid rgba(212,175,55,0.12)`,
+    background: isCream ? "rgba(255,255,255,0.08)" : "rgba(var(--navy-700-rgb),0.7)",
+    border: `1px solid rgba(var(--brand-500-rgb),0.12)`,
     borderRadius: "0.75rem",
     padding: "1.25rem",
   };
@@ -71,8 +71,8 @@ export default function PricingGrid({ variant = "navy" }) {
             Micro — Starter Visibility System
           </div>
           <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight mb-4">
-            A <span className="text-gold-gradient">low-commitment </span>
-            <span style={{ color: "#F5EFE6" }}>
+            A <span className="text-brand-gradient">low-commitment </span>
+            <span style={{ color: "var(--cream-text)" }}>
               entry point before building a real system.{" "}
             </span>
           </h2>
@@ -96,7 +96,7 @@ export default function PricingGrid({ variant = "navy" }) {
       <div className="text-center py-10 bg-navy-900/40">
         <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight mb-4">
           Micro is a start. <br /> Real growth starts
-          <span className="text-gold-gradient"> below.</span>
+          <span className="text-brand-gradient"> below.</span>
         </h2>
 
         <div className="mt-14 grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -107,16 +107,16 @@ export default function PricingGrid({ variant = "navy" }) {
                 key={p.desc}
                 className="flex gap-3 items-center cream-card rounded-2xl p-5 text-left"
               >
-                <div className="w-8 h-8 rounded-sm bg-gold-gradient flex items-center justify-center shadow-lg shadow-gold-500/30">
+                <div className="w-8 h-8 rounded-sm bg-brand-gradient flex items-center justify-center shadow-lg shadow-brand-500/30">
                   <Icon
                     className="h-5 w-5"
-                    style={{ color: "#0B1C2C" }}
+                    style={{ color: "var(--navy-900)" }}
                     strokeWidth={2.2}
                   />
                 </div>
                 <p
                   className="text-sm leading-relaxed"
-                  style={{ color: "#5a6a7a" }}
+                  style={{ color: "var(--muted-text)" }}
                 >
                   {p.desc}
                 </p>
@@ -136,7 +136,7 @@ export default function PricingGrid({ variant = "navy" }) {
           <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight mb-4">
             A digital home that works
             <br />
-            <span className="text-gold-gradient"> while you sleep.</span>
+            <span className="text-brand-gradient"> while you sleep.</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
             One-time build. No ongoing fees. Most businesses start here when
@@ -152,8 +152,8 @@ export default function PricingGrid({ variant = "navy" }) {
         <p className="mt-6">
           <Link
             href="/contact"
-            className="text-xs md:text-sm font-mono uppercase tracking-wider text-gold-500/70 hover:text-gold-500 transition-colors"
-            // style={{ color: "#D4AF37" }}
+            className="text-xs md:text-sm font-mono uppercase tracking-wider text-brand-500/70 hover:text-brand-500 transition-colors"
+            // style={{ color: "var(--brand-500)" }}
           >
             E-commerce, full stack applications, mobile apps or advanced
             systems? — Let's talk
@@ -171,7 +171,7 @@ export default function PricingGrid({ variant = "navy" }) {
           </div>
           <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight mb-4">
             Stop doing manually <br />
-            <span className="text-gold-gradient">
+            <span className="text-brand-gradient">
               what a system can do for you.
             </span>
           </h2>
@@ -189,8 +189,8 @@ export default function PricingGrid({ variant = "navy" }) {
         <p className="mt-14">
           <Link
             href="/contact"
-            className="text-xs md:text-sm font-mono uppercase tracking-wider text-gold-500/70 hover:text-gold-500 transition-colors"
-            // style={{ color: "#D4AF37" }}
+            className="text-xs md:text-sm font-mono uppercase tracking-wider text-brand-500/70 hover:text-brand-500 transition-colors"
+            // style={{ color: "var(--brand-500)" }}
           >
             Payslip/invoice generation, appointment booking, notifications,
             form-to-CRM, report generation, advanced AI, or chatbots? — Let's
@@ -209,7 +209,7 @@ export default function PricingGrid({ variant = "navy" }) {
           </div>
           <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight mb-4">
             Your brand stays visible —{" "}
-            <span className="text-gold-gradient">
+            <span className="text-brand-gradient">
               without you spending hours on your phone.
             </span>
           </h2>
@@ -227,8 +227,8 @@ export default function PricingGrid({ variant = "navy" }) {
         <p className="mt-14">
           <Link
             href="/contact"
-            className="text-xs md:text-sm font-mono uppercase tracking-wider text-gold-500/70 hover:text-gold-500 transition-colors"
-            // style={{ color: "#D4AF37" }}
+            className="text-xs md:text-sm font-mono uppercase tracking-wider text-brand-500/70 hover:text-brand-500 transition-colors"
+            // style={{ color: "var(--brand-500)" }}
           >
             Multi-platform or advanced content strategy — Let's talk
           </Link>
@@ -244,8 +244,8 @@ export default function PricingGrid({ variant = "navy" }) {
             Not sure where to start?
           </div>
           <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight mb-4">
-            <span style={{ color: "#F5EFE6" }}>Most businesses fall into </span>
-            <span className="text-gold-gradient">one of these.</span>
+            <span style={{ color: "var(--cream-text)" }}>Most businesses fall into </span>
+            <span className="text-brand-gradient">one of these.</span>
           </h2>
         </div>
 
@@ -287,22 +287,22 @@ export default function PricingGrid({ variant = "navy" }) {
                 }}
                 className="cream-card rounded-2xl py-8 pl-8 text-left hover:opacity-90 transition-all"
               >
-                <div className="w-14 h-14 rounded-xl bg-gold-gradient flex items-center justify-center mb-5 shadow-lg shadow-gold-500/30">
+                <div className="w-14 h-14 rounded-xl bg-brand-gradient flex items-center justify-center mb-5 shadow-lg shadow-brand-500/30">
                   <Icon
                     className="h-6 w-6"
-                    style={{ color: "#0B1C2C" }}
+                    style={{ color: "var(--navy-900)" }}
                     strokeWidth={2.2}
                   />
                 </div>
                 <h3
                   className="font-display text-xl font-semibold mb-2"
-                  style={{ color: "#0B1C2C" }}
+                  style={{ color: "var(--navy-900)" }}
                 >
                   {item.label}
                 </h3>
                 <p
                   className="text-sm leading-relaxed"
-                  style={{ color: "#5a6a7a" }}
+                  style={{ color: "var(--muted-text)" }}
                 >
                   {item.cta}
                 </p>
@@ -316,7 +316,7 @@ export default function PricingGrid({ variant = "navy" }) {
       <div className="flex flex-col gap-3 py-10">
         <p
           className="text-base text-center md:text-lg leading-relaxed"
-          style={{ color: "#C8BFAD" }}
+          style={{ color: "var(--muted-warm)" }}
         >
           Still unsure? Tell me what's broken and I'll tell you what to fix
           first — no pitch, no pressure.
@@ -325,12 +325,12 @@ export default function PricingGrid({ variant = "navy" }) {
         <div className="container">
           <div className="relative rounded-3xl overflow-hidden glass-card p-8 md:p-16 text-center">
             <div className="absolute inset-0 animated-gradient-bg opacity-60" />
-            <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-gold-500/20 blur-[120px]" />
-            <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-gold-500/10 blur-[120px]" />
+            <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-brand-500/20 blur-[120px]" />
+            <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-brand-500/10 blur-[120px]" />
             <div className="relative z-10 max-w-4xl mx-auto">
               <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight mb-6">
                 5 case study slots.{" "}
-                <span className="text-gold-gradient">
+                <span className="text-brand-gradient">
                   One system that actually works.
                 </span>
               </h2>
@@ -344,7 +344,7 @@ export default function PricingGrid({ variant = "navy" }) {
                 <Link href="/contact">
                   <Button
                     size="lg"
-                    className="bg-gold-gradient text-navy-900 hover:opacity-90 font-semibold px-8 h-14 text-base gold-border-glow"
+                    className="bg-brand-gradient text-navy-900 hover:opacity-90 font-semibold px-8 h-14 text-base brand-border-glow"
                   >
                     Apply for a case study slot{" "}
                     <ArrowRight className="ml-2 h-5 w-5" />

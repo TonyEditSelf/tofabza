@@ -52,7 +52,7 @@ export default function EditBlogPostPage({ params }) {
   if (loading) {
     return (
       <div className="flex h-[50vh] items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-gold-gradient" />
+        <Loader2 className="h-8 w-8 animate-spin text-brand-gradient" />
       </div>
     );
   }
@@ -65,7 +65,7 @@ export default function EditBlogPostPage({ params }) {
             <ArrowLeft className="h-5 w-5" />
           </Button>
         </Link>
-        <h1 className="text-3xl font-bold text-gold-gradient">Edit Article</h1>
+        <h1 className="text-3xl font-bold text-brand-gradient">Edit Article</h1>
       </div>
       
       {initialData && <BlogEditor initialData={initialData} onSave={handleSave} />}

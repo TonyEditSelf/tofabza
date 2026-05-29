@@ -4,14 +4,14 @@ const ThemeHybrid = () => {
   const NAVY2 = "#0E2238";
   const CREAM = "#F8F3E8";
   const CREAM2 = "#EFE8D6";
-  const GOLD = "linear-gradient(135deg, #E6C766 0%, #D4AF37 50%, #C9A227 100%)";
-  const GOLD_SOLID = "#D4AF37";
+  const BRAND = "linear-gradient(135deg, #E08055 0%, #C65D2A 50%, #A84820 100%)";
+  const BRAND_SOLID = "#C65D2A";
 
   const Section = ({ label, title, children, pad = 60 }) => (
     <div
       style={{
         padding: `${pad}px 60px`,
-        borderTop: "1px solid rgba(212,175,55,0.1)",
+        borderTop: "1px solid rgba(198,93,42,0.1)",
       }}
     >
       <div
@@ -19,8 +19,8 @@ const ThemeHybrid = () => {
           display: "inline-block",
           padding: "5px 12px",
           borderRadius: 999,
-          border: `1px solid rgba(212,175,55,0.35)`,
-          color: GOLD_SOLID,
+          border: `1px solid rgba(198,93,42,0.35)`,
+          color: BRAND_SOLID,
           fontSize: 10,
           letterSpacing: 2.5,
           textTransform: "uppercase",
@@ -51,16 +51,16 @@ const ThemeHybrid = () => {
     <div
       style={{
         background: highlight
-          ? `linear-gradient(180deg, rgba(212,175,55,0.2) 0%, ${CREAM2} 100%)`
+          ? `linear-gradient(180deg, rgba(198,93,42,0.2) 0%, ${CREAM2} 100%)`
           : CREAM2,
         border: highlight
-          ? `1px solid rgba(212,175,55,0.5)`
+          ? `1px solid rgba(198,93,42,0.5)`
           : "1px solid rgba(11,28,44,0.1)",
         borderRadius: 14,
         padding: 24,
         color: NAVY,
         boxShadow: highlight
-          ? "0 0 40px rgba(212,175,55,0.25)"
+          ? "0 0 40px rgba(198,93,42,0.25)"
           : "0 4px 20px rgba(0,0,0,0.3)",
         position: "relative",
       }}
@@ -83,9 +83,9 @@ const ThemeHybrid = () => {
             display: "inline-block",
             padding: "6px 14px",
             borderRadius: 999,
-            background: "rgba(212,175,55,0.15)",
-            border: `1px solid ${GOLD_SOLID}`,
-            color: GOLD_SOLID,
+            background: "rgba(198,93,42,0.15)",
+            border: `1px solid ${BRAND_SOLID}`,
+            color: BRAND_SOLID,
             fontSize: 11,
             letterSpacing: 2,
             textTransform: "uppercase",
@@ -117,7 +117,7 @@ const ThemeHybrid = () => {
                   fontFamily: "Playfair Display, serif",
                   fontSize: 42,
                   fontWeight: 600,
-                  background: GOLD,
+                  background: BRAND,
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                 }}
@@ -158,7 +158,7 @@ const ThemeHybrid = () => {
               <div
                 style={{
                   fontSize: 24,
-                  color: GOLD_SOLID,
+                  color: BRAND_SOLID,
                   opacity: 0.5,
                   marginBottom: 8,
                 }}
@@ -181,8 +181,8 @@ const ThemeHybrid = () => {
                     width: 36,
                     height: 36,
                     borderRadius: "50%",
-                    background: GOLD,
-                    border: "2px solid rgba(212,175,55,0.5)",
+                    background: BRAND,
+                    border: "2px solid rgba(198,93,42,0.5)",
                   }}
                 />
                 <div>
@@ -238,7 +238,7 @@ const ThemeHybrid = () => {
                     top: -11,
                     left: "50%",
                     transform: "translateX(-50%)",
-                    background: GOLD,
+                    background: BRAND,
                     color: NAVY,
                     padding: "4px 12px",
                     borderRadius: 999,
@@ -253,7 +253,7 @@ const ThemeHybrid = () => {
               )}
               <div
                 style={{
-                  color: GOLD_SOLID,
+                  color: BRAND_SOLID,
                   fontSize: 10,
                   letterSpacing: 2.5,
                   textTransform: "uppercase",
@@ -282,7 +282,7 @@ const ThemeHybrid = () => {
               </div>
               <div
                 style={{
-                  background: p.highlight ? GOLD : NAVY,
+                  background: p.highlight ? BRAND : NAVY,
                   color: p.highlight ? NAVY : CREAM,
                   padding: "10px 0",
                   borderRadius: 8,

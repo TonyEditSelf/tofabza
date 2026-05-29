@@ -33,7 +33,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-navy-900/70 border-b border-gold-500/10">
+    <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-navy-900/70 border-b border-brand-500/10">
       <div className="container flex items-center justify-between h-20">
         <Link href="/" className="flex items-center gap-3">
           {/* this is the LOGO */}
@@ -48,7 +48,7 @@ export default function Navbar() {
           </div>
 
           <div className="sm:flex flex-col leading-tight">
-            <span className="text-sm font-semibold text-gold-gradient">
+            <span className="text-sm font-semibold text-brand-gradient">
               {BRAND.shortName}
             </span>
             <span className="hidden sm:block text-[10px] tracking-[0.25em] text-muted-foreground uppercase">
@@ -66,25 +66,25 @@ export default function Navbar() {
                     href={l.href}
                     className={`flex items-center gap-1 text-sm font-medium px-3 py-1 rounded-full border transition-colors ${
                       isWhatIBuildActive
-                        ? "text-gold-500 border-gold-500/40"
-                        : "text-foreground/80 border-gold-500/0 hover:text-gold-500 hover:border-gold-500/30"
+                        ? "text-brand-500 border-brand-500/40"
+                        : "text-foreground/80 border-brand-500/0 hover:text-brand-500 hover:border-brand-500/30"
                     }`}
                   >
                     {l.label}
                     <ChevronDown
-                      className={`h-4 w-4 transition-transform ${isWhatIBuildActive ? "text-gold-500" : ""} group-hover:rotate-180`}
+                      className={`h-4 w-4 transition-transform ${isWhatIBuildActive ? "text-brand-500" : ""} group-hover:rotate-180`}
                     />
                   </Link>
 
                   {/* Dropdown Menu */}
                   <div className="absolute top-full left-0 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 z-50">
-                    <div className="min-w-[160px] bg-navy-900/95 backdrop-blur-xl border border-gold-500/20 rounded-xl p-2 shadow-2xl shadow-black/50">
+                    <div className="min-w-[160px] bg-navy-900/95 backdrop-blur-xl border border-brand-500/20 rounded-xl p-2 shadow-2xl shadow-black/50">
                       <Link
                         href="/services/website-design"
                         className={`block px-4 py-2.5 text-sm rounded-lg transition-all ${
                           pathname === "/services/website-design"
-                            ? "text-gold-500 bg-gold-500/10"
-                            : "text-foreground/70 hover:text-gold-500 hover:bg-gold-500/10"
+                            ? "text-brand-500 bg-brand-500/10"
+                            : "text-foreground/70 hover:text-brand-500 hover:bg-brand-500/10"
                         }`}
                       >
                         Build
@@ -93,8 +93,8 @@ export default function Navbar() {
                         href="/services/automation-systems"
                         className={`block px-4 py-2.5 text-sm rounded-lg transition-all ${
                           pathname === "/services/automation-systems"
-                            ? "text-gold-500 bg-gold-500/10"
-                            : "text-foreground/70 hover:text-gold-500 hover:bg-gold-500/10"
+                            ? "text-brand-500 bg-brand-500/10"
+                            : "text-foreground/70 hover:text-brand-500 hover:bg-brand-500/10"
                         }`}
                       >
                         Automate
@@ -103,8 +103,8 @@ export default function Navbar() {
                         href="/services/social-media-growth"
                         className={`block px-4 py-2.5 text-sm rounded-lg transition-all ${
                           pathname === "/services/social-media-growth"
-                            ? "text-gold-500 bg-gold-500/10"
-                            : "text-foreground/70 hover:text-gold-500 hover:bg-gold-500/10"
+                            ? "text-brand-500 bg-brand-500/10"
+                            : "text-foreground/70 hover:text-brand-500 hover:bg-brand-500/10"
                         }`}
                       >
                         Grow
@@ -119,7 +119,7 @@ export default function Navbar() {
               <Link
                 key={l.href}
                 href={l.href}
-                className={`text-sm font-medium transition-colors hover:text-gold-500 px-3 py-1 rounded-full border ${pathname === l.href ? "text-gold-500 border-gold-500/40" : "text-foreground/80 border-gold-500/0"}`}
+                className={`text-sm font-medium transition-colors hover:text-brand-500 px-3 py-1 rounded-full border ${pathname === l.href ? "text-brand-500 border-brand-500/40" : "text-foreground/80 border-brand-500/0"}`}
               >
                 {l.label}
               </Link>
@@ -129,7 +129,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-5">
           <Link href="/contact" className="hidden md:inline-flex">
-            <Button className="bg-gold-gradient text-navy-900 hover:opacity-90 font-semibold h-9">
+            <Button className="bg-brand-gradient text-navy-900 hover:opacity-90 font-semibold h-9">
               Book a Free Slot
             </Button>
           </Link>
@@ -144,7 +144,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-gold-500/10 bg-navy-900/95 backdrop-blur-xl">
+        <div className="md:hidden border-t border-brand-500/10 bg-navy-900/95 backdrop-blur-xl">
           <div className="container py-5 flex flex-col gap-4">
             {NAV_LINKS.map((l) => {
               if (l.label === "What I Build") {
@@ -155,28 +155,28 @@ export default function Navbar() {
                       onClick={() => setWhatIBuildOpen((prev) => !prev)}
                       className={`flex items-center justify-between w-full px-3 py-2 rounded-full border transition-colors ${
                         isWhatIBuildActive
-                          ? "text-gold-500 border-gold-500/40"
-                          : "text-foreground/80 border-gold-500/0 hover:text-gold-500 hover:border-gold-500/30"
+                          ? "text-brand-500 border-brand-500/40"
+                          : "text-foreground/80 border-brand-500/0 hover:text-brand-500 hover:border-brand-500/30"
                       }`}
                     >
                       <span>{l.label}</span>
                       <ChevronDown
                         className={`h-4 w-4 transition-transform duration-200 ${
-                          isWhatIBuildActive ? "text-gold-500" : ""
+                          isWhatIBuildActive ? "text-brand-500" : ""
                         } ${whatIBuildOpen ? "rotate-180" : ""}`}
                       />
                     </button>
 
                     {/* Submenu items */}
                     {whatIBuildOpen && (
-                      <div className="mt-2 ml-3 flex flex-col gap-3 border-l border-gold-500/30 pl-4">
+                      <div className="mt-2 ml-3 flex flex-col gap-3 border-l border-brand-500/30 pl-4">
                         <Link
                           href="/services/website-design"
                           onClick={() => setOpen(false)}
                           className={`text-sm transition-colors ${
                             pathname === "/services/website-design"
-                              ? "text-gold-500"
-                              : "text-foreground/70 hover:text-gold-500"
+                              ? "text-brand-500"
+                              : "text-foreground/70 hover:text-brand-500"
                           }`}
                         >
                           Build
@@ -186,8 +186,8 @@ export default function Navbar() {
                           onClick={() => setOpen(false)}
                           className={`text-sm transition-colors ${
                             pathname === "/services/automation-systems"
-                              ? "text-gold-500"
-                              : "text-foreground/70 hover:text-gold-500"
+                              ? "text-brand-500"
+                              : "text-foreground/70 hover:text-brand-500"
                           }`}
                         >
                           Automate
@@ -197,8 +197,8 @@ export default function Navbar() {
                           onClick={() => setOpen(false)}
                           className={`text-sm transition-colors ${
                             pathname === "/services/social-media-growth"
-                              ? "text-gold-500"
-                              : "text-foreground/70 hover:text-gold-500"
+                              ? "text-brand-500"
+                              : "text-foreground/70 hover:text-brand-500"
                           }`}
                         >
                           Grow
@@ -214,7 +214,7 @@ export default function Navbar() {
                   key={l.href}
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className={`hover:text-gold-500 transition-colors ${pathname === l.href ? "text-gold-500" : "text-foreground/80"}`}
+                  className={`hover:text-brand-500 transition-colors ${pathname === l.href ? "text-brand-500" : "text-foreground/80"}`}
                 >
                   {l.label}
                 </Link>
@@ -223,7 +223,7 @@ export default function Navbar() {
 
             <div className="flex flex-col gap-2 pt-2">
               <Link href="/contact" onClick={() => setOpen(false)}>
-                <Button className="w-full bg-gold-gradient text-navy-900 font-semibold cursor-pointer h-11">
+                <Button className="w-full bg-brand-gradient text-navy-900 font-semibold cursor-pointer h-11">
                   Book a Call
                 </Button>
               </Link>

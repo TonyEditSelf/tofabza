@@ -290,7 +290,7 @@ export default function BlogEditor({ initialData = null, onSave }) {
         </div>
         
         <div className="space-y-4 pt-4 border-t border-border">
-          <h3 className="text-lg font-semibold text-gold-gradient">SEO Settings</h3>
+          <h3 className="text-lg font-semibold text-brand-gradient">SEO Settings</h3>
           <div className="space-y-2">
             <Label htmlFor="seoTitle">SEO Title (Optional)</Label>
             <Input id="seoTitle" {...form.register("seoTitle")} />
@@ -380,7 +380,7 @@ export default function BlogEditor({ initialData = null, onSave }) {
               onChange={handleImageUpload}
               disabled={uploading}
             />
-            {uploading && <Loader2 className="h-4 w-4 animate-spin text-gold-gradient" />}
+            {uploading && <Loader2 className="h-4 w-4 animate-spin text-brand-gradient" />}
           </div>
         </div>
 

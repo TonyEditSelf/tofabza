@@ -133,17 +133,17 @@ const ICONS = {
 function SectionCard({ item, icon: iconName }) {
   const Icon = ICONS[iconName] || Workflow;
   return (
-    <div className="cream-card rounded-2xl p-6 md:p-7 h-full border border-gold-500/10 shadow-[0_10px_30px_rgba(11,28,44,0.08)]">
-      <div className="w-11 h-11 rounded-xl bg-gold-gradient flex items-center justify-center shadow-md shadow-gold-500/20 mb-5">
+    <div className="cream-card rounded-2xl p-6 md:p-7 h-full border border-brand-500/10 shadow-[0_10px_30px_rgba(11,28,44,0.08)]">
+      <div className="w-11 h-11 rounded-xl bg-brand-gradient flex items-center justify-center shadow-md shadow-brand-500/20 mb-5">
         <Icon
           className="h-5 w-5"
-          style={{ color: "#0B1C2C" }}
+          style={{ color: "var(--navy-900)" }}
           strokeWidth={2.2}
         />
       </div>
       <h3
         className="font-display text-xl md:text-2xl font-semibold mb-3"
-        style={{ color: "#0B1C2C" }}
+        style={{ color: "var(--navy-900)" }}
       >
         {item.title}
       </h3>
@@ -159,23 +159,23 @@ function SectionCard({ item, icon: iconName }) {
 
 function StackColumn({ title, items }) {
   return (
-    <div className="group relative h-full min-w-0 overflow-hidden rounded-2xl border border-gold-500/15 bg-[linear-gradient(180deg,rgba(12,30,48,0.96),rgba(8,22,35,0.92))] p-5 sm:p-6 md:p-7 shadow-[0_18px_45px_rgba(11,28,44,0.18)]">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.14),transparent_58%)] opacity-80" />
+    <div className="group relative h-full min-w-0 overflow-hidden rounded-2xl border border-brand-500/15 bg-[linear-gradient(180deg,rgba(12,30,48,0.96),rgba(8,22,35,0.92))] p-5 sm:p-6 md:p-7 shadow-[0_18px_45px_rgba(11,28,44,0.18)]">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(var(--brand-500-rgb),0.14),transparent_58%)] opacity-80" />
       <div className="relative z-10">
         <div className="flex items-center justify-between gap-3 mb-5">
           <h3 className="min-w-0 font-display text-xl md:text-2xl font-semibold leading-tight text-foreground">
             {title}
           </h3>
-          <span className="h-2.5 w-2.5 rounded-full bg-gold-500 shadow-[0_0_14px_rgba(212,175,55,0.55)]" />
+          <span className="h-2.5 w-2.5 rounded-full bg-brand-500 shadow-[0_0_14px_rgba(var(--brand-500-rgb),0.55)]" />
         </div>
         <div className="space-y-2">
           {items.map((item) => (
             <div
               key={typeof item === "string" ? item : item.title || item.label}
-              className="flex min-w-0 items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-foreground/85 backdrop-blur-sm transition-colors group-hover:border-gold-500/25 group-hover:bg-gold-500/8 sm:px-3.5"
+              className="flex min-w-0 items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-foreground/85 backdrop-blur-sm transition-colors group-hover:border-brand-500/25 group-hover:bg-brand-500/8 sm:px-3.5"
             >
               {typeof item === "object" && item?.icon ? (
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-gold-500/20 bg-gold-500/10 text-gold-300">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-brand-500/20 bg-brand-500/10 text-brand-300">
                   {(() => {
                     const Icon = ICONS[item.icon] || Workflow;
                     return <Icon className="h-4 w-4" />;
@@ -195,13 +195,13 @@ function StackColumn({ title, items }) {
 
 function CaseStudyCard({ item }) {
   return (
-    <div className="cream-card rounded-2xl p-6 md:p-7 h-full border border-gold-500/10 shadow-[0_10px_30px_rgba(11,28,44,0.08)]">
-      <div className="inline-block text-[10px] uppercase tracking-[0.28em] text-gold-500 mb-4 border border-gold-500/20 rounded-full px-3 py-1.5">
+    <div className="cream-card rounded-2xl p-6 md:p-7 h-full border border-brand-500/10 shadow-[0_10px_30px_rgba(11,28,44,0.08)]">
+      <div className="inline-block text-[10px] uppercase tracking-[0.28em] text-brand-500 mb-4 border border-brand-500/20 rounded-full px-3 py-1.5">
         {item.label}
       </div>
       <h4
         className="font-display text-xl md:text-2xl font-semibold mb-3"
-        style={{ color: "#0B1C2C" }}
+        style={{ color: "var(--navy-900)" }}
       >
         {item.title}
       </h4>
@@ -223,11 +223,11 @@ export default function ServiceDescription({ service }) {
       <div className="container max-w-6xl">
         {/* Overview */}
         <div className="max-w-6xl mb-16">
-          <div className="inline-block text-xs uppercase tracking-[0.3em] text-gold-500 mb-5 border border-gold-500/30 rounded-full px-4 py-1.5">
+          <div className="inline-block text-xs uppercase tracking-[0.3em] text-brand-500 mb-5 border border-brand-500/30 rounded-full px-4 py-1.5">
             Overview
           </div>
           <h2 className="font-display text-3xl md:text-5xl font-semibold leading-tight mb-6 max-w-6xl">
-            What you <span className="text-gold-gradient">actually get.</span>
+            What you <span className="text-brand-gradient">actually get.</span>
           </h2>
           <p className="text-lg text-justify text-muted-foreground leading-relaxed max-w-6xl">
             {service.description}
@@ -236,29 +236,29 @@ export default function ServiceDescription({ service }) {
 
         {featureImage ? (
           <div className="mb-14">
-            <div className="glass-card rounded-[2rem] p-4 md:p-6 border border-gold-500/15 shadow-[0_20px_60px_rgba(11,28,44,0.14)]">
+            <div className="glass-card rounded-[2rem] p-4 md:p-6 border border-brand-500/15 shadow-[0_20px_60px_rgba(11,28,44,0.14)]">
               <div className="grid gap-5">
                 <div className="flex items-center justify-between gap-4 px-1 md:px-2">
                   <div>
-                    <div className="inline-block text-xs uppercase tracking-[0.3em] text-gold-500 mb-3 border border-gold-500/30 rounded-full px-4 py-1.5">
+                    <div className="inline-block text-xs uppercase tracking-[0.3em] text-brand-500 mb-3 border border-brand-500/30 rounded-full px-4 py-1.5">
                       {featureImage.eyebrow}
                     </div>
                     <h3 className="font-display text-2xl md:text-3xl font-semibold leading-tight max-w-6xl">
                       {featureImage.title}
                     </h3>
                   </div>
-                  <div className="hidden md:block text-xs uppercase tracking-[0.28em] text-gold-500/70">
+                  <div className="hidden md:block text-xs uppercase tracking-[0.28em] text-brand-500/70">
                     System map
                   </div>
                 </div>
 
-                <div className="relative overflow-hidden rounded-[1.5rem] bg-[#071a2d] border border-gold-500/10">
+                <div className="relative overflow-hidden rounded-[1.5rem] bg-[#071a2d] border border-brand-500/10">
                   <div className="absolute inset-0 animated-gradient-bg opacity-35" />
                   <div
                     className="absolute inset-0 opacity-[0.09]"
                     style={{
                       backgroundImage:
-                        "linear-gradient(rgba(212,175,55,0.55) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,55,0.55) 1px, transparent 1px)",
+                        "linear-gradient(rgba(var(--brand-500-rgb),0.55) 1px, transparent 1px), linear-gradient(90deg, rgba(var(--brand-500-rgb),0.55) 1px, transparent 1px)",
                       backgroundSize: "64px 64px",
                     }}
                   />
@@ -277,8 +277,8 @@ export default function ServiceDescription({ service }) {
                   <p className="text-muted-foreground max-w-6xl leading-relaxed">
                     {featureImage.caption}
                   </p>
-                  <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-gold-500/80">
-                    <span className="h-1.5 w-1.5 rounded-full bg-gold-500" />
+                  <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-brand-500/80">
+                    <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
                     Lead flow example
                   </div>
                 </div>
@@ -298,7 +298,7 @@ export default function ServiceDescription({ service }) {
                   >
                     <div className="absolute inset-0 animated-gradient-bg opacity-50" />
                     <div className="relative z-10 max-w-6xl">
-                      <div className="inline-block text-xs uppercase tracking-[0.3em] text-gold-500 mb-5 border border-gold-500/30 rounded-full px-4 py-1.5">
+                      <div className="inline-block text-xs uppercase tracking-[0.3em] text-brand-500 mb-5 border border-brand-500/30 rounded-full px-4 py-1.5">
                         {section.eyebrow}
                       </div>
                       <h3 className="font-display text-3xl md:text-5xl font-semibold leading-tight mb-5">
@@ -316,14 +316,14 @@ export default function ServiceDescription({ service }) {
                 return (
                   <div
                     key={section.eyebrow || section.title}
-                    className="glass-card rounded-3xl p-5 sm:p-8 md:p-12 relative overflow-hidden border border-gold-500/15 shadow-[0_20px_60px_rgba(11,28,44,0.14)]"
+                    className="glass-card rounded-3xl p-5 sm:p-8 md:p-12 relative overflow-hidden border border-brand-500/15 shadow-[0_20px_60px_rgba(11,28,44,0.14)]"
                   >
                     <div className="absolute inset-0 animated-gradient-bg opacity-25" />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(212,175,55,0.14),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(19,43,71,0.85),transparent_40%)]" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(var(--brand-500-rgb),0.14),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(var(--navy-700-rgb),0.85),transparent_40%)]" />
                     <div className="relative z-10">
                       <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-8">
                         <div className="max-w-4xl">
-                          <div className="inline-block text-xs uppercase tracking-[0.3em] text-gold-500 mb-4 border border-gold-500/30 rounded-full px-4 py-1.5">
+                          <div className="inline-block text-xs uppercase tracking-[0.3em] text-brand-500 mb-4 border border-brand-500/30 rounded-full px-4 py-1.5">
                             {section.eyebrow}
                           </div>
                           <h3 className="font-display text-3xl md:text-4xl font-semibold leading-tight mb-4">
@@ -333,8 +333,8 @@ export default function ServiceDescription({ service }) {
                             {section.text}
                           </p>
                         </div>
-                        <div className="inline-flex items-center gap-2 rounded-full border border-gold-500/20 bg-navy-900/40 px-4 py-2 text-[10px] uppercase tracking-[0.28em] text-gold-300 backdrop-blur-sm">
-                          <span className="h-1.5 w-1.5 rounded-full bg-gold-500" />
+                        <div className="inline-flex items-center gap-2 rounded-full border border-brand-500/20 bg-navy-900/40 px-4 py-2 text-[10px] uppercase tracking-[0.28em] text-brand-300 backdrop-blur-sm">
+                          <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
                           Modern stack
                         </div>
                       </div>
@@ -361,7 +361,7 @@ export default function ServiceDescription({ service }) {
                   >
                     <div className="absolute inset-0 animated-gradient-bg opacity-35" />
                     <div className="relative z-10">
-                      <div className="inline-block text-xs uppercase tracking-[0.3em] text-gold-500 mb-5 border border-gold-500/30 rounded-full px-4 py-1.5">
+                      <div className="inline-block text-xs uppercase tracking-[0.3em] text-brand-500 mb-5 border border-brand-500/30 rounded-full px-4 py-1.5">
                         {section.eyebrow}
                       </div>
                       <div className="max-w-6xl mb-8">
@@ -386,7 +386,7 @@ export default function ServiceDescription({ service }) {
                           {section.tags.map((tag) => (
                             <span
                               key={tag}
-                              className="inline-flex items-center rounded-full border border-gold-500/20 bg-white/40 px-3 py-1 text-sm text-navy-800"
+                              className="inline-flex items-center rounded-full border border-brand-500/20 bg-white/40 px-3 py-1 text-sm text-navy-800"
                             >
                               {tag}
                             </span>
@@ -411,7 +411,7 @@ export default function ServiceDescription({ service }) {
               return (
                 <div key={section.eyebrow || section.title}>
                   <div className="max-w-6xl mb-8">
-                    <div className="inline-block text-xs uppercase tracking-[0.3em] text-gold-500 mb-4 border border-gold-500/30 rounded-full px-4 py-1.5">
+                    <div className="inline-block text-xs uppercase tracking-[0.3em] text-brand-500 mb-4 border border-brand-500/30 rounded-full px-4 py-1.5">
                       {section.eyebrow}
                     </div>
                     <h3 className="font-display text-3xl md:text-4xl font-semibold leading-tight mb-4">
@@ -441,16 +441,16 @@ export default function ServiceDescription({ service }) {
           <div className="grid md:grid-cols-2 gap-6">
             <div className="cream-card rounded-2xl p-8">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-11 h-11 rounded-lg bg-gold-gradient flex items-center justify-center shadow-md shadow-gold-500/30">
+                <div className="w-11 h-11 rounded-lg bg-brand-gradient flex items-center justify-center shadow-md shadow-brand-500/30">
                   <CheckCircle2
                     className="h-5 w-5"
-                    style={{ color: "#0B1C2C" }}
+                    style={{ color: "var(--navy-900)" }}
                     strokeWidth={2.4}
                   />
                 </div>
                 <h3
                   className="font-display text-2xl font-semibold"
-                  style={{ color: "#0B1C2C" }}
+                  style={{ color: "var(--navy-900)" }}
                 >
                   Benefits
                 </h3>
@@ -458,7 +458,7 @@ export default function ServiceDescription({ service }) {
               <ul className="space-y-3">
                 {service.benefits.map((b, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <div className="shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-gold-gradient" />
+                    <div className="shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-gradient" />
                     <span
                       className="text-sm leading-relaxed"
                       style={{ color: "#1a2c3c" }}
@@ -472,16 +472,16 @@ export default function ServiceDescription({ service }) {
 
             <div className="cream-card rounded-2xl p-8">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-11 h-11 rounded-lg bg-gold-gradient flex items-center justify-center shadow-md shadow-gold-500/30">
+                <div className="w-11 h-11 rounded-lg bg-brand-gradient flex items-center justify-center shadow-md shadow-brand-500/30">
                   <Package
                     className="h-5 w-5"
-                    style={{ color: "#0B1C2C" }}
+                    style={{ color: "var(--navy-900)" }}
                     strokeWidth={2.4}
                   />
                 </div>
                 <h3
                   className="font-display text-2xl font-semibold"
-                  style={{ color: "#0B1C2C" }}
+                  style={{ color: "var(--navy-900)" }}
                 >
                   Key Deliverables
                 </h3>
@@ -489,7 +489,7 @@ export default function ServiceDescription({ service }) {
               <ul className="space-y-3">
                 {service.deliverables.map((d, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <div className="shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-gold-gradient" />
+                    <div className="shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-gradient" />
                     <span
                       className="text-sm leading-relaxed"
                       style={{ color: "#1a2c3c" }}

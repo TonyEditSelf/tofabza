@@ -31,12 +31,12 @@ export default function WhatIBuild() {
     <section id="WhatIBuild" className="py-28 relative">
       <div className="container">
         <div className="max-w-3xl mb-16">
-          <div className="inline-block text-xs uppercase tracking-[0.3em] text-gold-500 mb-4 border border-gold-500/30 rounded-full px-4 py-1.5">
+          <div className="inline-block text-xs uppercase tracking-[0.3em] text-brand-500 mb-4 border border-brand-500/30 rounded-full px-4 py-1.5">
             Capabilities
           </div>
           <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight">
-            What I <span className="text-gold-gradient">build</span> and{" "}
-            <span className="text-gold-gradient">implement</span>
+            What I <span className="text-brand-gradient">build</span> and{" "}
+            <span className="text-brand-gradient">implement</span>
           </h2>
         </div>
 
@@ -52,15 +52,15 @@ export default function WhatIBuild() {
                 className={[
                   "group relative rounded-2xl p-8 glass-card glass-card-hover transition-all overflow-hidden",
                   isAutomate
-                    ? "border-gold-500/60 shadow-[0_0_0_1px_rgba(212,175,55,0.28),0_18px_55px_rgba(212,175,55,0.14)] md:-translate-y-1 md:scale-[1.02]"
+                    ? "border-brand-500/60 shadow-[0_0_0_1px_rgba(var(--brand-500-rgb),0.28),0_18px_55px_rgba(var(--brand-500-rgb),0.14)] md:-translate-y-1 md:scale-[1.02]"
                     : "",
                 ].join(" ")}
               >
                 {isAutomate && (
                   <>
-                    <div className="pointer-events-none absolute inset-0 rounded-2xl border border-gold-400/50" />
+                    <div className="pointer-events-none absolute inset-0 rounded-2xl border border-brand-400/50" />
                     <div className="pointer-events-none absolute inset-0 rounded-2xl]" />
-                    <div className="pointer-events-none absolute left-0 top-0 h-full w-px bg-gradient-to-b from-gold-300/80 via-gold-400/40 to-transparent" />
+                    <div className="pointer-events-none absolute left-0 top-0 h-full w-px bg-gradient-to-b from-brand-300/80 via-brand-400/40 to-transparent" />
                   </>
                 )}
 
@@ -70,19 +70,19 @@ export default function WhatIBuild() {
                       className={[
                         "w-14 h-14 rounded-xl border flex items-center justify-center transition",
                         isAutomate
-                          ? "bg-gold-500/20 border-gold-400/50 shadow-[0_0_24px_rgba(212,175,55,0.18)]"
-                          : "bg-gold-500/10 border-gold-500/20 group-hover:bg-gold-500/20",
+                          ? "bg-brand-500/20 border-brand-400/50 shadow-[0_0_24px_rgba(var(--brand-500-rgb),0.18)]"
+                          : "bg-brand-500/10 border-brand-500/20 group-hover:bg-brand-500/20",
                       ].join(" ")}
                     >
-                      <Icon className="h-6 w-6 text-gold-500" />
+                      <Icon className="h-6 w-6 text-brand-500" />
                     </div>
 
                     <ArrowUpRight
                       className={[
                         "h-5 w-5 transition",
                         isAutomate
-                          ? "text-gold-500 translate-x-0 -translate-y-1"
-                          : "text-gold-500/40 group-hover:text-gold-500 group-hover:-translate-y-1 group-hover:translate-x-1",
+                          ? "text-brand-500 translate-x-0 -translate-y-1"
+                          : "text-brand-500/40 group-hover:text-brand-500 group-hover:-translate-y-1 group-hover:translate-x-1",
                       ].join(" ")}
                     />
                   </div>
@@ -90,7 +90,7 @@ export default function WhatIBuild() {
                   <h3
                     className={[
                       "font-display text-2xl font-semibold mb-2",
-                      isAutomate ? "text-gold-100" : "",
+                      isAutomate ? "text-brand-100" : "",
                     ].join(" ")}
                   >
                     {s.title}
@@ -119,7 +119,7 @@ export default function WhatIBuild() {
                             : "text-muted-foreground",
                         ].join(" ")}
                       >
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-gold-500" />
+                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-500" />
                         {item}
                       </li>
                     ))}
@@ -129,8 +129,8 @@ export default function WhatIBuild() {
                     className={[
                       "mt-auto text-xs uppercase tracking-[0.25em] transition-opacity font-semibold",
                       isAutomate
-                        ? "text-gold-300 opacity-100"
-                        : "text-gold-500 opacity-100 md:opacity-0 md:group-hover:opacity-100",
+                        ? "text-brand-300 opacity-100"
+                        : "text-brand-500 opacity-100 md:opacity-0 md:group-hover:opacity-100",
                     ].join(" ")}
                   >
                     Explore

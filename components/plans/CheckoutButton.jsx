@@ -56,7 +56,7 @@ export default function CheckoutButton({ amount, items }) {
         order_id: data.id,
         name: "Tofabza",
         description: "Premium Digital Growth Plan",
-        theme: { color: "#D4AF37" },
+        theme: { color: "#C65D2A" },
         handler: async (response) => {
           // Verify on server
           const verify = await fetch("/api/verify-payment", {
@@ -94,7 +94,7 @@ export default function CheckoutButton({ amount, items }) {
         size="lg"
         onClick={handleCheckout}
         disabled={loading || amount <= 0}
-        className="w-full bg-gold-gradient text-navy-900 hover:opacity-90 font-semibold h-14 text-base gold-border-glow"
+        className="w-full bg-brand-gradient text-navy-900 hover:opacity-90 font-semibold h-14 text-base brand-border-glow"
       >
         {loading ? <Loader2 className="mr-2 h-5 w-5 animate-spin" /> : <Lock className="mr-2 h-4 w-4" />}
         {loading ? "Processing..." : `Checkout — ₹${amount.toLocaleString("en-IN")}`}

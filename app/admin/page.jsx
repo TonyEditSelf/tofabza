@@ -23,7 +23,7 @@ export default async function AdminDashboard() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold text-gold-gradient">
+      <h1 className="text-3xl font-bold text-brand-gradient">
         Welcome back, {session?.user?.name || "Admin"}
       </h1>
       
@@ -33,7 +33,7 @@ export default async function AdminDashboard() {
             <CardTitle className="text-sm font-medium text-muted-foreground">
               Total Blog Posts
             </CardTitle>
-            <FileText className="h-4 w-4 text-gold-500" />
+            <FileText className="h-4 w-4 text-brand-500" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-foreground">{stats.posts}</div>
@@ -45,7 +45,7 @@ export default async function AdminDashboard() {
             <CardTitle className="text-sm font-medium text-muted-foreground">
               Registered Users
             </CardTitle>
-            <Users className="h-4 w-4 text-gold-500" />
+            <Users className="h-4 w-4 text-brand-500" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-foreground">{stats.users}</div>
@@ -57,7 +57,7 @@ export default async function AdminDashboard() {
             <CardTitle className="text-sm font-medium text-muted-foreground">
               Categories
             </CardTitle>
-            <Activity className="h-4 w-4 text-gold-500" />
+            <Activity className="h-4 w-4 text-brand-500" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-foreground">{stats.categories}</div>

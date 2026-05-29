@@ -10,6 +10,24 @@
 
 @layer base {
   :root {
+    --navy-900: #0B1C2C;
+    --navy-800: #0E2238;
+    --navy-700: #132B47;
+    --brand-500: #C65D2A;
+    --brand-400: #E08055;
+    --brand-600: #A84820;
+    --brand-500-rgb: 198, 93, 42;
+    --brand-400-rgb: 224, 128, 85;
+    --brand-600-rgb: 168, 72, 32;
+    --navy-700-rgb: 19, 43, 71;
+    --cream-bg: #F8F3E8;
+    --cream-bg-rgb: 248, 243, 232;
+    --cream-surface: #EFE8D6;
+    --cream-text: #F5EFE6;
+    --muted-text: #5a6a7a;
+    --muted-warm: #C8BFAD;
+    --muted-cool: #8a9aaa;
+
     /* NAVY — unchanged */
     --background: 210 45% 8%;
     --foreground: 40 30% 96%;
@@ -18,7 +36,7 @@
     --popover: 210 45% 10%;
     --popover-foreground: 40 30% 96%;
 
-    /* CHANGED: gold → burnt sienna */
+    /* Sienna brand accents */
     --primary: 22 66% 47%; /* #C65D2A */
     --primary-foreground: 40 30% 96%;
     --secondary: 210 40% 15%;
@@ -35,7 +53,7 @@
     --border: 210 30% 20%;
     --input: 210 30% 18%;
 
-    /* CHANGED: gold → sienna */
+    /* Sienna focus ring */
     --ring: 22 66% 47%; /* #C65D2A */
     --radius: 0.75rem;
   }
@@ -51,8 +69,8 @@
     /* NAVY — unchanged */
     background: radial-gradient(
       ellipse at top,
-      #0e2238 0%,
-      #0b1c2c 50%,
+      var(--navy-800) 0%,
+      var(--navy-900) 50%,
       #08151f 100%
     );
     min-height: 100vh;
@@ -66,64 +84,79 @@
 }
 
 @layer utilities {
-  /* CHANGED: gold gradient → sienna gradient */
-  .text-gold-gradient {
-    background: linear-gradient(135deg, #e08055 0%, #c65d2a 50%, #a84820 100%);
+  /* Brand gradient utilities */
+  .text-brand-gradient {
+    background: linear-gradient(
+      135deg,
+      var(--brand-400) 0%,
+      var(--brand-500) 50%,
+      var(--brand-600) 100%
+    );
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  .bg-gold-gradient {
-    background: linear-gradient(135deg, #e08055 0%, #c65d2a 50%, #a84820 100%);
+  .bg-brand-gradient {
+    background: linear-gradient(
+      135deg,
+      var(--brand-400) 0%,
+      var(--brand-500) 50%,
+      var(--brand-600) 100%
+    );
   }
 
   /* NAVY — unchanged */
   .bg-navy-gradient {
-    background: linear-gradient(135deg, #0b1c2c 0%, #0e2238 50%, #132b47 100%);
+    background: linear-gradient(
+      135deg,
+      var(--navy-900) 0%,
+      var(--navy-800) 50%,
+      var(--navy-700) 100%
+    );
   }
 
-  /* CHANGED: gold rgba → sienna rgba */
+  /* Brand-accent glass treatment */
   .glass-card {
     background: rgba(14, 34, 56, 0.5);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(198, 93, 42, 0.15);
+    border: 1px solid rgba(var(--brand-500-rgb), 0.15);
   }
   .glass-card-hover {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .glass-card-hover:hover {
-    border-color: rgba(198, 93, 42, 0.4);
-    box-shadow: 0 0 40px rgba(198, 93, 42, 0.15);
+    border-color: rgba(var(--brand-500-rgb), 0.4);
+    box-shadow: 0 0 40px rgba(var(--brand-500-rgb), 0.15);
     transform: translateY(-4px);
   }
-  .gold-border-glow {
+  .brand-border-glow {
     box-shadow:
-      0 0 0 1px rgba(198, 93, 42, 0.3),
-      0 0 30px rgba(198, 93, 42, 0.1);
+      0 0 0 1px rgba(var(--brand-500-rgb), 0.3),
+      0 0 30px rgba(var(--brand-500-rgb), 0.1);
   }
 
   /* NAVY — unchanged */
   .animated-gradient-bg {
     background: linear-gradient(
       120deg,
-      #0b1c2c,
-      #0e2238,
-      #132b47,
-      #0e2238,
-      #0b1c2c
+      var(--navy-900),
+      var(--navy-800),
+      var(--navy-700),
+      var(--navy-800),
+      var(--navy-900)
     );
     background-size: 400% 400%;
     animation: gradient-shift 12s ease infinite;
   }
 
-  /* CHANGED: gold rgba → sienna rgba */
+  /* Brand-accent dividers */
   .section-divider {
     height: 1px;
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(198, 93, 42, 0.3),
+      rgba(var(--brand-500-rgb), 0.3),
       transparent
     );
   }
@@ -134,7 +167,7 @@
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(198, 93, 42, 0.3),
+      rgba(var(--brand-500-rgb), 0.3),
       transparent
     );
     margin-left: 0;
@@ -143,37 +176,37 @@
 
   /* CREAM — unchanged structure, sienna accent refs */
   .cream-section {
-    background: #f8f3e8;
-    color: #0b1c2c;
+    background: var(--cream-bg);
+    color: var(--navy-900);
   }
   .cream-section .text-foreground {
-    color: #0b1c2c !important;
+    color: var(--navy-900) !important;
   }
   .cream-section .text-foreground\/90 {
-    color: #0b1c2c !important;
+    color: var(--navy-900) !important;
   }
   .cream-section .text-muted-foreground {
-    color: #5a6a7a !important;
+    color: var(--muted-text) !important;
   }
   .cream-card {
-    background: #efe8d6;
+    background: var(--cream-surface);
     border: 1px solid rgba(11, 28, 44, 0.08);
     box-shadow: 0 2px 12px rgba(11, 28, 44, 0.05);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .cream-card:hover {
-    border-color: rgba(198, 93, 42, 0.5);
-    box-shadow: 0 0 40px rgba(198, 93, 42, 0.2);
+    border-color: rgba(var(--brand-500-rgb), 0.5);
+    box-shadow: 0 0 40px rgba(var(--brand-500-rgb), 0.2);
     transform: translateY(-4px);
   }
   .cream-card-highlight {
     background: linear-gradient(
       180deg,
-      rgba(198, 93, 42, 0.15) 0%,
-      #efe8d6 100%
+      rgba(var(--brand-500-rgb), 0.15) 0%,
+      var(--cream-surface) 100%
     );
-    border: 1px solid rgba(198, 93, 42, 0.5);
-    box-shadow: 0 0 40px rgba(198, 93, 42, 0.2);
+    border: 1px solid rgba(var(--brand-500-rgb), 0.5);
+    box-shadow: 0 0 40px rgba(var(--brand-500-rgb), 0.2);
   }
 }
 
@@ -182,12 +215,12 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0b1c2c;
+  background: var(--navy-900);
 }
 ::-webkit-scrollbar-thumb {
-  background: #c65d2a;
+  background: var(--brand-500);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #a84820;
+  background: var(--brand-600);
 }

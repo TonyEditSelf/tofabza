@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 export default function SuccessMessage({ onReset }) {
   return (
     <div className="glass-card rounded-2xl p-12 text-center">
-      <div className="w-20 h-20 rounded-full bg-gold-gradient flex items-center justify-center mx-auto mb-6 shadow-lg shadow-gold-500/30">
+      <div className="w-20 h-20 rounded-full bg-brand-gradient flex items-center justify-center mx-auto mb-6 shadow-lg shadow-brand-500/30">
         <CheckCircle2 className="h-10 w-10 text-navy-900" />
       </div>
       <h3 className="font-display text-3xl font-semibold mb-4">
@@ -19,7 +19,7 @@ export default function SuccessMessage({ onReset }) {
       <Button
         onClick={onReset}
         variant="outline"
-        className="border-gold-500/40 text-foreground hover:bg-gold-500/10 hover:text-gold-500"
+        className="border-brand-500/40 text-foreground hover:bg-brand-500/10 hover:text-brand-500"
       >
         Send Another Message
       </Button>

@@ -70,7 +70,7 @@ export default function ContactForm() {
             value={form.name}
             onChange={update("name")}
             placeholder="Your full name"
-            className="h-12 bg-navy-900/50 border-gold-500/20 focus:border-gold-500 focus:ring-gold-500"
+            className="h-12 bg-navy-900/50 border-brand-500/20 focus:border-brand-500 focus:ring-brand-500"
           />
         </div>
         <div className="space-y-2">
@@ -83,7 +83,7 @@ export default function ContactForm() {
             value={form.email}
             onChange={update("email")}
             placeholder="you@company.com"
-            className="h-12 bg-navy-900/50 border-gold-500/20 focus:border-gold-500"
+            className="h-12 bg-navy-900/50 border-brand-500/20 focus:border-brand-500"
           />
         </div>
       </div>
@@ -94,10 +94,10 @@ export default function ContactForm() {
           value={form.service}
           onValueChange={(v) => setForm({ ...form, service: v })}
         >
-          <SelectTrigger className="h-12 bg-navy-900/50 border-gold-500/20">
+          <SelectTrigger className="h-12 bg-navy-900/50 border-brand-500/20">
             <SelectValue placeholder="Select a service" />
           </SelectTrigger>
-          <SelectContent className="bg-navy-800 border-gold-500/20">
+          <SelectContent className="bg-navy-800 border-brand-500/20">
             {SERVICE_OPTIONS.map((s) => (
               <SelectItem key={s} value={s}>
                 {s}
@@ -117,7 +117,7 @@ export default function ContactForm() {
           value={form.message}
           onChange={update("message")}
           placeholder="Tell us about your business and goals..."
-          className="bg-navy-900/50 border-gold-500/20 focus:border-gold-500 resize-none"
+          className="bg-navy-900/50 border-brand-500/20 focus:border-brand-500 resize-none"
         />
       </div>
 
@@ -125,7 +125,7 @@ export default function ContactForm() {
         type="submit"
         disabled={loading}
         size="lg"
-        className="w-full bg-gold-gradient text-navy-900 hover:opacity-90 font-semibold h-14 text-base gold-border-glow"
+        className="w-full bg-brand-gradient text-navy-900 hover:opacity-90 font-semibold h-14 text-base brand-border-glow"
       >
         {loading ? (
           <Loader2 className="mr-2 h-5 w-5 animate-spin" />

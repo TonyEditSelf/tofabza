@@ -15,7 +15,7 @@ export default function CartPage() {
   if (status === "loading") {
     return (
       <div className="min-h-screen flex items-center justify-center bg-navy-900">
-        <Loader2 className="h-8 w-8 animate-spin text-gold-500" />
+        <Loader2 className="h-8 w-8 animate-spin text-brand-500" />
       </div>
     );
   }
@@ -26,14 +26,14 @@ export default function CartPage() {
 
       <div className="container">
         <div className="max-w-4xl  mb-16 animate-fade-up">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/30 bg-navy-800/40 backdrop-blur-sm mb-8">
-            <Sparkles className="h-4 w-4 text-gold-500" />
-            <span className="text-xs uppercase tracking-[0.2em] text-gold-400 font-medium">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand-500/30 bg-navy-800/40 backdrop-blur-sm mb-8">
+            <Sparkles className="h-4 w-4 text-brand-500" />
+            <span className="text-xs uppercase tracking-[0.2em] text-brand-400 font-medium">
               Checkout
             </span>
           </div>
           <h1 className="font-display text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.05] font-semibold mb-6">
-            Your <span className="text-gold-gradient">Cart.</span>
+            Your <span className="text-brand-gradient">Cart.</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
             Review your selected plans before checking out.
@@ -42,7 +42,7 @@ export default function CartPage() {
             <Link
               href="/plans"
               className="text-md 
-                 text-gold-500 hover:underline font-medium"
+                 text-brand-500 hover:underline font-medium"
             >
               ← Continue browsing plans
             </Link>

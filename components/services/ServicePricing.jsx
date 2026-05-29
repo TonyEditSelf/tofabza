@@ -6,12 +6,12 @@ export default function ServicePricing({ service }) {
     <section className="py-20">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-block text-xs uppercase tracking-[0.3em] text-gold-500 mb-5 border border-gold-500/30 rounded-full px-4 py-1.5">
+          <div className="inline-block text-xs uppercase tracking-[0.3em] text-brand-500 mb-5 border border-brand-500/30 rounded-full px-4 py-1.5">
             Pricing
           </div>
           <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight mb-5">
             Plans for{" "}
-            <span className="text-gold-gradient">{service.title}</span>.
+            <span className="text-brand-gradient">{service.title}</span>.
           </h2>
           <p className="text-muted-foreground">
             Pick a tier that fits where you are today. Upgrade anytime.
