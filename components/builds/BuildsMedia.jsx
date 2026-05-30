@@ -440,16 +440,20 @@ export default function BuildsMedia() {
                               }}
                             >
                               {["problem", "solution", "outcome"].map((key) => (
-                                <div key={key}>
+                                <div
+                                  key={key}
+                                  className="flex flex-col gap-0.5 sm:flex-row sm:gap-2 text-sm"
+                                >
                                   <p
-                                    className="mb-1 text-[10px] uppercase tracking-[0.2em]"
-                                    style={{ color: "rgba(198,93,42,0.55)" }}
+                                    className="font-medium shrink-0"
+                                    style={{ color: "#C65D2A" }}
                                   >
                                     {key.charAt(0).toUpperCase() + key.slice(1)}
+                                    :
                                   </p>
                                   <p
-                                    className="text-sm leading-relaxed"
-                                    style={{ color: "rgba(245,239,230,0.45)" }}
+                                    className="leading-relaxed"
+                                    style={{ color: "rgba(245,239,230,0.6)" }}
                                   >
                                     {app.caseStudy[key]}
                                   </p>
