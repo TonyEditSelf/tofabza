@@ -298,6 +298,30 @@ const PlansPage = () => {
               </div>
             ))}
           </div>
+
+          <div className="glass-card mt-12 rounded-2xl border border-brand-500/15 px-6 py-7 text-left md:px-8">
+            <h3
+              className="font-display text-2xl font-semibold leading-tight mb-4"
+              style={{ color: "var(--cream-text)" }}
+            >
+              What happens after the founding-member program?
+            </h3>
+            <div className="flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground md:text-base">
+              <p>
+                The founding-member program exists to generate documented case
+                studies across multiple businesses.
+              </p>
+              <p>
+                Once the initial projects are completed and results are
+                documented, future engagements will move to standard paid
+                pricing based on project scope and business impact.
+              </p>
+              <p>
+                The goal is simple: prove the system works, document the
+                outcomes, then charge appropriately for the value delivered.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="full-bleed-divider" />

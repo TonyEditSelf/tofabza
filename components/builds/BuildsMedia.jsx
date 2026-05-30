@@ -9,6 +9,17 @@ const APPS = [
     name: "Ecommerce Store",
     url: "https://ecommerce-store-ten-chi.vercel.app/",
     video: "/videos/EcomStores.mp4",
+    classification: "SHOWCASE BUILD",
+    classificationDescription:
+      "A production-grade showcase build created to demonstrate end-to-end full-stack eCommerce development capability.",
+    metadata: [
+      { label: "Role", value: "Full-Stack Development" },
+      {
+        label: "Purpose",
+        value:
+          "Demonstrate end-to-end eCommerce application development capability",
+      },
+    ],
     description:
       "A full-stack premium electronics store with curated product catalog, cart, orders, admin panel, and live payments.",
     image: "/images/EcomStores.png",
@@ -34,6 +45,17 @@ const APPS = [
     name: "Cosira",
     url: "https://cosira.vercel.app/",
     video: "/videos/Cosira.mp4",
+    classification: "PERSONAL PRODUCT",
+    classificationDescription:
+      "Built as a personal software product to demonstrate product development, UX design, and engineering capability.",
+    metadata: [
+      { label: "Status", value: "Live" },
+      { label: "Role", value: "Product Design, Development" },
+      {
+        label: "Purpose",
+        value: "Demonstrate SaaS product development capability",
+      },
+    ],
     description:
       "A suite of 11 precision color tools built on OKLCH - generate palettes, export to CSS, Tailwind, or JSON. Built for designers who care about accuracy. Cosira is a DESKTOP app. Its NOT available on small screens, but you can check out the video to see it in action.",
     image: "/images/cosira.png",
@@ -52,6 +74,18 @@ const APPS = [
     name: "MotionZest Studio - In progress",
     url: "https://motion-zest-editor.vercel.app/",
     video: "/videos/MotionZest.mp4",
+    classification: "PERSONAL PRODUCT (IN DEVELOPMENT)",
+    classificationDescription:
+      "A personal software product currently under development, demonstrating advanced frontend engineering and application architecture.",
+    metadata: [
+      { label: "Status", value: "In Development" },
+      { label: "Role", value: "Product Design, Frontend Development" },
+      {
+        label: "Purpose",
+        value:
+          "Demonstrate modern application architecture and frontend engineering capability",
+      },
+    ],
     description:
       "A visual 3D animation editor that outputs clean, tree-shakable Three.js source code - no proprietary runtime. Built for creative developers and motion designers who need timeline-first control over web 3D scenes.",
     image: "/images/motionzest.png",
@@ -70,6 +104,17 @@ const APPS = [
     name: "Elysian",
     url: "https://elysian-dusky.vercel.app/",
     video: "/videos/Elysian.mp4",
+    classification: "DESIGN CONCEPT",
+    classificationDescription:
+      "A self-initiated design concept created to demonstrate premium website design and luxury brand positioning.",
+    metadata: [
+      { label: "Role", value: "Brand Strategy, UI/UX Design" },
+      {
+        label: "Purpose",
+        value:
+          "Demonstrate premium web design and luxury brand positioning capability",
+      },
+    ],
     description:
       "A multi-page luxury real estate website for estate builders. Built to demonstrate high-end service brand design.",
     image: "/images/elysian.png",
@@ -88,6 +133,19 @@ const APPS = [
     name: "Tony Stores",
     url: "https://store-ui-ux.vercel.app/",
     video: "/videos/TonyStores.mp4",
+    classification: "DESIGN CONCEPT",
+    classificationDescription:
+      "A self-initiated eCommerce design concept created to demonstrate conversion-focused UI and eCommerce experience design.",
+    metadata: [
+      {
+        label: "Role",
+        value: "UI/UX Design, eCommerce Experience Design",
+      },
+      {
+        label: "Purpose",
+        value: "Demonstrate conversion-focused eCommerce design capability",
+      },
+    ],
     description:
       "Design concept - a full-page premium tech e-commerce UI. Product grids, category browsing, trending sections, and brand trust signals - built to demonstrate e-commerce layout and design depth.",
     image: "/images/tonystores.png",
@@ -138,25 +196,56 @@ export default function BuildsMedia() {
             return (
               <article
                 key={app.id}
-                className={`group min-w-0 overflow-hidden rounded-[2rem] border border-brand-500/20 transition-all duration-300 hover:border-brand-500/40 hover:shadow-2xl hover:shadow-brand-500/10 ${
+                className={`group min-w-0 overflow-hidden rounded-[1.25rem] transition-all duration-300 ${
                   app.isPlaceholder ? "opacity-80 hover:opacity-100" : ""
                 }`}
-                style={{ backgroundColor: "rgba(14, 34, 56, 0.82)" }}
+                style={{
+                  background: "#0B1C2C",
+                  position: "relative",
+                  border: "1px solid transparent",
+                  backgroundClip: "padding-box",
+                  boxShadow:
+                    "0 0 0 1px rgba(198,93,42,0.25), 0 24px 60px rgba(0,0,0,0.35), inset 0 0 120px rgba(198,93,42,0.03)",
+                }}
               >
-                <div className="grid h-full md:grid-cols-[280px_1fr]">
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    borderRadius: "1.25rem",
+                    padding: "1px",
+                    zIndex: 0,
+                    pointerEvents: "none",
+                    background:
+                      "linear-gradient(135deg, rgba(198,93,42,0.45) 0%, rgba(19,43,71,0.6) 45%, rgba(198,93,42,0.15) 100%)",
+                    WebkitMask:
+                      "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                    WebkitMaskComposite: "xor",
+                    maskComposite: "exclude",
+                  }}
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    top: -80,
+                    right: 80,
+                    width: 400,
+                    height: 380,
+                    borderRadius: "50%",
+                    zIndex: 0,
+                    pointerEvents: "none",
+                    background:
+                      "radial-gradient(circle, rgba(198,93,42,0.06) 0%, transparent 68%)",
+                  }}
+                />
+                <div
+                  className="grid h-full md:grid-cols-[280px_1fr]"
+                  style={{ position: "relative", zIndex: 1 }}
+                >
                   <div
-                    className="relative overflow-hidden border-b border-brand-500/10 md:border-b-0 md:border-r"
-                    style={{ backgroundColor: "rgba(11, 28, 44, 0.95)" }}
+                    className="relative overflow-hidden border-b md:border-b-0 md:border-r"
+                    style={{ background: "#0E2238", borderColor: "#132B47" }}
                   >
-                    <div
-                      className="absolute inset-0 opacity-[0.08]"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(rgba(var(--brand-500-rgb),0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(var(--brand-500-rgb),0.6) 1px, transparent 1px)",
-                        backgroundSize: "60px 60px",
-                      }}
-                    />
-
                     {app.image && (
                       <>
                         <div className="absolute inset-0 p-4">
@@ -180,8 +269,54 @@ export default function BuildsMedia() {
 
                   <div className="flex flex-col gap-8 p-6 md:gap-5 md:p-7 lg:p-8">
                     <div className="flex flex-col gap-4">
-                      <div className="mb-3 flex flex-wrap items-center gap-2">
-                        <h3 className="font-display text-2xl font-semibold text-foreground md:text-3xl">
+                      {app.classification && (
+                        <div className="flex max-w-4xl flex-col items-start gap-2">
+                          <span
+                            className="inline-flex items-center rounded-full px-3 py-1 text-[10px] font-medium uppercase tracking-[0.22em]"
+                            style={{
+                              color: "#C65D2A",
+                              border: "1px solid rgba(198,93,42,0.4)",
+                              background: "rgba(198,93,42,0.08)",
+                            }}
+                          >
+                            {app.classification}
+                          </span>
+                          <p
+                            className="text-sm leading-relaxed"
+                            style={{ color: "rgba(245,239,230,0.45)" }}
+                          >
+                            {app.classificationDescription}
+                          </p>
+                          {app.metadata?.length > 0 && (
+                            <dl className="flex flex-col gap-1.5 text-sm leading-relaxed">
+                              {app.metadata.map((item) => (
+                                <div
+                                  key={item.label}
+                                  className="flex flex-col gap-0.5 sm:flex-row sm:gap-2"
+                                >
+                                  <dt
+                                    className="font-medium"
+                                    style={{ color: "#C65D2A" }}
+                                  >
+                                    {item.label}:
+                                  </dt>
+                                  <dd
+                                    style={{ color: "rgba(245,239,230,0.6)" }}
+                                  >
+                                    {item.value}
+                                  </dd>
+                                </div>
+                              ))}
+                            </dl>
+                          )}
+                        </div>
+                      )}
+
+                      <div className="flex flex-wrap items-center gap-2">
+                        <h3
+                          className="font-display text-2xl font-semibold md:text-3xl"
+                          style={{ color: "#F5EFE6", letterSpacing: "-0.02em" }}
+                        >
                           {app.name}
                         </h3>
                         {app.isPlaceholder && (
@@ -190,7 +325,13 @@ export default function BuildsMedia() {
                           </span>
                         )}
                       </div>
-                      <p className="text-sm leading-relaxed text-muted-foreground md:text-base">
+                      <p
+                        className="text-sm leading-relaxed md:text-base"
+                        style={{
+                          color: "rgba(245,239,230,0.45)",
+                          fontWeight: 300,
+                        }}
+                      >
                         {app.description}
                       </p>
 
@@ -234,7 +375,22 @@ export default function BuildsMedia() {
                         {app.stack.map((tech) => (
                           <span
                             key={tech}
-                            className="rounded-full border border-brand-500/20 bg-brand-500/5 px-2.5 py-1 text-[11px] font-mono uppercase tracking-wider text-brand-500/70"
+                            className="rounded-md px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider transition-all duration-200 cursor-default"
+                            style={{
+                              color: "rgba(245,239,230,0.38)",
+                              background: "rgba(19,43,71,0.7)",
+                              border: "1px solid #132B47",
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.color = "#F5EFE6";
+                              e.currentTarget.style.borderColor =
+                                "rgba(198,93,42,0.3)";
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.color =
+                                "rgba(245,239,230,0.38)";
+                              e.currentTarget.style.borderColor = "#132B47";
+                            }}
                           >
                             {tech}
                           </span>
@@ -248,7 +404,15 @@ export default function BuildsMedia() {
                           onClick={() =>
                             setExpandedId(expandedId === app.id ? null : app.id)
                           }
-                          className="flex w-full items-center justify-between px-4 py-3 text-sm text-brand-500/80 transition-colors hover:bg-brand-500/5 hover:text-brand-500"
+                          className="flex w-full items-center justify-between px-4 py-3 text-sm transition-colors"
+                          style={{ color: "#C65D2A" }}
+                          onMouseEnter={(e) =>
+                            (e.currentTarget.style.background =
+                              "rgba(198,93,42,0.05)")
+                          }
+                          onMouseLeave={(e) =>
+                            (e.currentTarget.style.background = "transparent")
+                          }
                         >
                           <span className="font-medium tracking-wide">
                             View Case Study
@@ -268,31 +432,29 @@ export default function BuildsMedia() {
                           }`}
                         >
                           <div className="overflow-hidden">
-                            <div className="flex flex-col gap-4 border-t border-brand-500/10 bg-brand-500/[0.03] px-4 pb-6 pt-6">
-                              <div>
-                                <p className="mb-1 text-[10px] uppercase tracking-[0.2em] text-brand-500/50">
-                                  Problem
-                                </p>
-                                <p className="text-sm leading-relaxed text-muted-foreground">
-                                  {app.caseStudy.problem}
-                                </p>
-                              </div>
-                              <div>
-                                <p className="mb-1 text-[10px] uppercase tracking-[0.2em] text-brand-500/50">
-                                  Solution
-                                </p>
-                                <p className="text-sm leading-relaxed text-muted-foreground">
-                                  {app.caseStudy.solution}
-                                </p>
-                              </div>
-                              <div>
-                                <p className="mb-1 text-[10px] uppercase tracking-[0.2em] text-brand-500/50">
-                                  Outcome
-                                </p>
-                                <p className="text-sm leading-relaxed text-muted-foreground">
-                                  {app.caseStudy.outcome}
-                                </p>
-                              </div>
+                            <div
+                              className="flex flex-col gap-4 px-4 pb-6 pt-6"
+                              style={{
+                                borderTop: "1px solid #132B47",
+                                background: "rgba(19,43,71,0.3)",
+                              }}
+                            >
+                              {["problem", "solution", "outcome"].map((key) => (
+                                <div key={key}>
+                                  <p
+                                    className="mb-1 text-[10px] uppercase tracking-[0.2em]"
+                                    style={{ color: "rgba(198,93,42,0.55)" }}
+                                  >
+                                    {key.charAt(0).toUpperCase() + key.slice(1)}
+                                  </p>
+                                  <p
+                                    className="text-sm leading-relaxed"
+                                    style={{ color: "rgba(245,239,230,0.45)" }}
+                                  >
+                                    {app.caseStudy[key]}
+                                  </p>
+                                </div>
+                              ))}
                             </div>
                           </div>
                         </div>
@@ -304,76 +466,13 @@ export default function BuildsMedia() {
             );
           })}
         </div>
+
+        <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground">
+          Portfolio includes a mix of personal products, design concepts, and
+          showcase builds created to demonstrate different aspects of product
+          strategy, design, and engineering capability.
+        </p>
       </div>
-
-      {/* {activeApp && (
-      
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-navy-950/90 p-4 backdrop-blur-md sm:p-6 md:p-12">
-          <div
-            className="absolute inset-0 cursor-pointer"
-            onClick={() => setActiveApp(null)}
-          />
-
-          <div className="relative z-10 flex max-h-[88vh] w-full max-w-5xl flex-col items-center animate-fade-up">
-            <div className="flex w-full items-center justify-between rounded-t-[2rem] border border-brand-500/30 border-b-0 bg-navy-900 px-4 py-2.5">
-              <div className="flex items-center gap-2">
-                <div className="flex gap-1.5">
-                  <div className="h-2.5 w-2.5 rounded-full bg-red-500/80" />
-                  <div className="h-2.5 w-2.5 rounded-full bg-yellow-500/80" />
-                  <div className="h-2.5 w-2.5 rounded-full bg-green-500/80" />
-                </div>
-                <div className="ml-4 hidden max-w-xs truncate rounded-md border border-brand-500/10 bg-navy-950 px-3 py-0.5 text-xs font-mono uppercase tracking-wider text-brand-500/70 sm:block md:max-w-md">
-                  {activeApp.name} Video Showcase
-                </div>
-              </div>
-              <button
-                onClick={() => setActiveApp(null)}
-                className="rounded-full border border-transparent bg-navy-950/50 p-2 text-muted-foreground transition-colors hover:border-brand-500/30 hover:bg-brand-500/20 hover:text-brand-500"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-
-            <div className="relative w-full overflow-hidden rounded-b-[2rem] border border-brand-500/30 border-t-0 bg-black shadow-2xl shadow-brand-500/10">
-              <div
-                className="absolute inset-0 flex items-center justify-center bg-navy-900"
-                aria-hidden="true"
-              >
-                <div className="flex animate-pulse flex-col items-center gap-4">
-                  <div className="h-10 w-10 animate-spin rounded-full border-2 border-brand-500/30 border-t-brand-500" />
-                  <p className="text-sm uppercase tracking-widest text-brand-500/70">
-                    Loading Preview...
-                  </p>
-                </div>
-              </div>
-
-              {activeApp.video && (
-                <video
-                  src={activeApp.video}
-                  className="relative z-10 aspect-video w-full object-contain"
-                  autoPlay
-                  loop
-                  muted
-                  controls
-                  playsInline
-                />
-              )}
-            </div>
-
-            <div className="mt-4 flex items-center gap-2 rounded-full border border-brand-500/20 bg-navy-900/60 px-4 py-2 text-sm text-muted-foreground backdrop-blur-sm">
-              <ExternalLink className="h-4 w-4 text-brand-500/70" />
-              <a
-                href={activeApp.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline-offset-4 transition-colors hover:text-brand-500 hover:underline"
-              >
-                Open live website
-              </a>
-            </div>
-          </div>
-        </div>
-      )} */}
 
       {activeApp && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
