@@ -71,7 +71,7 @@ const APPS = [
   },
   {
     id: 3,
-    name: "MotionZest Studio - In progress",
+    name: "MotionZest Studio",
     url: "https://motion-zest-editor.vercel.app/",
     video: "/videos/MotionZest.mp4",
     classification: "PERSONAL PRODUCT (IN DEVELOPMENT)",
