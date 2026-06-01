@@ -1,4 +1,5 @@
 import "./globals.css";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Toaster } from "@/components/ui/sonner";
 import { CartProvider } from "@/context/CartContext";
 import Navbar from "@/components/layout/Navbar";
@@ -52,6 +53,7 @@ export default function RootLayout({ children }) {
           </AuthProvider>
         </NextAuthProvider>
       </body>
+      <GoogleAnalytics gaId="G-J8G8CL1GH2" />
     </html>
   );
 }
