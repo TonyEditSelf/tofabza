@@ -11,11 +11,12 @@ export default function CTA() {
           <div className="absolute inset-0 animated-gradient-bg opacity-60" />
           <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-brand-500/20 blur-[120px]" />
           <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-brand-500/10 blur-[120px]" />
-          <div className="relative z-10 max-w-4xl mx-auto">
-            <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight mb-6">
-              5 slots open. No fee — <br />
+          <div className="relative z-10 max-w-3xl mx-auto">
+            <h2 className="font-display text-3xl md:text-5xl font-semibold leading-tight mb-6">
+              Founding Member Program — 5 slots available.
+              <br />
               <span className="text-brand-gradient">
-                just three commitments.
+                No project fee. Three commitments required.
               </span>
             </h2>
 
@@ -28,15 +29,6 @@ export default function CTA() {
                   Book a Free Slot <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              {/* <Link href="/plans" className="w-full sm:w-auto">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="w-full border-brand-500/40 text-foreground hover:bg-brand-500/10 hover:text-brand-500 px-8 h-14 text-base"
-                >
-                  View Plans
-                </Button>
-              </Link> */}
             </div>
           </div>
         </div>

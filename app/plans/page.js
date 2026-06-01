@@ -50,16 +50,15 @@ const PlansPage = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed text-center">
-            I'm opening{" "}
-            <span className="text-brand-500 font-semibold">5 slots</span> to
-            build one focused digital system — a website, an automation setup,
-            or a content system — at no cost. Not because the work isn't worth
-            it — because I want{" "}
+            I'm opening <span className="text-brand-500 font-semibold">5</span>{" "}
+            founding member slots for businesses that need a website, automation
+            system, or content workflow. Not because the work isn't worth it —
+            because I want{" "}
             <span className="text-brand-500 font-semibold">
               proof that it works
             </span>{" "}
             across different businesses. You get real, focused work. I get a
-            real case study.
+            documented case study and honest feedback.
           </p>
         </div>
 
@@ -152,7 +151,9 @@ const PlansPage = () => {
                 What you actually get
               </div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight mb-6">
-                <span style={{ color: "var(--cream-text)" }}>A real system. </span>
+                <span style={{ color: "var(--cream-text)" }}>
+                  A real system.{" "}
+                </span>
                 <span className="text-brand-gradient">
                   Built for your business.
                 </span>
@@ -238,7 +239,9 @@ const PlansPage = () => {
             After the 5 slots
           </div>
           <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight mb-6">
-            <span style={{ color: "var(--cream-text)" }}>The price goes up. </span>
+            <span style={{ color: "var(--cream-text)" }}>
+              The price goes up.{" "}
+            </span>
             <span className="text-brand-gradient">That's the plan.</span>
           </h2>
           <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto mb-10">
@@ -279,19 +282,29 @@ const PlansPage = () => {
               >
                 <p
                   className="text-xs font-bold uppercase tracking-[0.2em] mb-2"
-                  style={{ color: tier.active ? "var(--brand-500)" : "#6a7a8a" }}
+                  style={{
+                    color: tier.active ? "var(--brand-500)" : "#6a7a8a",
+                  }}
                 >
                   {tier.label}
                 </p>
                 <p
                   className="font-display text-lg font-semibold mb-1"
-                  style={{ color: tier.active ? "var(--cream-text)" : "var(--muted-cool)" }}
+                  style={{
+                    color: tier.active
+                      ? "var(--cream-text)"
+                      : "var(--muted-cool)",
+                  }}
                 >
                   {tier.price}
                 </p>
                 <p
                   className="text-xs"
-                  style={{ color: tier.active ? "var(--muted-warm)" : "var(--muted-text)" }}
+                  style={{
+                    color: tier.active
+                      ? "var(--muted-warm)"
+                      : "var(--muted-text)",
+                  }}
                 >
                   {tier.note}
                 </p>

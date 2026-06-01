@@ -53,8 +53,8 @@ const ServicePage = ({ params }) => {
                 <span className="text-brand-gradient">{service.title}?</span>
               </h3>
               <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-                Right now I'm building for free — one project, no fee, just
-                three simple commitments in return.
+                Currently accepting 5 founding member projects at no project
+                fee, just three simple commitments in return.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link
