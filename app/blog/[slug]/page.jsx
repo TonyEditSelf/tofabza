@@ -120,7 +120,7 @@ export default async function BlogPostPage({ params }) {
             <img
               src={post.featuredImage}
               alt={post.featuredImageAlt || post.title}
-              className="w-full h-auto max-h-[600px] object-cover"
+              className="w-full h-auto max-h-[600px] object-contain"
             />
           </div>
         )}
@@ -191,7 +191,7 @@ export default async function BlogPostPage({ params }) {
                           alt={
                             relatedPost.featuredImageAlt || relatedPost.title
                           }
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                         />
                       ) : (
                         <div className="w-full h-full bg-accent/10" />
