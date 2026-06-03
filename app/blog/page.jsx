@@ -9,7 +9,8 @@ import { getPublishedPosts, getCategories } from "@/lib/blog-utils";
 
 export const metadata = {
   title: "Blog | Tofabza Digital Solutions",
-  description: "Insights, tutorials, and strategies for modern web development and digital marketing.",
+  description:
+    "Insights, tutorials, and strategies for modern web development and digital marketing.",
 };
 
 export default async function BlogIndexPage({ searchParams }) {
@@ -19,10 +20,11 @@ export default async function BlogIndexPage({ searchParams }) {
 
   const [categories, { posts, totalPages }] = await Promise.all([
     getCategories(),
-    getPublishedPosts({ page, search: q, categorySlug, limit: 9 })
+    getPublishedPosts({ page, search: q, categorySlug, limit: 9 }),
   ]);
 
-  const featuredPost = (page === 1 && !q && !categorySlug && posts.length > 0) ? posts[0] : null;
+  const featuredPost =
+    page === 1 && !q && !categorySlug && posts.length > 0 ? posts[0] : null;
   const gridPosts = featuredPost ? posts.slice(1) : posts;
 
   return (
@@ -38,27 +40,38 @@ export default async function BlogIndexPage({ searchParams }) {
             </span>
           </h1>
           <p className="text-lg text-muted-foreground">
-            Deep dives into web development, workflow automation, and digital growth strategies.
+            Deep dives into web development, workflow automation, and digital
+            growth strategies.
           </p>
 
           {/* Filters & Search */}
           <div className="flex flex-col md:flex-row justify-center items-center gap-6 pt-12">
             <div className="flex flex-wrap justify-center gap-2">
               <Link href="/blog">
-                <Badge variant={!categorySlug ? "default" : "outline"} className="cursor-pointer text-sm px-4 py-1">
+                <Badge
+                  variant={!categorySlug ? "default" : "outline"}
+                  className="cursor-pointer text-sm px-4 py-1"
+                >
                   All Posts
                 </Badge>
               </Link>
               {categories.map((cat) => (
                 <Link key={cat._id} href={`/blog?category=${cat.slug}`}>
-                  <Badge variant={categorySlug === cat.slug ? "default" : "outline"} className="cursor-pointer text-sm px-4 py-1">
+                  <Badge
+                    variant={categorySlug === cat.slug ? "default" : "outline"}
+                    className="cursor-pointer text-sm px-4 py-1"
+                  >
                     {cat.name}
                   </Badge>
                 </Link>
               ))}
             </div>
 
-            <form action="/blog" method="GET" className="relative w-full md:w-72">
+            <form
+              action="/blog"
+              method="GET"
+              className="relative w-full md:w-72"
+            >
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
                 type="search"
@@ -67,7 +80,9 @@ export default async function BlogIndexPage({ searchParams }) {
                 placeholder="Search articles..."
                 className="pl-9 bg-card/50 border-border"
               />
-              {categorySlug && <input type="hidden" name="category" value={categorySlug} />}
+              {categorySlug && (
+                <input type="hidden" name="category" value={categorySlug} />
+              )}
             </form>
           </div>
         </div>
@@ -83,7 +98,7 @@ export default async function BlogIndexPage({ searchParams }) {
                   {featuredPost.featuredImage ? (
                     <img
                       src={featuredPost.featuredImage}
-                      alt={featuredPost.title}
+                      alt={featuredPost.featuredImageAlt || featuredPost.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   ) : (
@@ -95,11 +110,14 @@ export default async function BlogIndexPage({ searchParams }) {
                 <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-center space-y-4">
                   <div className="flex items-center gap-3 text-sm">
                     {featuredPost.categoryDetails?.[0] && (
-                      <span className="text-accent font-medium">{featuredPost.categoryDetails[0].name}</span>
+                      <span className="text-accent font-medium">
+                        {featuredPost.categoryDetails[0].name}
+                      </span>
                     )}
                     <span className="text-muted-foreground">•</span>
                     <span className="text-muted-foreground flex items-center">
-                      <Clock className="w-3 h-3 mr-1" /> {featuredPost.readingTime} min read
+                      <Clock className="w-3 h-3 mr-1" />{" "}
+                      {featuredPost.readingTime} min read
                     </span>
                   </div>
                   <h2 className="text-3xl font-bold font-display group-hover:text-brand-gradient transition-colors">
@@ -111,16 +129,25 @@ export default async function BlogIndexPage({ searchParams }) {
                   <div className="flex items-center justify-between pt-4">
                     <div className="flex items-center gap-3">
                       {featuredPost.authorDetails?.image ? (
-                        <img src={featuredPost.authorDetails.image} alt="Author" className="w-10 h-10 rounded-full" />
+                        <img
+                          src={featuredPost.authorDetails.image}
+                          alt="Author"
+                          className="w-10 h-10 rounded-full"
+                        />
                       ) : (
                         <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-medium">
                           {featuredPost.authorDetails?.name?.[0] || "A"}
                         </div>
                       )}
                       <div>
-                        <p className="text-sm font-medium">{featuredPost.authorDetails?.name || "Tofabza Team"}</p>
+                        <p className="text-sm font-medium">
+                          {featuredPost.authorDetails?.name || "Tofabza Team"}
+                        </p>
                         <p className="text-xs text-muted-foreground">
-                          {format(new Date(featuredPost.publishedAt), "MMMM d, yyyy")}
+                          {format(
+                            new Date(featuredPost.publishedAt),
+                            "MMMM d, yyyy",
+                          )}
                         </p>
                       </div>
                     </div>
@@ -136,13 +163,17 @@ export default async function BlogIndexPage({ searchParams }) {
           {gridPosts.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {gridPosts.map((post) => (
-                <Link key={post._id} href={`/blog/${post.slug}`} className="group block h-full">
+                <Link
+                  key={post._id}
+                  href={`/blog/${post.slug}`}
+                  className="group block h-full"
+                >
                   <Card className="h-full flex flex-col bg-card border-border hover:border-accent/50 transition-colors duration-300">
                     <div className="h-48 overflow-hidden rounded-t-lg bg-muted relative">
                       {post.featuredImage ? (
                         <img
                           src={post.featuredImage}
-                          alt={post.title}
+                          alt={post.featuredImageAlt || post.title}
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                       ) : (
@@ -164,11 +195,16 @@ export default async function BlogIndexPage({ searchParams }) {
                     </CardContent>
                     <CardFooter className="p-6 pt-0 flex items-center justify-between text-sm text-muted-foreground border-t border-border/50 mt-auto">
                       <div className="flex flex-col mt-4">
-                        <span className="font-medium text-foreground">{post.authorDetails?.name || "Tofabza"}</span>
-                        <span>{format(new Date(post.publishedAt), "MMM d, yyyy")}</span>
+                        <span className="font-medium text-foreground">
+                          {post.authorDetails?.name || "Tofabza"}
+                        </span>
+                        <span>
+                          {format(new Date(post.publishedAt), "MMM d, yyyy")}
+                        </span>
                       </div>
                       <div className="flex items-center mt-4">
-                        <Clock className="w-3 h-3 mr-1" /> {post.readingTime} min
+                        <Clock className="w-3 h-3 mr-1" /> {post.readingTime}{" "}
+                        min
                       </div>
                     </CardFooter>
                   </Card>
@@ -177,8 +213,12 @@ export default async function BlogIndexPage({ searchParams }) {
             </div>
           ) : (
             <div className="text-center py-20 glass-card rounded-xl">
-              <h3 className="text-2xl font-bold text-muted-foreground">No posts found</h3>
-              <p className="text-muted-foreground mt-2">Try adjusting your filters or search query.</p>
+              <h3 className="text-2xl font-bold text-muted-foreground">
+                No posts found
+              </h3>
+              <p className="text-muted-foreground mt-2">
+                Try adjusting your filters or search query.
+              </p>
             </div>
           )}
         </section>
@@ -186,14 +226,22 @@ export default async function BlogIndexPage({ searchParams }) {
         {/* Pagination */}
         {totalPages > 1 && (
           <div className="flex items-center justify-center gap-2 pt-8 border-t border-border section-divider">
-            <Link href={`/blog?page=${Math.max(1, page - 1)}${q ? `&q=${q}` : ""}${categorySlug ? `&category=${categorySlug}` : ""}`}>
-              <Button variant="outline" disabled={page === 1}>Previous</Button>
+            <Link
+              href={`/blog?page=${Math.max(1, page - 1)}${q ? `&q=${q}` : ""}${categorySlug ? `&category=${categorySlug}` : ""}`}
+            >
+              <Button variant="outline" disabled={page === 1}>
+                Previous
+              </Button>
             </Link>
             <div className="text-sm font-medium px-4">
               Page {page} of {totalPages}
             </div>
-            <Link href={`/blog?page=${Math.min(totalPages, page + 1)}${q ? `&q=${q}` : ""}${categorySlug ? `&category=${categorySlug}` : ""}`}>
-              <Button variant="outline" disabled={page === totalPages}>Next</Button>
+            <Link
+              href={`/blog?page=${Math.min(totalPages, page + 1)}${q ? `&q=${q}` : ""}${categorySlug ? `&category=${categorySlug}` : ""}`}
+            >
+              <Button variant="outline" disabled={page === totalPages}>
+                Next
+              </Button>
             </Link>
           </div>
         )}

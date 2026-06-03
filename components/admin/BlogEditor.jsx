@@ -9,13 +9,27 @@ import { useSession } from "next-auth/react";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { format } from "date-fns";
-import { Calendar as CalendarIcon, Bold, Italic, List, ListOrdered, Heading2, Loader2, Save, Send } from "lucide-react";
+import {
+  Calendar as CalendarIcon,
+  Bold,
+  Italic,
+  List,
+  ListOrdered,
+  Heading2,
+  Loader2,
+  Save,
+  Send,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Calendar } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
@@ -27,6 +41,7 @@ const formSchema = z.object({
   excerpt: z.string().min(1, "Excerpt is required"),
   content: z.string().min(1, "Content is required"),
   featuredImage: z.string().optional(),
+  featuredImageAlt: z.string().optional(),
   categories: z.array(z.string()).default([]),
   tags: z.string().optional(), // We'll parse this into an array on save
   seoTitle: z.string().optional(),
@@ -80,23 +95,32 @@ export default function BlogEditor({ initialData = null, onSave }) {
       excerpt: initialData?.excerpt || "",
       content: initialData?.content || "",
       featuredImage: initialData?.featuredImage || "",
+      featuredImageAlt: initialData?.featuredImageAlt || "",
       categories: getObjectIdArray(initialData?.categories),
       tags: initialData?.tags?.join(", ") || "",
       seoTitle: initialData?.seoTitle || "",
       seoDescription: initialData?.seoDescription || "",
       status: initialData?.status || "draft",
-      publishedAt: initialData?.publishedAt ? new Date(initialData.publishedAt) : null,
+      publishedAt: initialData?.publishedAt
+        ? new Date(initialData.publishedAt)
+        : null,
     },
   });
 
-  const { watch, setValue, getValues, formState: { isDirty, isValid, dirtyFields } } = form;
+  const {
+    watch,
+    setValue,
+    getValues,
+    formState: { isDirty, isValid, dirtyFields },
+  } = form;
 
   const editor = useEditor({
     extensions: [StarterKit],
     content: initialData?.content || "",
     editorProps: {
       attributes: {
-        class: "prose prose-invert max-w-none min-h-[300px] p-4 focus:outline-none border border-border rounded-md bg-input/50",
+        class:
+          "prose prose-invert max-w-none min-h-[300px] p-4 focus:outline-none border border-border rounded-md bg-input/50",
       },
     },
     onUpdate: ({ editor }) => {
@@ -127,10 +151,21 @@ export default function BlogEditor({ initialData = null, onSave }) {
   const title = watch("title");
   useEffect(() => {
     if (!initialData && title && !dirtyFields.slug) {
-      const generatedSlug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+      const generatedSlug = title
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/(^-|-$)+/g, "");
       setValue("slug", generatedSlug, { shouldValidate: true });
     }
   }, [title, initialData, setValue, dirtyFields.slug]);
+
+  // Sync alt text with title until user manually edits it
+  const featuredImageAlt = watch("featuredImageAlt");
+  useEffect(() => {
+    if (!dirtyFields.featuredImageAlt) {
+      setValue("featuredImageAlt", title, { shouldDirty: false });
+    }
+  }, [title, dirtyFields.featuredImageAlt, setValue]);
 
   const handleImageUpload = async (e) => {
     const file = e.target.files?.[0];
@@ -166,7 +201,12 @@ export default function BlogEditor({ initialData = null, onSave }) {
         getObjectIdString(initialData?.author) ||
         getObjectIdString(session?.user?.id),
       categories: getObjectIdArray(data.categories),
-      tags: data.tags ? data.tags.split(",").map(t => t.trim()).filter(Boolean) : [],
+      tags: data.tags
+        ? data.tags
+            .split(",")
+            .map((t) => t.trim())
+            .filter(Boolean)
+        : [],
     };
 
     if (process.env.NODE_ENV === "development") {
@@ -198,7 +238,8 @@ export default function BlogEditor({ initialData = null, onSave }) {
   // Autosave every 30s
   useEffect(() => {
     autosaveTimer.current = setInterval(() => {
-      if (isDirty && isValid && initialData) { // Only autosave if it's already created
+      if (isDirty && isValid && initialData) {
+        // Only autosave if it's already created
         submitData("draft");
         toast("Autosaved draft", { position: "bottom-right" });
       }
@@ -214,12 +255,14 @@ export default function BlogEditor({ initialData = null, onSave }) {
       {/* Main Content Area */}
       <div className="flex-1 space-y-6">
         <div className="space-y-2">
-          <Label htmlFor="title" className="text-lg">Title</Label>
-          <Input 
-            id="title" 
-            className="text-xl font-bold p-6" 
-            placeholder="Article Title..." 
-            {...form.register("title")} 
+          <Label htmlFor="title" className="text-lg">
+            Title
+          </Label>
+          <Input
+            id="title"
+            className="text-xl font-bold p-6"
+            placeholder="Article Title..."
+            {...form.register("title")}
           />
         </div>
 
@@ -233,7 +276,9 @@ export default function BlogEditor({ initialData = null, onSave }) {
                 size="sm"
                 type="button"
                 onClick={() => editor.chain().focus().toggleBold().run()}
-                className={editor.isActive("bold") ? "bg-accent/20 text-accent" : ""}
+                className={
+                  editor.isActive("bold") ? "bg-accent/20 text-accent" : ""
+                }
               >
                 <Bold className="h-4 w-4" />
               </Button>
@@ -242,7 +287,9 @@ export default function BlogEditor({ initialData = null, onSave }) {
                 size="sm"
                 type="button"
                 onClick={() => editor.chain().focus().toggleItalic().run()}
-                className={editor.isActive("italic") ? "bg-accent/20 text-accent" : ""}
+                className={
+                  editor.isActive("italic") ? "bg-accent/20 text-accent" : ""
+                }
               >
                 <Italic className="h-4 w-4" />
               </Button>
@@ -250,8 +297,14 @@ export default function BlogEditor({ initialData = null, onSave }) {
                 variant="ghost"
                 size="sm"
                 type="button"
-                onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-                className={editor.isActive("heading", { level: 2 }) ? "bg-accent/20 text-accent" : ""}
+                onClick={() =>
+                  editor.chain().focus().toggleHeading({ level: 2 }).run()
+                }
+                className={
+                  editor.isActive("heading", { level: 2 })
+                    ? "bg-accent/20 text-accent"
+                    : ""
+                }
               >
                 <Heading2 className="h-4 w-4" />
               </Button>
@@ -260,7 +313,11 @@ export default function BlogEditor({ initialData = null, onSave }) {
                 size="sm"
                 type="button"
                 onClick={() => editor.chain().focus().toggleBulletList().run()}
-                className={editor.isActive("bulletList") ? "bg-accent/20 text-accent" : ""}
+                className={
+                  editor.isActive("bulletList")
+                    ? "bg-accent/20 text-accent"
+                    : ""
+                }
               >
                 <List className="h-4 w-4" />
               </Button>
@@ -269,7 +326,11 @@ export default function BlogEditor({ initialData = null, onSave }) {
                 size="sm"
                 type="button"
                 onClick={() => editor.chain().focus().toggleOrderedList().run()}
-                className={editor.isActive("orderedList") ? "bg-accent/20 text-accent" : ""}
+                className={
+                  editor.isActive("orderedList")
+                    ? "bg-accent/20 text-accent"
+                    : ""
+                }
               >
                 <ListOrdered className="h-4 w-4" />
               </Button>
@@ -281,23 +342,29 @@ export default function BlogEditor({ initialData = null, onSave }) {
 
         <div className="space-y-2">
           <Label htmlFor="excerpt">Excerpt</Label>
-          <Textarea 
-            id="excerpt" 
-            placeholder="Brief summary of the article..." 
-            rows={3} 
-            {...form.register("excerpt")} 
+          <Textarea
+            id="excerpt"
+            placeholder="Brief summary of the article..."
+            rows={3}
+            {...form.register("excerpt")}
           />
         </div>
-        
+
         <div className="space-y-4 pt-4 border-t border-border">
-          <h3 className="text-lg font-semibold text-brand-gradient">SEO Settings</h3>
+          <h3 className="text-lg font-semibold text-brand-gradient">
+            SEO Settings
+          </h3>
           <div className="space-y-2">
             <Label htmlFor="seoTitle">SEO Title (Optional)</Label>
             <Input id="seoTitle" {...form.register("seoTitle")} />
           </div>
           <div className="space-y-2">
             <Label htmlFor="seoDescription">SEO Description (Optional)</Label>
-            <Textarea id="seoDescription" rows={2} {...form.register("seoDescription")} />
+            <Textarea
+              id="seoDescription"
+              rows={2}
+              {...form.register("seoDescription")}
+            />
           </div>
         </div>
       </div>
@@ -305,10 +372,12 @@ export default function BlogEditor({ initialData = null, onSave }) {
       {/* Sidebar Panel */}
       <div className="w-full lg:w-80 space-y-6">
         <div className="glass-card p-4 rounded-lg space-y-4">
-          <h3 className="font-semibold border-b border-border pb-2">Publishing</h3>
+          <h3 className="font-semibold border-b border-border pb-2">
+            Publishing
+          </h3>
           <div className="grid grid-cols-2 gap-2">
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               onClick={() => submitData("draft")}
               disabled={isSaving}
               className="w-full"
@@ -316,7 +385,7 @@ export default function BlogEditor({ initialData = null, onSave }) {
               <Save className="mr-2 h-4 w-4" />
               Save Draft
             </Button>
-            <Button 
+            <Button
               onClick={() => submitData("published")}
               disabled={isSaving}
               className="w-full"
@@ -334,11 +403,15 @@ export default function BlogEditor({ initialData = null, onSave }) {
                   variant={"outline"}
                   className={cn(
                     "w-full justify-start text-left font-normal",
-                    !watch("publishedAt") && "text-muted-foreground"
+                    !watch("publishedAt") && "text-muted-foreground",
                   )}
                 >
                   <CalendarIcon className="mr-2 h-4 w-4" />
-                  {watch("publishedAt") ? format(watch("publishedAt"), "PPP") : <span>Pick a date</span>}
+                  {watch("publishedAt") ? (
+                    format(watch("publishedAt"), "PPP")
+                  ) : (
+                    <span>Pick a date</span>
+                  )}
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-auto p-0 bg-card border-border">
@@ -359,48 +432,80 @@ export default function BlogEditor({ initialData = null, onSave }) {
         </div>
 
         <div className="glass-card p-4 rounded-lg space-y-4">
-          <h3 className="font-semibold border-b border-border pb-2">URL Slug</h3>
+          <h3 className="font-semibold border-b border-border pb-2">
+            URL Slug
+          </h3>
           <Input id="slug" {...form.register("slug")} />
         </div>
 
         <div className="glass-card p-4 rounded-lg space-y-4">
-          <h3 className="font-semibold border-b border-border pb-2">Featured Image</h3>
+          <h3 className="font-semibold border-b border-border pb-2">
+            Featured Image
+          </h3>
           {watch("featuredImage") && (
-            <img 
-              src={watch("featuredImage")} 
-              alt="Featured" 
-              className="w-full h-40 object-cover rounded-md border border-border" 
+            <img
+              src={watch("featuredImage")}
+              alt={watch("featuredImageAlt") || "Featured"}
+              className="w-full h-40 object-cover rounded-md border border-border"
             />
           )}
+          <div className="space-y-1">
+            <Label
+              htmlFor="featuredImageAlt"
+              className="text-xs text-muted-foreground"
+            >
+              Alt Text
+            </Label>
+            <Input
+              id="featuredImageAlt"
+              placeholder="Describe the image..."
+              className="text-xs"
+              {...form.register("featuredImageAlt", {
+                onChange: () => {
+                  // Mark as dirty so title sync stops
+                },
+              })}
+            />
+          </div>
           <div className="flex items-center gap-2">
-            <Input 
-              type="file" 
-              accept="image/*" 
-              className="flex-1 text-xs" 
+            <Input
+              type="file"
+              accept="image/*"
+              className="flex-1 text-xs"
               onChange={handleImageUpload}
               disabled={uploading}
             />
-            {uploading && <Loader2 className="h-4 w-4 animate-spin text-brand-gradient" />}
+            {uploading && (
+              <Loader2 className="h-4 w-4 animate-spin text-brand-gradient" />
+            )}
           </div>
         </div>
 
         <div className="glass-card p-4 rounded-lg space-y-4">
-          <h3 className="font-semibold border-b border-border pb-2">Categories</h3>
+          <h3 className="font-semibold border-b border-border pb-2">
+            Categories
+          </h3>
           <div className="space-y-2 max-h-48 overflow-y-auto pr-2">
             {categories.map((category) => (
               <div key={category._id} className="flex items-center space-x-2">
-                <Checkbox 
-                  id={`cat-${category._id}`} 
+                <Checkbox
+                  id={`cat-${category._id}`}
                   checked={watch("categories").includes(category._id)}
                   onCheckedChange={(checked) => {
                     const current = getObjectIdArray(watch("categories"));
-                    const updated = checked 
+                    const updated = checked
                       ? [...current, category._id]
-                      : current.filter(id => id !== category._id);
-                    setValue("categories", updated, { shouldDirty: true, shouldValidate: true });
+                      : current.filter((id) => id !== category._id);
+                    setValue("categories", updated, {
+                      shouldDirty: true,
+                      shouldValidate: true,
+                    });
                   }}
                 />
-                <Label htmlFor={`cat-${category._id}`} className="text-sm font-normal cursor-pointer">
+                <Label
+                  htmlFor={`cat-${category._id}`}
+                  className="text-sm font-normal cursor-pointer"
+                >
                   {category.name}
                 </Label>
               </div>
@@ -411,7 +516,11 @@ export default function BlogEditor({ initialData = null, onSave }) {
         <div className="glass-card p-4 rounded-lg space-y-4">
           <h3 className="font-semibold border-b border-border pb-2">Tags</h3>
           <p className="text-xs text-muted-foreground">Comma separated</p>
-          <Input id="tags" placeholder="e.g. Next.js, React" {...form.register("tags")} />
+          <Input
+            id="tags"
+            placeholder="e.g. Next.js, React"
+            {...form.register("tags")}
+          />
         </div>
       </div>
     </div>
