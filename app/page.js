@@ -8,21 +8,23 @@ import ValuePropositionStatement from "@/components/home/ValuePropositionStateme
 import WhatYouGet from "@/components/home/WhatYouGet";
 import WhatIBuild from "@/components/home/WhatIBuild";
 import CTA from "@/components/home/CTA";
+import TofabzaHomepage from "@/components/home/Homepage";
 
 const App = () => {
   return (
     <>
-      <Hero />
+      <TofabzaHomepage />
+      {/* <Hero />
       <ValuePropositionStatement />
-      <WhatYouGet />
+      <WhatYouGet /> */}
       {/* <ValueStrip /> */}
-      <WhatIBuild />
-      <HowItWorks />
+      {/* <WhatIBuild />
+      <HowItWorks /> */}
       {/* <FocusAreas /> */}
       {/* Testimonials hidden until real ones are ready — uncomment when you have them */}
       {/* <Testimonials /> */}
-      <About />
-      <CTA />
+      {/* <About />
+      <CTA /> */}
     </>
   );
 };

@@ -10,22 +10,22 @@
 
 @layer base {
   :root {
-    --navy-900: #0B1C2C;
-    --navy-800: #0E2238;
-    --navy-700: #132B47;
-    --brand-500: #C65D2A;
-    --brand-400: #E08055;
-    --brand-600: #A84820;
+    --navy-900: #0b1c2c;
+    --navy-800: #0e2238;
+    --navy-700: #132b47;
+    --brand-500: #c65d2a;
+    --brand-400: #e08055;
+    --brand-600: #a84820;
     --brand-500-rgb: 198, 93, 42;
     --brand-400-rgb: 224, 128, 85;
     --brand-600-rgb: 168, 72, 32;
     --navy-700-rgb: 19, 43, 71;
-    --cream-bg: #F8F3E8;
+    --cream-bg: #f8f3e8;
     --cream-bg-rgb: 248, 243, 232;
-    --cream-surface: #EFE8D6;
-    --cream-text: #F5EFE6;
+    --cream-surface: #efe8d6;
+    --cream-text: #f5efe6;
     --muted-text: #5a6a7a;
-    --muted-warm: #C8BFAD;
+    --muted-warm: #c8bfad;
     --muted-cool: #8a9aaa;
 
     /* NAVY — unchanged */
@@ -224,3 +224,7 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--brand-600);
 }
+
+/* body {
+  scrollbar-gutter: stable;
+} */

@@ -24,21 +24,23 @@ export default function Hero() {
 
       <div className="container relative z-10 py-20">
         <div className="max-w-5xl animate-fade-up">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand-500/30 bg-navy-800/40 backdrop-blur-sm mb-8">
+          {/* <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand-500/30 bg-navy-800/40 backdrop-blur-sm mb-8">
             <Sparkles className="h-4 w-4 text-brand-500" />
             <span className="text-xs uppercase tracking-[0.2em] text-brand-400 font-medium">
               Your Digital Partner.
             </span>
-          </div>
+          </div> */}
 
           <h1 className="font-display text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.05] font-semibold mb-6">
-            I build digital systems <br /> designed to <br />
-            <span className="text-brand-gradient">grow businesses. </span>
+            Your business is losing money <br />
+            to problems <br />
+            <span className="text-brand-gradient">you can already see.</span>
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-7xl leading-relaxed mb-10">
-            Website, automation, or content — built so your business keeps
-            moving even when you're not watching.
+            Missed leads. Manual work eating your day. A website that sits there
+            doing nothing. I find the exact bottleneck and build the fix —
+            website, automation, or content.
           </p>
 
           {/* Trust line Badges — honest value props instead of fake metrics */}

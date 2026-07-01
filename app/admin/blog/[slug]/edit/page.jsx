@@ -34,7 +34,7 @@ export default function EditBlogPostPage({ params }) {
     try {
       await axios.put(`/api/blog/posts/${slug}`, data);
       toast.success("Post updated successfully");
-      
+
       // If slug changed, redirect to new slug
       if (data.slug !== slug) {
         router.push(`/admin/blog/${data.slug}/edit`);
@@ -67,8 +67,10 @@ export default function EditBlogPostPage({ params }) {
         </Link>
         <h1 className="text-3xl font-bold text-brand-gradient">Edit Article</h1>
       </div>
-      
-      {initialData && <BlogEditor initialData={initialData} onSave={handleSave} />}
+
+      {initialData && (
+        <BlogEditor initialData={initialData} onSave={handleSave} />
+      )}
     </div>
   );
 }

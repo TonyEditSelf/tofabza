@@ -1,9 +1,9 @@
 // components/layout/Footer.jsx
 import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
-// import { FaWhatsapp } from "react-icons/fa";
 import { BRAND, NAV_LINKS } from "@/lib/constants";
 import AdminPortalLink from "./AdminPortalLink";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -12,26 +12,36 @@ export default function Footer() {
       <div className="container py-16 grid md:grid-cols-4 gap-10">
         <div className="md:col-span-2">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-11 h-11 rounded-lg bg-brand-gradient flex items-center justify-center text-navy-900 font-display font-bold text-lg">
+            {/* <div className="w-11 h-11 rounded-lg bg-brand-gradient flex items-center justify-center text-navy-900 font-display font-bold text-lg">
               TK
+            </div> */}
+            <div className="w-11 h-11 relative border rounded-sm  overflow-hidden">
+              <Image
+                src="/images/logo.webp"
+                alt="TOFABZA logo"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
             <div className="flex flex-col leading-tight">
               <span className="text-base font-semibold text-brand-gradient">
                 {BRAND.shortName}
               </span>
-              <span className="text-[10px] tracking-[0.25em] text-muted-foreground uppercase">
-                Build. Automate. Grow.
+              <span className="text-[10px] tracking-[0.25em] text-muted-foreground">
+                to businesses that are easier to run.
               </span>
             </div>
           </div>
           <p className="text-muted-foreground max-w-md leading-relaxed">
-            Websites, automation, and content systems that work together.
+            Automation, software, and AI systems built around how your business
+            runs.
           </p>
         </div>
 
         <div>
           <h4 className="text-sm font-semibold text-brand-500 mb-4 tracking-wide uppercase">
-            Navigate
+            Explore
           </h4>
           <ul className="space-y-3">
             {NAV_LINKS.map((l) => (
@@ -92,7 +102,7 @@ export default function Footer() {
           </span>
           <div className="flex items-center gap-4">
             <AdminPortalLink className="hover:text-brand-500 transition-colors" />
-            <span>Crafted with precision.</span>
+            <span>Built by Tony Eappen.</span>
           </div>
         </div>
       </div>

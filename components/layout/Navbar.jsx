@@ -24,7 +24,6 @@ export default function Navbar() {
   const isWhatIBuildActive = [
     "/services/website-design",
     "/services/automation-systems",
-    "/services/social-media-growth",
   ].includes(pathname);
 
   const handleCartClick = (e) => {
@@ -33,7 +32,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-navy-900/70 border-b border-brand-500/10">
+    <header className="fixed top-0 inset-x-0 z-50 bg-navy-900 border-b border-brand-500/10">
       <div className="container flex items-center justify-between h-20">
         <Link href="/" className="flex items-center gap-3">
           {/* this is the LOGO */}
@@ -51,8 +50,8 @@ export default function Navbar() {
             <span className="text-sm font-semibold text-brand-gradient">
               {BRAND.shortName}
             </span>
-            <span className="hidden sm:block text-[10px] tracking-[0.25em] text-muted-foreground uppercase">
-              Build. Automate. Grow.
+            <span className="hidden sm:block text-[10px] tracking-[0.25em] text-muted-foreground">
+              to businesses that are easier to run.
             </span>
           </div>
         </Link>
@@ -75,42 +74,6 @@ export default function Navbar() {
                       className={`h-4 w-4 transition-transform ${isWhatIBuildActive ? "text-brand-500" : ""} group-hover:rotate-180`}
                     />
                   </Link>
-
-                  {/* Dropdown Menu */}
-                  <div className="absolute top-full left-0 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 z-50">
-                    <div className="min-w-[160px] bg-navy-900/95 backdrop-blur-xl border border-brand-500/20 rounded-xl p-2 shadow-2xl shadow-black/50">
-                      <Link
-                        href="/services/website-design"
-                        className={`block px-4 py-2.5 text-sm rounded-lg transition-all ${
-                          pathname === "/services/website-design"
-                            ? "text-brand-500 bg-brand-500/10"
-                            : "text-foreground/70 hover:text-brand-500 hover:bg-brand-500/10"
-                        }`}
-                      >
-                        Build
-                      </Link>
-                      <Link
-                        href="/services/automation-systems"
-                        className={`block px-4 py-2.5 text-sm rounded-lg transition-all ${
-                          pathname === "/services/automation-systems"
-                            ? "text-brand-500 bg-brand-500/10"
-                            : "text-foreground/70 hover:text-brand-500 hover:bg-brand-500/10"
-                        }`}
-                      >
-                        Automate
-                      </Link>
-                      <Link
-                        href="/services/social-media-growth"
-                        className={`block px-4 py-2.5 text-sm rounded-lg transition-all ${
-                          pathname === "/services/social-media-growth"
-                            ? "text-brand-500 bg-brand-500/10"
-                            : "text-foreground/70 hover:text-brand-500 hover:bg-brand-500/10"
-                        }`}
-                      >
-                        Grow
-                      </Link>
-                    </div>
-                  </div>
                 </div>
               );
             }
@@ -129,8 +92,8 @@ export default function Navbar() {
 
         <div className="flex items-center gap-5">
           <Link href="/contact" className="hidden md:inline-flex">
-            <Button className="bg-brand-gradient text-navy-900 hover:opacity-90 font-semibold h-9">
-              Book a Free Slot
+            <Button className="bg-brand-500 hover:bg-brand-600 text-navy-900 font-semibold h-9">
+              Start a conversation
             </Button>
           </Link>
           <button
@@ -144,7 +107,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-brand-500/10 bg-navy-900/95 backdrop-blur-xl">
+        <div className="md:hidden border-t border-brand-500/10 bg-navy-900">
           <div className="container py-5 flex flex-col gap-4">
             {NAV_LINKS.map((l) => {
               if (l.label === "What I Build") {
@@ -223,7 +186,7 @@ export default function Navbar() {
 
             <div className="flex flex-col gap-2 pt-2">
               <Link href="/contact" onClick={() => setOpen(false)}>
-                <Button className="w-full bg-brand-gradient text-navy-900 font-semibold cursor-pointer h-11">
+                <Button className="w-full bg-brand-500 hover:bg-brand-600 text-navy-900 font-semibold cursor-pointer h-11">
                   Book a Call
                 </Button>
               </Link>

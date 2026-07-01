@@ -56,7 +56,7 @@ export default async function BlogPostPage({ params }) {
       <div className="bg-navy-gradient pt-24 pb-16 px-4 md:px-8 border-b border-border">
         <div className="max-w-4xl mx-auto space-y-8">
           <Link
-            href="/blog"
+            href="/journal"
             className="inline-flex items-center text-accent hover:text-brand-500 transition-colors"
           >
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Journal
@@ -180,7 +180,7 @@ export default async function BlogPostPage({ params }) {
               {relatedPosts.map((relatedPost) => (
                 <Link
                   key={relatedPost._id}
-                  href={`/blog/${relatedPost.slug}`}
+                  href={`/journal/${relatedPost.slug}`}
                   className="group block h-full"
                 >
                   <Card className="h-full flex flex-col bg-card border-border hover:border-accent/50 transition-colors duration-300">

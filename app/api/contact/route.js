@@ -9,9 +9,9 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request) {
   try {
-    const { name, email, service, message } = await request.json();
+    const { name, email, phone, message, preferredTime } = await request.json();
 
-    if (!name || !email || !service || !message) {
+    if (!name || !email || !phone || !message) {
       return NextResponse.json({ error: "All fields are required" }, { status: 400 });
     }
 
@@ -25,7 +25,7 @@ export async function POST(request) {
       const db = await getDb();
       await db.collection("contacts").insertOne({
         id: uuidv4(),
-        name, email, service, message,
+        name, email, phone, message, preferredTime,
         created_at: new Date().toISOString(),
       });
     } catch (dbErr) {
@@ -39,7 +39,8 @@ export async function POST(request) {
         <table style="width:100%; border-collapse: collapse;">
           <tr><td style="padding: 8px 0; color: #C65D2A; width: 140px;"><strong>Name:</strong></td><td style="padding: 8px 0;">${name}</td></tr>
           <tr><td style="padding: 8px 0; color: #C65D2A;"><strong>Email:</strong></td><td style="padding: 8px 0;">${email}</td></tr>
-          <tr><td style="padding: 8px 0; color: #C65D2A;"><strong>Service:</strong></td><td style="padding: 8px 0;">${service}</td></tr>
+          <tr><td style="padding: 8px 0; color: #C65D2A;"><strong>Phone:</strong></td><td style="padding: 8px 0;">${phone}</td></tr>
+          ${preferredTime ? `<tr><td style="padding: 8px 0; color: #C65D2A;"><strong>Time:</strong></td><td style="padding: 8px 0;">${preferredTime}</td></tr>` : ""}
         </table>
         <div style="margin-top: 24px; padding: 20px; background: #0E2238; border-left: 3px solid #C65D2A; border-radius: 6px;">
           <div style="color: #C65D2A; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px;">Message</div>
@@ -53,7 +54,7 @@ export async function POST(request) {
       const { data, error } = await resend.emails.send({
         from: process.env.CONTACT_FROM_EMAIL || "onboarding@resend.dev",
         to: [process.env.CONTACT_TO_EMAIL || "onboarding@resend.dev"],
-        subject: `New Inquiry: ${name} — ${service}`,
+        subject: `New Inquiry: ${name}`,
         html,
         replyTo: email,
       });

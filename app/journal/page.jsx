@@ -28,8 +28,8 @@ export default async function BlogIndexPage({ searchParams }) {
   const gridPosts = featuredPost ? posts.slice(1) : posts;
 
   return (
-    <div className="min-h-screen bg-background pt-40 relative">
-      <div className="absolute border-b border-brand-500/30 top-20 left-0 right-0 h-[540px] animated-gradient-bg opacity-40 -z-10" />
+    <div className="min-h-screen pt-56 relative">
+      {/* <div className="absolute border-b border-brand-500/30 top-20 left-0 right-0 h-[500px] animated-gradient-bg opacity-40 -z-10" /> */}
 
       <div className="container px-4 md:px-8">
         <div className="text-center max-w-4xl mx-auto mb-16 animate-fade-up">
@@ -47,7 +47,7 @@ export default async function BlogIndexPage({ searchParams }) {
           {/* Filters & Search */}
           <div className="flex flex-col md:flex-row justify-center items-center gap-6 pt-12">
             <div className="flex flex-wrap justify-center gap-2">
-              <Link href="/blog">
+              <Link href="/journal">
                 <Badge
                   variant={!categorySlug ? "default" : "outline"}
                   className="cursor-pointer text-sm px-4 py-1"
@@ -56,7 +56,7 @@ export default async function BlogIndexPage({ searchParams }) {
                 </Badge>
               </Link>
               {categories.map((cat) => (
-                <Link key={cat._id} href={`/blog?category=${cat.slug}`}>
+                <Link key={cat._id} href={`/journal?category=${cat.slug}`}>
                   <Badge
                     variant={categorySlug === cat.slug ? "default" : "outline"}
                     className="cursor-pointer text-sm px-4 py-1"
@@ -68,7 +68,7 @@ export default async function BlogIndexPage({ searchParams }) {
             </div>
 
             <form
-              action="/blog"
+              action="/journal"
               method="GET"
               className="relative w-full md:w-72"
             >
@@ -88,11 +88,13 @@ export default async function BlogIndexPage({ searchParams }) {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 md:px-8 py-12 space-y-16">
+      {/* <div className="full-bleed-divider" /> */}
+
+      <div className="max-w-6xl mx-auto px-4 md:px-8 pt-16 pb-5 space-y-16">
         {/* Featured Post (Only on page 1 with no filters) */}
         {featuredPost && (
           <section>
-            <Link href={`/blog/${featuredPost.slug}`} className="group block">
+            <Link href={`/journal/${featuredPost.slug}`} className="group block">
               <div className="glass-card rounded-xl overflow-hidden glass-card-hover flex flex-col md:flex-row">
                 <div className="md:w-1/2 h-64 md:h-auto overflow-hidden bg-muted">
                   {featuredPost.featuredImage ? (
@@ -165,7 +167,7 @@ export default async function BlogIndexPage({ searchParams }) {
               {gridPosts.map((post) => (
                 <Link
                   key={post._id}
-                  href={`/blog/${post.slug}`}
+                  href={`/journal/${post.slug}`}
                   className="group block h-full"
                 >
                   <Card className="h-full flex flex-col bg-card border-border hover:border-accent/50 transition-colors duration-300">
@@ -227,7 +229,7 @@ export default async function BlogIndexPage({ searchParams }) {
         {totalPages > 1 && (
           <div className="flex items-center justify-center gap-2 pt-8 border-t border-border section-divider">
             <Link
-              href={`/blog?page=${Math.max(1, page - 1)}${q ? `&q=${q}` : ""}${categorySlug ? `&category=${categorySlug}` : ""}`}
+              href={`/journal?page=${Math.max(1, page - 1)}${q ? `&q=${q}` : ""}${categorySlug ? `&category=${categorySlug}` : ""}`}
             >
               <Button variant="outline" disabled={page === 1}>
                 Previous
@@ -237,7 +239,7 @@ export default async function BlogIndexPage({ searchParams }) {
               Page {page} of {totalPages}
             </div>
             <Link
-              href={`/blog?page=${Math.min(totalPages, page + 1)}${q ? `&q=${q}` : ""}${categorySlug ? `&category=${categorySlug}` : ""}`}
+              href={`/journal?page=${Math.min(totalPages, page + 1)}${q ? `&q=${q}` : ""}${categorySlug ? `&category=${categorySlug}` : ""}`}
             >
               <Button variant="outline" disabled={page === totalPages}>
                 Next
