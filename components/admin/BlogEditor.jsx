@@ -189,8 +189,13 @@ export default function BlogEditor({ initialData = null, onSave }) {
   const submitData = async (statusOverride = null) => {
     const data = getValues();
     if (statusOverride) {
-      data.status = statusOverride;
-      if (statusOverride === "published" && !data.publishedAt) {
+      if (statusOverride === "published" && data.publishedAt && data.publishedAt > new Date()) {
+        data.status = "scheduled";
+      } else {
+        data.status = statusOverride;
+      }
+      
+      if (data.status === "published" && !data.publishedAt) {
         data.publishedAt = new Date();
       }
     }
@@ -391,7 +396,7 @@ export default function BlogEditor({ initialData = null, onSave }) {
               className="w-full"
             >
               <Send className="mr-2 h-4 w-4" />
-              Publish
+              {(watch("publishedAt") && watch("publishedAt") > new Date()) ? "Schedule" : "Publish"}
             </Button>
           </div>
 
