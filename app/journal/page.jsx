@@ -162,7 +162,7 @@ export default async function BlogIndexPage({ searchParams }) {
 
         {/* Post Grid */}
         <section>
-          {gridPosts.length > 0 ? (
+          {gridPosts.length > 0 && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {gridPosts.map((post) => (
                 <Link
@@ -213,7 +213,9 @@ export default async function BlogIndexPage({ searchParams }) {
                 </Link>
               ))}
             </div>
-          ) : (
+          )}
+          
+          {posts.length === 0 && (
             <div className="text-center py-20 glass-card rounded-xl">
               <h3 className="text-2xl font-bold text-muted-foreground">
                 No posts found
