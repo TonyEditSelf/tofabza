@@ -48,17 +48,17 @@ const PRICING_TIERS = [
   {
     label: "Workflow Automation",
     example: "Notifications, approvals, task routing",
-    range: "From ₹25k",
+    range: "From ₹20k",
   },
   {
     label: "Integrated Business Systems",
     example: "Customer journeys, internal workflows, business operations",
-    range: "From ₹70k",
+    range: "From ₹60k",
   },
   {
     label: "AI Automation Systems",
     example: "AI assistants, document processing, intelligent workflows",
-    range: "From ₹1L",
+    range: "From ₹90k",
   },
 ];
 
