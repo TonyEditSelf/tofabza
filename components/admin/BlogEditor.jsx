@@ -120,7 +120,7 @@ export default function BlogEditor({ initialData = null, onSave }) {
     editorProps: {
       attributes: {
         class:
-          "prose prose-invert max-w-none min-h-[300px] p-4 focus:outline-none border border-border rounded-md bg-input/50",
+          "prose prose-invert max-w-none min-h-[300px] max-h-[500px] overflow-y-auto p-4 focus:outline-none border border-border rounded-md bg-input/50",
       },
     },
     onUpdate: ({ editor }) => {
@@ -246,7 +246,7 @@ export default function BlogEditor({ initialData = null, onSave }) {
       if (isDirty && isValid && initialData) {
         // Only autosave if it's already created
         submitData("draft");
-        toast("Autosaved draft", { position: "bottom-right" });
+        toast("Autosaved draft");
       }
     }, 30000);
 
