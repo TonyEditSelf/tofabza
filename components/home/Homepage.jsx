@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 function Eyebrow({ children }) {
   return (
@@ -109,10 +110,7 @@ function Diagnosis() {
         <div className="grid md:grid-cols-12 gap-12 md:gap-8 mb-14">
           <div className="md:col-span-5">
             <Eyebrow>The Diagnosis</Eyebrow>
-            <p className="text-[14px] font-light leading-relaxed text-muted-warm mb-8">
-              Before we talk about technology, it's worth understanding why
-              growing businesses become harder to run in the first place.
-            </p>
+
             <h2 className="font-display font-bold text-[2rem] md:text-[2.5rem] leading-[1.15] tracking-tight text-cream-text mt-6">
               Nobody set out to build a complicated business. <br />
               <span className="text-brand-500">It just ended up that way.</span>
@@ -190,7 +188,7 @@ function Reframe() {
               recommendation, but with questions:
             </p>
 
-            <ul className="mt-4 space-y-3">
+            <ul className="mt-4 space-y-3 pl-9">
               <li className="flex items-center gap-3">
                 <span className="text-navy-900 text-4xl leading-none">•</span>
                 <span style={{ color: "var(--muted-text)" }}>
@@ -532,24 +530,29 @@ function About() {
                 style={{ color: "var(--muted-text)" }}
               >
                 Before Tofabza, I built software, automation systems, and AI
-                tools to solve operational problems I kept running into myself.
+                tools — not for clients, but for problems I was actually living
+                with.
               </p>
 
               <p
                 className="text-[16.5px] leading-relaxed text-justify"
                 style={{ color: "var(--muted-text)" }}
               >
-                The work wasn't difficult—it was repetitive. Information copied
-                between systems. Reports rebuilt by hand. Updates that only
-                happened because someone remembered to do them.
+                Hours spent on tasks that happened the same way every time.
+                Information copied from one system and pasted into another,
+                every single day. Reports built manually every week from the
+                same sources. Updates done by hand because nothing was
+                connected. Messages that needed a reply sitting unread because
+                the day moved on.
               </p>
+
               <p
                 className="text-[16.5px] leading-relaxed text-justify"
                 style={{ color: "var(--muted-text)" }}
               >
                 The hardest problems were never technical. They were
-                operational. Processes that worked early and quietly broke as
-                businesses grew.
+                operational. Software that didn’t fit. Processes that made sense
+                early and quietly broke later.
               </p>
               <p
                 className="text-[16.5px] leading-relaxed font-semibold"
@@ -558,13 +561,24 @@ function About() {
                 That&rsquo;s the problem Tofabza exists to fix.
               </p>
               <div className="mt-10 flex items-center gap-4">
-                <span className="block w-8 h-px bg-brand-500 shrink-0" />
-                <p
-                  className="font-sans font-light text-[12px]"
-                  style={{ color: "var(--navy-900)" }}
-                >
-                  Tony Eappen, Founder
-                </p>
+                <Image
+                  src="/images/tony.png"
+                  alt="Tony Eappen"
+                  width={102}
+                  height={102}
+                  className="rounded-full object-cover border border-brand-500/20"
+                  priority
+                />
+
+                <div className="flex items-center gap-3">
+                  <span className="block w-8 h-px bg-brand-500 shrink-0" />
+                  <p
+                    className="font-sans font-light text-[12px]"
+                    style={{ color: "var(--navy-900)" }}
+                  >
+                    Tony Eappen, Founder
+                  </p>
+                </div>
               </div>
             </div>
 
