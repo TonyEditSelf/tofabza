@@ -36,7 +36,7 @@ export default async function BlogIndexPage({ searchParams }) {
           <h1 className="font-display text-4xl md:text-7xl lg:text-[5.5rem] leading-[1.05] font-semibold mb-6">
             Tofabza{" "}
             <span className="text-brand-gradient font-display text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.05] font-semibold">
-              Journal
+              Blog
             </span>
           </h1>
           <p className="text-lg text-muted-foreground">
@@ -94,7 +94,10 @@ export default async function BlogIndexPage({ searchParams }) {
         {/* Featured Post (Only on page 1 with no filters) */}
         {featuredPost && (
           <section>
-            <Link href={`/journal/${featuredPost.slug}`} className="group block">
+            <Link
+              href={`/journal/${featuredPost.slug}`}
+              className="group block"
+            >
               <div className="glass-card rounded-xl overflow-hidden glass-card-hover flex flex-col md:flex-row">
                 <div className="md:w-1/2 h-64 md:h-auto overflow-hidden bg-muted">
                   {featuredPost.featuredImage ? (
@@ -214,7 +217,7 @@ export default async function BlogIndexPage({ searchParams }) {
               ))}
             </div>
           )}
-          
+
           {posts.length === 0 && (
             <div className="text-center py-20 glass-card rounded-xl">
               <h3 className="text-2xl font-bold text-muted-foreground">

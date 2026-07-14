@@ -6,27 +6,145 @@ import { ChevronDown, ChevronUp, Play, X, Zap, Globe } from "lucide-react";
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
 const INDUSTRIES = [
+  { id: "general", label: "General" },
   { id: "hospitality", label: "Hospitality" },
   { id: "healthcare", label: "Healthcare" },
   { id: "education", label: "Education" },
   { id: "retail", label: "Retail" },
   { id: "sales", label: "Sales" },
-  { id: "finance", label: "Finance" },
 ];
 
 const AUTOMATIONS = [
   {
+    id: "voice-ai-assistant",
+    industry: "general",
+    name: "Never Let a Call Go Unanswered",
+    agent: "AI voice agent for phone enquiries.",
+    tagline: "Every missed call is a customer who called someone else next.",
+    description:
+      "Phones ring during meetings, after hours, and during rushes — and every unanswered call is a lead or customer walking to a competitor. This voice AI assistant answers instantly, understands natural speech, handles common requests like bookings, FAQs, and order status, and hands off to a human only when it truly needs to. Callers get a real conversation, not a menu of button presses.",
+    outcomes: [
+      "Every call answered, day or night",
+      "Fewer missed leads and enquiries",
+      "Staff spend less time on repetitive phone calls",
+    ],
+    stack: ["n8n", "Twilio", "ElevenLabs", "OpenAI", "Google Sheets"],
+    highlights: [
+      { label: "Trigger", value: "Incoming phone call" },
+      { label: "Voice Engine", value: "ElevenLabs / Twilio" },
+      { label: "AI Model", value: "OpenAI (real-time)" },
+      { label: "Handles", value: "Bookings, FAQs, status checks" },
+      { label: "Escalation", value: "Live transfer to staff" },
+    ],
+    WorkflowDiagram: null,
+  },
+  {
+    id: "website-chatbot",
+    industry: "general",
+    name: "Answer Visitors Before They Leave",
+    agent: "AI website chatbot trained on your business.",
+    tagline: "Most visitors don't fill out a form. They just leave.",
+    description:
+      "A website chatbot trained on your actual business — pricing, services, FAQs, availability — that engages visitors the moment they land, answers in real time, and captures contact details before they bounce. No generic canned replies. It pulls from your real data and escalates to a human when a question needs one.",
+    outcomes: [
+      "More visitor enquiries captured",
+      "Instant answers at any time",
+      "Leads collected automatically",
+    ],
+    stack: ["n8n", "OpenAI", "Vector DB", "Website Widget", "Google Sheets"],
+    highlights: [
+      { label: "Trigger", value: "Website visit / message" },
+      { label: "Knowledge", value: "Connected business data" },
+      { label: "AI Model", value: "OpenAI (RAG)" },
+      { label: "Capture", value: "Name, email, intent" },
+      { label: "Escalation", value: "Human handoff on request" },
+    ],
+    WorkflowDiagram: null,
+  },
+  {
+    id: "booking-reminders",
+    industry: "general",
+    name: "Stop Losing Money to No-Shows",
+    agent: "Automated appointment reminders via SMS and email.",
+    tagline:
+      "A no-show isn't a scheduling problem. It's a reminder that never went out.",
+    description:
+      "Appointments get booked and then forgotten — until the slot goes empty and the revenue with it. This workflow sends automatic SMS and email reminders at the right intervals before every appointment, with confirm/reschedule links built in. No staff calling to confirm. No manual reminder lists. Just fewer empty slots.",
+    outcomes: [
+      "Fewer missed appointments",
+      "No manual reminder calls",
+      "Simpler appointment rescheduling",
+    ],
+    stack: ["n8n", "Twilio", "Gmail", "Google Calendar", "Google Sheets"],
+    highlights: [
+      { label: "Trigger", value: "Upcoming appointment" },
+      { label: "Reminders", value: "24h + 2h before" },
+      { label: "Channels", value: "SMS + Email" },
+      { label: "Actions", value: "Confirm / Reschedule link" },
+      { label: "Tracking", value: "Auto status update" },
+    ],
+    WorkflowDiagram: null,
+  },
+  {
+    id: "review-request-automation",
+    industry: "general",
+    name: "Turn Happy Customers Into Public Proof",
+    agent: "Automated review request and distribution assistant.",
+    tagline:
+      "Good reviews don't happen by accident. They happen because someone asked.",
+    description:
+      "Most satisfied customers never leave a review — not because they don't want to, but because nobody asked at the right moment. This workflow sends a review request automatically after service is complete, routes happy customers to Google, Facebook, or industry-specific platforms, and flags unhappy ones privately before they go public. More reviews, less risk.",
+    outcomes: [
+      "More customer reviews",
+      "Private feedback before public reviews",
+      "Stronger online reputation",
+    ],
+    stack: ["n8n", "WhatsApp API", "Gmail", "Google Sheets"],
+    highlights: [
+      { label: "Trigger", value: "Service marked complete" },
+      { label: "Delay", value: "Sent 24h post-service" },
+      { label: "Routing", value: "Positive → public, negative → private" },
+      { label: "Platforms", value: "Google, Facebook, custom" },
+      { label: "Tracking", value: "Response logged in Sheets" },
+    ],
+    WorkflowDiagram: null,
+  },
+  {
+    id: "team-digest-bot",
+    industry: "general",
+    name: "One Summary Instead of Five Tabs",
+    agent: "Daily digest bot for Slack or Teams.",
+    tagline: "Nobody has time to check five tools before the morning standup.",
+    description:
+      "Updates live scattered across email, CRM, project boards, and support tickets — and someone has to piece it together every morning. This workflow pulls activity from your connected tools and delivers one clean daily digest straight to Slack or Teams: what changed, what needs attention, what's overdue. No manual status-checking across apps.",
+    outcomes: [
+      "One daily operational summary",
+      "Fewer missed updates",
+      "Less time switching between tools",
+    ],
+    stack: ["n8n", "Slack", "Microsoft Teams", "CRM", "Project Board API"],
+    highlights: [
+      { label: "Trigger", value: "Daily at 8 AM" },
+      { label: "Sources", value: "CRM, tickets, project board" },
+      { label: "Output", value: "Slack / Teams message" },
+      { label: "Format", value: "Grouped by priority" },
+      { label: "Coverage", value: "Cross-tool, single view" },
+    ],
+    WorkflowDiagram: null,
+  },
+  {
     id: "hotel-whatsapp-ai",
     industry: "hospitality",
     name: "Never Miss a Booking Enquiry",
+    agent: "AI WhatsApp receptionist for hotels.",
     tagline:
       "Guests don't stop booking because hotels close. They stop booking because nobody answered.",
     description:
       "Every unanswered enquiry is a potential lost booking. This system responds instantly using live information from your booking system, answering questions about room rates, availability, and check-in details without staff involvement. Conversations remain contextual across messages, giving guests accurate answers any time of day, even when the front desk is offline.",
     outcomes: [
       "Guest enquiries answered instantly",
-      "24/7 availability without staffing costs",
-      "Reduced front-desk workload",
+      "24/7 booking support",
+      "Less front-desk admin",
     ],
     stack: [
       "n8n",
@@ -65,13 +183,14 @@ const AUTOMATIONS = [
     id: "hotel-guest-communication",
     industry: "hospitality",
     name: "Turn Guests Into Repeat Guests",
+    agent: "Automated guest communication workflow.",
     tagline: "The stay ends at checkout. The relationship shouldn't.",
     description:
       "Most hotels lose repeat guests not because of bad service — but because nobody followed up. This workflow automates the entire guest communication journey. Guests receive a welcome email before arrival with everything they need for their stay, followed by a review request after checkout while their experience is still fresh. Every morning, hotel staff receive a daily arrivals and departures report, ensuring smooth handovers across front desk, housekeeping, and management teams. Everything is tracked automatically, preventing duplicate messages and reducing administrative work. Your staff focus on the guests in front of them. The workflow handles everyone else.",
     outcomes: [
-      "More guest reviews and repeat bookings",
       "Every guest followed up automatically",
-      "Less admin work for front-desk staff",
+      "More guest reviews",
+      "Less front-desk administration",
     ],
     stack: ["n8n", "Gmail", "Google Sheets"],
     highlights: [
@@ -103,13 +222,14 @@ const AUTOMATIONS = [
     id: "restaurant-pos-automation",
     industry: "hospitality",
     name: "Never Run Out Mid-Service",
+    agent: "Restaurant order, inventory, and sales automation.",
     tagline:
       "Every order should update three things at once. In most restaurants, it updates one — and someone fixes the rest later.",
     description:
       "Every restaurant has the same problem: orders happen in seconds, but inventory, reporting, and reconciliation often happen later. That's how stock discrepancies appear, numbers stop matching, and staff end up doing administrative work after service. This workflow keeps everything in sync automatically. The moment an order is placed, payments are recorded, inventory is updated, and sales data is logged in real time. No end-of-day data entry. No surprise stockouts. No guessing what's selling. Your team stays focused on customers while the system keeps the operation running in the background.",
     outcomes: [
-      "Fewer stock surprises during service",
-      "Accurate sales reporting",
+      "Fewer stock shortages",
+      "Accurate real-time reporting",
       "No end-of-day data entry",
     ],
     stack: ["n8n", "POS System", "Payment Gateway", "Google Sheets", "MySQL"],
@@ -138,14 +258,15 @@ const AUTOMATIONS = [
     id: "medical-records-ocr",
     industry: "healthcare",
     name: "Stop Retyping Patient Records",
+    agent: "AI-powered medical document digitisation assistant.",
     tagline:
       "If the information already exists on paper, nobody should be retyping it.",
     description:
       "Patient information already exists. The problem is that staff still spend hours transferring it from paper forms, scanned documents, and PDFs into digital systems. Every manual entry takes time and creates opportunities for errors. This workflow automates the process, extracting patient details, diagnoses, medications, lab results, and other key information from medical documents and converting them into structured digital records automatically. No manual transcription. No duplicate work. No chasing paperwork across folders and filing cabinets. Your team spends less time processing documents and more time focused on patient care.",
     outcomes: [
-      "Hours saved on administrative work",
+      "Less manual data entry",
       "Fewer patient record errors",
-      "Faster access to patient information",
+      "Faster access to patient records",
     ],
     stack: ["n8n", "Mistral OCR", "Google Sheets", "Google OAuth2"],
     highlights: [
@@ -173,13 +294,14 @@ const AUTOMATIONS = [
     id: "student-progress-reports",
     industry: "education",
     name: "Student Progress Reports",
+    agent: "Automated student progress reports for parents.",
     tagline: "Problems are easier to solve when parents hear about them early.",
     description:
       "Most schools update parents only a few times a year. By then, attendance issues, falling grades, or learning gaps have often gone unnoticed for weeks. This workflow automatically pulls student grades, attendance records, and progress notes from your LMS, generates clear parent-friendly reports, and delivers them on a fixed schedule without staff involvement. Every report is logged, delivery is tracked, and administrators are alerted if anything fails. Parents stay informed, issues surface earlier, and teachers spend less time preparing updates.",
     outcomes: [
-      "Parents kept informed automatically",
+      "Parents updated automatically",
       "No manual report preparation",
-      "Earlier intervention for struggling students",
+      "Earlier support for struggling students",
     ],
     stack: ["n8n", "LMS API", "Gmail", "Google Sheets"],
     highlights: [
@@ -208,13 +330,14 @@ const AUTOMATIONS = [
     id: "school-notice-distribution",
     industry: "education",
     name: "School Notice Distribution",
+    agent: "Automated school notice distribution assistant.",
     tagline: "School communication shouldn't depend on copy-pasting.",
     description:
       "Important announcements need to reach the right people quickly, but many schools still rely on staff manually copying the same message across email, WhatsApp, and other channels. This workflow automates the entire process. Staff create the notice once, and the system distributes it automatically to students, parents, and staff through the appropriate channels. Every delivery is tracked, statuses are updated automatically, and administrators always know what was sent and who received it. No duplicate work. No missed announcements. No manual follow-up.",
     outcomes: [
-      "Every audience reached from a single notice",
-      "Full visibility into message delivery",
-      "Less time spent on administrative tasks",
+      "One notice, every audience",
+      "Track every delivery",
+      "Less administrative work",
     ],
     stack: ["n8n", "WhatsApp Business API", "Gmail", "Google Sheets"],
     highlights: [
@@ -242,14 +365,15 @@ const AUTOMATIONS = [
     id: "shopify-low-stock-alerts",
     industry: "retail",
     name: "Prevent Stockouts Before They Happen",
+    agent: "AI-powered inventory management assistant.",
     tagline:
       "By the time someone notices a stockout, the sale is already lost.",
     description:
       "Running out of stock rarely happens all at once. Inventory levels drop gradually until one day a customer tries to buy something that isn't there. This workflow monitors your inventory automatically and alerts your team before products reach critical levels. Instead of checking dashboards, running manual counts, or discovering problems after sales are lost, staff receive clear notifications showing exactly what needs attention. Stock gets replenished earlier, fewer sales are missed, and inventory stays under control without constant monitoring.",
     outcomes: [
-      "Fewer lost sales from stockouts",
+      "Fewer stockouts",
       "Earlier inventory replenishment",
-      "Less manual inventory monitoring",
+      "Less manual stock monitoring",
     ],
     stack: ["n8n", "Shopify API", "Slack"],
     highlights: [
@@ -277,14 +401,15 @@ const AUTOMATIONS = [
     id: "order-tracking-whatsapp",
     industry: "retail",
     name: "Keep Customers Updated Automatically",
+    agent: "AI-powered customer communication assistant.",
     tagline:
       "When customers don't hear an update, they open a support ticket instead.",
     description:
       "Customers don't usually contact support because something went wrong. They contact support because they don't know what's happening. This workflow keeps customers informed automatically throughout the delivery journey, sending updates when orders are confirmed, shipped, out for delivery, and delivered. Each message includes the information relevant to that stage, reducing uncertainty without requiring staff involvement. Customers stay informed, support teams handle fewer repetitive enquiries, and the post-purchase experience feels smoother from start to finish.",
     outcomes: [
-      "Fewer 'Where's my order?' enquiries",
-      "Customers informed automatically",
-      "Improved post-purchase experience",
+      "Fewer order status enquiries",
+      "Customers updated automatically",
+      "Better post-purchase experience",
     ],
     stack: ["n8n", "WhatsApp Business API", "Google Sheets", "Webhooks"],
     highlights: [
@@ -312,6 +437,7 @@ const AUTOMATIONS = [
     id: "ai-lead-qualification",
     industry: "sales",
     name: "AI Lead Qualification & Follow-up",
+    agent: "AI-powered lead qualification and follow-up assistant.",
     tagline:
       "Every lead gets qualified instantly, routed correctly, and followed up automatically.",
 
@@ -319,12 +445,9 @@ const AUTOMATIONS = [
       "Most businesses lose opportunities because new enquiries sit unanswered or sales teams spend time chasing poor-fit leads. This workflow enriches every incoming lead, uses AI to determine qualification, automatically routes qualified prospects to sales, nurtures lower-quality leads with email sequences, and monitors responses before creating CRM tasks and notifying the team.",
 
     outcomes: [
-      "Instant AI lead qualification",
-      "Automatic sales routing",
-      "Consistent nurture campaigns",
-      "No manual lead triage",
-      "Faster sales response times",
-      "Improved lead conversion rates",
+      "Qualified leads routed automatically",
+      "Less manual lead triage",
+      "Faster sales response",
     ],
 
     stack: ["n8n", "OpenAI", "HTTP API", "CRM", "Email", "Slack"],
@@ -375,18 +498,6 @@ const AUTOMATIONS = [
         />
       </div>
     ),
-  },
-  {
-    id: "finance-placeholder",
-    industry: "finance",
-    placeholder: true,
-    name: "Finance Automation",
-    tagline: "Coming soon",
-    description:
-      "Payment reminders, KYC workflows, loan status updates, and compliance report generation — for NBFCs and fintech platforms.",
-    stack: [],
-    highlights: [],
-    WorkflowDiagram: null,
   },
 ];
 
@@ -690,7 +801,7 @@ function AutomationCard({ automation, index }) {
           {automation.highlights?.length > 0 && (
             <div className="flex flex-col gap-4 p-6 md:p-8">
               <span className="text-[10px] font-medium uppercase tracking-[0.22em] text-brand-500/80">
-                System Details
+                How it works
               </span>
               <dl className="flex flex-col gap-3">
                 {automation.highlights.map((h) => (
@@ -717,7 +828,7 @@ function AutomationCard({ automation, index }) {
           {automation.stack?.length > 0 && (
             <div className="flex flex-col gap-3">
               <span className="text-[10px] font-medium uppercase tracking-[0.22em] text-brand-500/80">
-                Built with
+                Technology
               </span>
               <div className="flex flex-wrap gap-2">
                 {automation.stack.map((tech) => (
@@ -739,7 +850,7 @@ function AutomationCard({ automation, index }) {
                 onClick={() => setExpanded(!expanded)}
                 className="flex w-full items-center justify-between px-4 py-3 text-sm font-medium tracking-wide text-brand-500 transition-colors hover:bg-brand-500/5"
               >
-                <span>Open workflow diagram </span>
+                <span>See how it works </span>
                 {expanded ? (
                   <ChevronUp className="h-4 w-4" />
                 ) : (
@@ -956,16 +1067,16 @@ function AppCard({ app, expandedId, setExpandedId, setActiveApp }) {
 
 // ─── SECTION HEADER ──────────────────────────────────────────────────────────
 
-function SectionHeader({ icon: Icon, eyebrow, title, subtitle }) {
+function SectionHeader({ title, subtitle }) {
   return (
     <div className="mb-10 flex flex-col gap-3 md:mb-12">
       <div className="flex items-center gap-3">
-        <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-brand-500/30 bg-brand-500/10">
+        {/* <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-brand-500/30 bg-brand-500/10">
           <Icon className="h-4 w-4 text-brand-500" />
-        </span>
-        <span className="text-[10px] font-medium uppercase tracking-[0.28em] text-brand-500/80">
+        </span> */}
+        {/* <span className="text-[10px] font-medium uppercase tracking-[0.28em] text-brand-500/80">
           {eyebrow}
-        </span>
+        </span> */}
       </div>
       <h2 className="font-display text-3xl font-semibold tracking-tight text-cream-text md:text-4xl">
         {title}
@@ -1003,7 +1114,7 @@ function IndustryFilter({ active, onChange }) {
 
 // ─── MAIN EXPORT ─────────────────────────────────────────────────────────────
 
-export default function BuildsMedia() {
+export default function AutomatedWorkflowMedia() {
   const [activeApp, setActiveApp] = useState(null);
   const [expandedId, setExpandedId] = useState(null);
   const [activeIndustry, setActiveIndustry] = useState("all");
@@ -1051,8 +1162,8 @@ export default function BuildsMedia() {
         {activeSection === "automation" && (
           <div>
             <SectionHeader
-              icon={Zap}
-              eyebrow="Business Automation"
+              // icon={Zap}
+              // eyebrow="Business Automation"
               title="Workflows for businesses"
               subtitle="Browse examples by industry to see how different businesses automate repetitive work, connect disconnected systems, and remove operational bottlenecks."
             />
@@ -1076,8 +1187,8 @@ export default function BuildsMedia() {
         {activeSection === "websites" && (
           <div>
             <SectionHeader
-              icon={Globe}
-              eyebrow="Websites & Apps"
+              // icon={Globe}
+              // eyebrow="Websites & Apps"
               title="Products built end to end"
               subtitle="Full-stack web apps, design concepts, and personal products — from idea to live deployment."
             />

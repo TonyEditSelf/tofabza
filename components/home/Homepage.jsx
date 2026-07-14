@@ -1,22 +1,5 @@
 import { ArrowRight } from "lucide-react";
 
-/**
- * TOFABZA HOMEPAGE — REDESIGN
- * Palette: Navy #0B1C2C · Brand/Sienna #C65D2A · Cream #F8F3E8
- * Display: Space Grotesk (bold, tight) · Body: Inter
- * Section rhythm: Navy hero+diagnosis flow → Cream → Navy → Cream → Navy → Cream → Navy CTA
- * Signature: 2px sienna thread rule — diagnostic sections only
- * No glass. No gradient text. No blobs. No animated backgrounds.
- *
- * Design moves vs previous version:
- * — What We Build: 2×2 card grid → horizontal row list (more editorial, less generic)
- * — Work: cream-card boxes → no-card article list with hairline separators
- * — Process: uniform gap-px columns → large decorative numbers (15% opacity) + divide-x
- * — Diagnosis: closing statement pulled below the grid as a typographic moment
- * — About: mini sienna dash before attribute headings; cleaner founder signature
- * — CTA: moved from cream to navy — fixes the double-cream problem from removing First Projects
- */
-
 function Eyebrow({ children }) {
   return (
     <div className="inline-flex items-center gap-2 text-[13px] font-semibold tracking-[0.18em] uppercase text-brand-500">
@@ -39,7 +22,7 @@ function PrimaryButton({ children, href = "#contact" }) {
   return (
     <a
       href={href}
-      className="group inline-flex items-center gap-2.5 bg-brand-500 hover:bg-brand-600 text-navy-900 font-semibold px-7 py-3.5 rounded-md transition-all duration-300 text-[15px]"
+      className="inline-flex h-12 items-center justify-center rounded-lg bg-brand-gradient px-7 font-semibold text-navy-900 transition-opacity hover:opacity-90 brand-border-glow"
     >
       {children}
       <ArrowRight
@@ -55,11 +38,8 @@ function SecondaryButton({ children, href = "#work", dark = false }) {
   return (
     <a
       href={href}
-      className={`inline-flex items-center gap-2 font-medium px-7 py-3.5 rounded-md border transition-all duration-300 text-[15px] ${
-        dark
-          ? "border-navy-900/20 text-navy-900 hover:border-navy-900/40 hover:bg-navy-900/[0.03]"
-          : "border-cream-text/20 text-cream-text hover:border-cream-text/40 hover:bg-cream-text/[0.03]"
-      }`}
+      className="inline-flex h-12 items-center justify-center rounded-lg px-7
+  font-semibold text-cream-text border border-cream-text/20 bg-cream-text/[0.03] transition-all duration-300 hover:bg-cream-text/[0.06] hover:border-cream-text/40"
     >
       {children}
     </a>
@@ -76,28 +56,30 @@ function Hero() {
           <Eyebrow>Operational Engineering for Growing Businesses.</Eyebrow>
 
           <h1 className="font-display font-bold text-[2.6rem] leading-[1.08] md:text-[4.2rem] md:leading-[1.04] tracking-tight text-cream-text mt-8">
-            Businesses <br />
+            Your business <br />
             <span className="text-brand-500">
-              shouldn&rsquo;t become harder to run
-            </span>{" "}
-            <br />
-            as they grow.
+              should become easier to run <br />
+            </span>
+            as it grows.
           </h1>
 
           <p className="text-[17px] md:text-[18px] leading-relaxed text-muted-warm text-justify mt-8 max-w-4xl">
-            At some point, most businesses aren&rsquo;t held back by opportunity
-            — they&rsquo;re held back by how they operate. More customers. More
-            conversations. More tools. More manual work holding it all together.
+            At some point, most businesses aren’t held back by opportunity —
+            they’re held back by how they operate. More customers, more
+            conversations, and more tools shouldn’t lead to more manual work
+            holding it all together.
             <br />
             <br />
             Tofabza studies how your business actually works, identifies and
-            removes operational friction, then builds the automation, software,
-            and AI systems that let it grow without getting harder to run.
+            removes operational friction, then engineers the automation, AI
+            systems and software that let you scale without the chaos.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 mt-10">
-            <PrimaryButton href="/contact">Start a conversation</PrimaryButton>
-            <SecondaryButton href="/builds">See the work</SecondaryButton>
+            <PrimaryButton href="/contact">Book a Call</PrimaryButton>
+            <SecondaryButton href="/automatedworkflow">
+              View Work
+            </SecondaryButton>
           </div>
         </div>
       </div>
@@ -127,6 +109,10 @@ function Diagnosis() {
         <div className="grid md:grid-cols-12 gap-12 md:gap-8 mb-14">
           <div className="md:col-span-5">
             <Eyebrow>The Diagnosis</Eyebrow>
+            <p className="text-[14px] font-light leading-relaxed text-muted-warm mb-8">
+              Before we talk about technology, it's worth understanding why
+              growing businesses become harder to run in the first place.
+            </p>
             <h2 className="font-display font-bold text-[2rem] md:text-[2.5rem] leading-[1.15] tracking-tight text-cream-text mt-6">
               Nobody set out to build a complicated business. <br />
               <span className="text-brand-500">It just ended up that way.</span>
@@ -159,10 +145,12 @@ function Diagnosis() {
 
         {/* Closing statement — pulled out as a typographic moment */}
         <div className="pt-1">
-          <p className="font-display text-[0.55rem] md:text-[1.5rem] leading-[1.2] text-cream-text max-w-6xl">
+          <p className="text-[0.55rem] font-extralight md:text-[1.1rem] leading-[1.2] text-cream-text max-w-6xl">
             That&rsquo;s not a people problem. It&rsquo;s an operational design
             problem.{" "}
-            <span className="text-brand-500">And it&rsquo;s fixable.</span>
+            <span className="text-brand-500 font-bold">
+              And it&rsquo;s fixable.
+            </span>
           </p>
         </div>
       </div>
@@ -199,12 +187,48 @@ function Reframe() {
               style={{ color: "var(--muted-text)" }}
             >
               That&rsquo;s where every Tofabza project starts. Not with a tool
-              recommendation, but with questions: where does the work slow down,
-              where does it get dropped, what&rsquo;s being done manually that
-              shouldn&rsquo;t be, what steps keep repeating across different
-              people and software — and what&rsquo;s only running because one
-              person is holding it together?
+              recommendation, but with questions:
             </p>
+
+            <ul className="mt-4 space-y-3">
+              <li className="flex items-center gap-3">
+                <span className="text-navy-900 text-4xl leading-none">•</span>
+                <span style={{ color: "var(--muted-text)" }}>
+                  Where does the work slow down?
+                </span>
+              </li>
+
+              <li className="flex items-center gap-3">
+                <span className="text-navy-900 text-4xl leading-none">•</span>
+                <span style={{ color: "var(--muted-text)" }}>
+                  Where does it get dropped?
+                </span>
+              </li>
+
+              <li className="flex items-center gap-3">
+                <span className="text-navy-900 text-4xl leading-none">•</span>
+                <span style={{ color: "var(--muted-text)" }}>
+                  What&rsquo;s being done manually that shouldn&rsquo;t be?
+                </span>
+              </li>
+
+              <li className="flex items-center gap-3">
+                <span className="text-navy-900 text-4xl leading-none">•</span>
+                <span style={{ color: "var(--muted-text)" }}>
+                  What steps keep repeating across different people and
+                  software?
+                </span>
+              </li>
+
+              <li className="flex items-center gap-3">
+                <span className="text-navy-900 text-4xl leading-none">•</span>
+                <span style={{ color: "var(--muted-text)" }}>
+                  What&rsquo;s only running because one person is holding it
+                  together?
+                </span>
+              </li>
+            </ul>
+
             <p
               className="text-[17px] leading-relaxed"
               style={{ color: "var(--muted-text)" }}
@@ -241,18 +265,18 @@ function WhatWeBuild() {
     },
     {
       num: "02",
+      title: "AI Systems",
+      desc: "AI that does actual work — answering customer questions, processing documents, qualifying leads, handling conversations. Built on prompt architecture, RAG pipelines, and AI workflow design. Integrated into how your business operates, not bolted on top of it.",
+    },
+    {
+      num: "03",
       title: "Custom Software & Applications",
       desc: "When off-the-shelf tools don't fit how your business actually works. Custom web applications, internal tools, dashboards, admin panels, client portals — built from scratch, no templates, no lock-in.",
     },
     {
-      num: "03",
+      num: "04",
       title: "Websites & Customer-Facing Builds",
       desc: "Built to earn trust fast and turn visitors into enquiries — and connected to the systems running behind your business.",
-    },
-    {
-      num: "04",
-      title: "AI Systems",
-      desc: "AI that does actual work — answering customer questions, processing documents, qualifying leads, handling conversations. Built on prompt architecture, RAG pipelines, and AI workflow design. Integrated into how your business operates, not bolted on top of it.",
     },
   ];
 
@@ -262,15 +286,14 @@ function WhatWeBuild() {
         <div className="mb-14">
           <Eyebrow>What We Build</Eyebrow>
           <h2 className="font-display font-bold text-[2rem] md:text-[2.5rem] leading-[1.15] tracking-tight text-cream-text mt-6 max-w-5xl">
-            Depending on where the friction is, <br />{" "}
+            The solution depends on the problem. <br />{" "}
             <span className="text-brand-500">
-              here&rsquo;s what that looks like.
+              Here's what we typically build.
             </span>
           </h2>
           <p className="text-[15px] text-muted-warm mt-4">
-            Automation first. Everything else in support of a business that's
-            easier to run. With particular depth in healthcare and medical
-            workflow automation.
+            Everything we build serves one goal: a business that's easier to
+            run.
           </p>
         </div>
 
@@ -300,7 +323,7 @@ function WhatWeBuild() {
                   {s.desc}
                 </p>
                 {s.note && (
-                  <p className="text-[13px] leading-relaxed text-brand-400 font-medium mt-3">
+                  <p className="text-[13px] leading-relaxed font-medium mt-3">
                     {s.note}
                   </p>
                 )}
@@ -409,7 +432,7 @@ function Work() {
 
         <div className="mt-10">
           <a
-            href="/builds"
+            href="/automatedworkflow"
             className="inline-flex items-center gap-2 font-semibold text-[15px] text-brand-600 hover:text-brand-500 transition-colors"
           >
             See all builds
@@ -437,7 +460,7 @@ function Process() {
     },
     {
       n: "03",
-      title: "I build it.",
+      title: "Design. Build. Deploy.",
       desc: "You review at key checkpoints. I handle the integration, testing, and deployment. The build is finished when it's running.",
     },
     {
@@ -509,28 +532,24 @@ function About() {
                 style={{ color: "var(--muted-text)" }}
               >
                 Before Tofabza, I built software, automation systems, and AI
-                tools — not for clients, but for problems I was actually living
-                with.
+                tools to solve operational problems I kept running into myself.
               </p>
 
               <p
                 className="text-[16.5px] leading-relaxed text-justify"
                 style={{ color: "var(--muted-text)" }}
               >
-                Hours spent on tasks that happened the same way every time.
-                Information copied from one system and pasted into another,
-                every single day. Reports built manually every week from the
-                same sources. Updates done by hand because nothing was
-                connected. Messages that needed a reply sitting unread because
-                the day moved on.
+                The work wasn't difficult—it was repetitive. Information copied
+                between systems. Reports rebuilt by hand. Updates that only
+                happened because someone remembered to do them.
               </p>
               <p
                 className="text-[16.5px] leading-relaxed text-justify"
                 style={{ color: "var(--muted-text)" }}
               >
                 The hardest problems were never technical. They were
-                operational. Software that didn&rsquo;t fit. Processes that made
-                sense early and quietly broke later.
+                operational. Processes that worked early and quietly broke as
+                businesses grew.
               </p>
               <p
                 className="text-[16.5px] leading-relaxed font-semibold"
@@ -608,13 +627,7 @@ function FinalCTA() {
               "0 0 0 1px rgba(198,93,42,0.1), 0 8px 40px rgba(0,0,0,0.3)",
           }}
         >
-          <div
-            className="absolute inset-0 rounded-[2rem] opacity-30"
-            // style={{
-            //   background:
-            //     "radial-gradient(ellipse at 60% 0%, rgba(198,93,42,0.25) 0%, transparent 70%)",
-            // }}
-          />
+          <div className="absolute inset-0 rounded-[2rem] opacity-30" />
           <div className="relative z-10">
             <Eyebrow>Start Here</Eyebrow>
             <h2
@@ -623,7 +636,7 @@ function FinalCTA() {
             >
               If any of this sounds like your business, <br />{" "}
               <span className="text-brand-500">
-                let&rsquo;s figure out where the friction is.
+                let’s figure out where the friction is.
               </span>
             </h2>
             <p
@@ -634,11 +647,9 @@ function FinalCTA() {
               where your business slows down. If it's fixable, I'll come back
               with a plan on the next call.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-md mx-auto">
-              <PrimaryButton href="/contact">Let&rsquo;s talk</PrimaryButton>
-              <SecondaryButton href="/journal">
-                Read the journal
-              </SecondaryButton>
+            <div className="flex flex-col justify-center gap-3 sm:flex-row">
+              <PrimaryButton href="/contact">Book a call</PrimaryButton>
+              <SecondaryButton href="/journal">Tofabza blog</SecondaryButton>
             </div>
           </div>
         </div>

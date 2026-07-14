@@ -2,7 +2,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BRAND, NAV_LINKS } from "@/lib/constants";
 import { useCart } from "@/context/CartContext";
@@ -21,8 +21,6 @@ export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
 
-
-
   return (
     <header className="fixed top-0 inset-x-0 z-50 bg-navy-900 border-b border-brand-500/10">
       <div className="container flex items-center justify-between h-20">
@@ -39,22 +37,44 @@ export default function Navbar() {
           </div>
 
           <div className="sm:flex flex-col leading-tight">
-            <span className="text-sm font-semibold text-brand-gradient">
+            <span className="text-lg font-extrabold text-brand-gradient">
               {BRAND.shortName}
-            </span>
-            <span className="hidden sm:block text-[10px] tracking-[0.25em] text-muted-foreground">
-              to businesses that are easier to run.
             </span>
           </div>
         </Link>
 
         <nav className="hidden md:flex items-center gap-10">
           {NAV_LINKS.map((l) => {
+            if (l.subLinks) {
+              return (
+                <div key={l.label} className="relative group">
+                  <button
+                    className={`flex items-center gap-1 whitespace-pre-line text-center leading-[1.1] text-sm font-medium transition-colors hover:text-brand-500 px-3 py-2 rounded-sm border ${l.subLinks.some((sub) => pathname === sub.href) ? "text-brand-500 border-brand-500/40" : "text-foreground/80 border-brand-500/0"}`}
+                  >
+                    {l.label}
+                    <ChevronDown className="h-4 w-4 opacity-50 transition-transform group-hover:rotate-180" />
+                  </button>
+                  <div className="absolute top-full left-0 mt-2 w-48 bg-navy-900 border border-brand-500/10 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                    <div className="flex flex-col py-2">
+                      {l.subLinks.map((sub) => (
+                        <Link
+                          key={sub.label}
+                          href={sub.href}
+                          className={`px-4 py-2 text-sm hover:bg-brand-500/10 transition-colors ${pathname === sub.href ? "text-brand-500" : "text-foreground/80"}`}
+                        >
+                          {sub.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
             return (
               <Link
-                key={l.href}
+                key={l.label}
                 href={l.href}
-                className={`text-sm font-medium transition-colors hover:text-brand-500 px-3 py-1 rounded-full border ${pathname === l.href ? "text-brand-500 border-brand-500/40" : "text-foreground/80 border-brand-500/0"}`}
+                className={`whitespace-pre-line text-center leading-[1.1] text-sm font-medium transition-colors hover:text-brand-500 px-3 py-2 rounded-sm border ${pathname === l.href ? "text-brand-500 border-brand-500/40" : "text-foreground/80 border-brand-500/0"}`}
               >
                 {l.label}
               </Link>
@@ -65,7 +85,7 @@ export default function Navbar() {
         <div className="flex items-center gap-5">
           <Link href="/contact" className="hidden md:inline-flex">
             <Button className="bg-brand-500 hover:bg-brand-600 text-navy-900 font-semibold h-9">
-              Start a conversation
+              Let's Talk
             </Button>
           </Link>
           <button
@@ -82,12 +102,33 @@ export default function Navbar() {
         <div className="md:hidden border-t border-brand-500/10 bg-navy-900">
           <div className="container py-5 flex flex-col gap-4">
             {NAV_LINKS.map((l) => {
+              if (l.subLinks) {
+                return (
+                  <div key={l.label} className="flex flex-col gap-3">
+                    <span className="whitespace-pre-line leading-[1.1] text-foreground/50 font-medium uppercase text-xs">
+                      {l.label}
+                    </span>
+                    <div className="flex flex-col gap-3 pl-4 border-l border-brand-500/20">
+                      {l.subLinks.map((sub) => (
+                        <Link
+                          key={sub.label}
+                          href={sub.href}
+                          onClick={() => setOpen(false)}
+                          className={`whitespace-pre-line leading-[1.1] hover:text-brand-500 transition-colors ${pathname === sub.href ? "text-brand-500" : "text-foreground/80"}`}
+                        >
+                          {sub.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
               return (
                 <Link
-                  key={l.href}
+                  key={l.label}
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className={`hover:text-brand-500 transition-colors ${pathname === l.href ? "text-brand-500" : "text-foreground/80"}`}
+                  className={`whitespace-pre-line leading-[1.1] hover:text-brand-500 transition-colors ${pathname === l.href ? "text-brand-500" : "text-foreground/80"}`}
                 >
                   {l.label}
                 </Link>

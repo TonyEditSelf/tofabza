@@ -25,17 +25,13 @@ export default function Footer() {
               />
             </div>
             <div className="flex flex-col leading-tight">
-              <span className="text-base font-semibold text-brand-gradient">
+              <span className="text-lg font-extrabold text-brand-gradient">
                 {BRAND.shortName}
-              </span>
-              <span className="text-[10px] tracking-[0.25em] text-muted-foreground">
-                to businesses that are easier to run.
               </span>
             </div>
           </div>
           <p className="text-muted-foreground max-w-md leading-relaxed">
-            Automation, software, and AI systems built around how your business
-            runs.
+            Operational Engineering for Growing Businesses.
           </p>
         </div>
 
@@ -44,16 +40,22 @@ export default function Footer() {
             Explore
           </h4>
           <ul className="space-y-3">
-            {NAV_LINKS.map((l) => (
-              <li key={l.href}>
-                <Link
-                  href={l.href}
-                  className="text-muted-foreground hover:text-brand-500 transition-colors text-sm"
-                >
-                  {l.label}
-                </Link>
-              </li>
-            ))}
+            {NAV_LINKS.reduce(
+              (acc, l) => (l.subLinks ? [...acc, ...l.subLinks] : [...acc, l]),
+              [],
+            ).map((l, idx) => {
+              if (!l.href) console.log("Missing href in Footer:", l);
+              return (
+                <li key={l.href || `fallback-${idx}`}>
+                  <Link
+                    href={l.href || "#"}
+                    className="text-muted-foreground hover:text-brand-500 transition-colors text-sm"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
 

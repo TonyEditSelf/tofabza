@@ -1,0 +1,12 @@
+{
+  "exclude": [
+    "android-cli",
+    "doe-architecture",
+    "guard-policy",
+    "mcp-first-policy",
+    "meta-orchestrator",
+    "skeleton-bootstrap",
+    "task-decomposer",
+    "workspace-bootstrap"
+  ]
+}

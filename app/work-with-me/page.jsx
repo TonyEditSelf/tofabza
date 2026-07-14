@@ -76,6 +76,53 @@ const WHO_ITS_FOR = [
   "You're open to the project becoming a future case study",
 ];
 
+// ─────────────────────────────────────────────────────────────
+// FAQ
+// ─────────────────────────────────────────────────────────────
+
+const faqs = [
+  {
+    question: "Do I need to know exactly what I want built?",
+    answer:
+      "No. You only need to explain the business problem. Figuring out the right solution is part of the process.",
+  },
+  {
+    question: "Can you work with the software we already use?",
+    answer:
+      "Usually, yes. Wherever possible, I integrate with your existing tools instead of asking you to replace them.",
+  },
+  {
+    question: "How long do projects usually take?",
+    answer:
+      "It depends on the scope. Smaller automation projects can take a couple of weeks, while larger systems naturally take longer. You'll receive a realistic timeline before any work begins.",
+  },
+  {
+    question: "Do I own what gets built?",
+    answer:
+      "Yes. Every project includes complete documentation and a full handover. The finished system belongs to your business.",
+  },
+  {
+    question: "What happens after launch?",
+    answer:
+      "Every project includes one post-launch refinement based on real usage. If you need additional improvements after that, we can discuss a separate engagement.",
+  },
+  {
+    question: "Can we start with a smaller project?",
+    answer:
+      "Absolutely. Many clients begin by solving one well-defined business problem before expanding into larger systems later.",
+  },
+  {
+    question: "Do you work with businesses outside India?",
+    answer:
+      "Yes. International projects are welcome and are quoted separately based on scope.",
+  },
+  {
+    question: "What if you're not the right fit for my project?",
+    answer:
+      "I'll tell you before you spend any money. If I don't believe I'm the right person to solve your problem, I'll be upfront about it.",
+  },
+];
+
 const FirstProjectsPage = () => {
   return (
     <div className="pt-40 min-h-screen">
@@ -84,16 +131,16 @@ const FirstProjectsPage = () => {
         <div className="max-w-4xl mb-20">
           <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-500 mb-6">
             <span className="block w-6 h-px bg-brand-500" />
-            First Projects
+            Work With Me
           </div>
 
           <h1
             className="font-display text-4xl md:text-6xl leading-[1.1] font-bold mb-7"
             style={{ color: "var(--cream-text)" }}
           >
-            Tofabza is taking on <br></br>
+            Let's build something that <br></br>
             <span className="text-brand-500">
-              its first client engagements.
+              actually solves your problem.
             </span>
           </h1>
 
@@ -101,17 +148,16 @@ const FirstProjectsPage = () => {
             className="text-lg leading-relaxed mb-4 text-justify"
             style={{ color: "var(--muted-warm)" }}
           >
-            The work in my portfolio was built without client briefs — real
-            systems designed to solve real problems.
+            I take on a small number of projects at a time so every build gets
+            direct attention from first call to final handover.
           </p>
           <p
             className="text-lg leading-relaxed text-justify"
             style={{ color: "var(--muted-warm)" }}
           >
-            I'm now taking on a small number of client projects. The goal isn't
-            to automate everything — it's to solve the one bottleneck that's
-            holding your business back. If inefficient processes, manual work,
-            or disconnected systems are slowing your business down, let's talk.
+            If you're looking for someone to design, build, and integrate a
+            system around a specific business problem, this page explains
+            exactly how we'll work together.
           </p>
         </div>
         <div className="section-divider mb-20" />
@@ -172,17 +218,15 @@ const FirstProjectsPage = () => {
                 className="font-display text-3xl md:text-4xl font-bold leading-tight mb-6"
                 style={{ color: "var(--cream-text)" }}
               >
-                A real system, <br />{" "}
-                <span className="text-brand-500">
-                  scoped to your exact bottleneck.
-                </span>
+                What every project <br />{" "}
+                <span className="text-brand-500">includes.</span>
               </h2>
               <p
                 className="leading-relaxed"
                 style={{ color: "var(--muted-warm)" }}
               >
-                Not a template. Not a generic setup. Every build is scoped to
-                the bottleneck that's actually slowing your business down.
+                Every project is planned around an agreed scope, with everything
+                built specifically for your business.
               </p>
             </div>
 
@@ -210,24 +254,15 @@ const FirstProjectsPage = () => {
         <div className="mb-24">
           <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-500 mb-6">
             <span className="block w-6 h-px bg-brand-500" />
-            Typical Problems I Solve
+            Typical Projects
           </div>
           <h2
             className="font-display text-3xl md:text-4xl font-bold leading-tight mb-4 max-w-2xl"
             style={{ color: "var(--cream-text)" }}
           >
-            If you recognize any of these, <br />
-            <span className="text-brand-500">
-              you're exactly who this is for.
-            </span>
+            Examples of the kinds of operational problems{" "}
+            <span className="text-brand-500">clients usually bring to me.</span>
           </h2>
-          <p
-            className="leading-relaxed max-w-2xl"
-            style={{ color: "var(--muted-warm)" }}
-          >
-            These are some of the common patterns that cost businesses more than
-            they realize.
-          </p>
 
           <div
             className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px mt-12"
@@ -258,8 +293,8 @@ const FirstProjectsPage = () => {
             className="font-display text-3xl md:text-4xl font-bold leading-tight mb-4 max-w-2xl"
             style={{ color: "var(--cream-text)" }}
           >
-            Priced by the problem, <br />
-            <span className="text-brand-500">not the hours.</span>
+            Fixed-price projects. <br />
+            <span className="text-brand-500">Clear scope. Clear pricing.</span>
           </h2>
           <p
             className="leading-relaxed max-w-2xl mb-12"
@@ -330,8 +365,8 @@ const FirstProjectsPage = () => {
             className="text-[16px] pl-3 mt-6 border-l border-brand-400 max-w-4xl text-justify"
             style={{ color: "var(--muted-warm)" }}
           >
-            Not every project needs to start big. <br /> Solving one high-impact
-            bottleneck is often the best first step.
+            Not every project needs to be large. <br /> Many clients start with
+            one well-defined system and expand later if needed.
           </p>
           <br />
           <p
@@ -361,6 +396,42 @@ const FirstProjectsPage = () => {
           </div>
         </div>
         <div className="section-divider mb-24" />
+
+        {/* ── WHO THIS IS FOR ── */}
+        <div className="mb-24 max-w-3xl">
+          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-500 mb-6">
+            <span className="block w-6 h-px bg-brand-500" />
+            Before we work together
+          </div>
+          <h2
+            className="font-display text-3xl md:text-4xl font-bold leading-tight "
+            style={{ color: "var(--cream-text)" }}
+          >
+            Let's make sure <br />
+            <span className="text-brand-500">we're a good fit</span>
+          </h2>
+          <p className="mb-10" style={{ color: "var(--muted-warm)" }}>
+            <i>If these sound like you, we'll probably work well together.</i>
+          </p>
+
+          <div className="grid sm:grid-cols-2 gap-x-8 gap-y-5">
+            {WHO_ITS_FOR.map((item, i) => (
+              <div key={i} className="flex items-start gap-3">
+                <CheckCircle2
+                  className="h-5 w-5 shrink-0 mt-0.5"
+                  style={{ color: "var(--brand-500)" }}
+                />
+                <span
+                  className="text-[16px] leading-relaxed"
+                  style={{ color: "var(--muted-warm)" }}
+                >
+                  {item}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="section-divider mb-20" />
 
         {/* ── WHAT I NEED FROM YOU ── */}
         <div className="mb-24">
@@ -401,56 +472,63 @@ const FirstProjectsPage = () => {
                   className="absolute left-0 top-0 bottom-0 w-[2px]"
                   style={{ background: "var(--brand-500)" }}
                 />
-                {/* <p
-                  className="text-[16px] leading-relaxed"
-                  style={{ color: "var(--cream-text)" }}
-                >
-                  This isn't a discounted service. It's a deliberately small
-                  first cohort — every project scoped smaller, not priced lower,
-                  so it gets the full weight of my attention from first call to
-                  final refinement.
-                </p> */}
               </div>
             </div>
           </div>
         </div>
         <div className="section-divider mb-24" />
 
-        {/* ── WHO THIS IS FOR ── */}
-        <div className="mb-24 max-w-3xl">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-500 mb-6">
-            <span className="block w-6 h-px bg-brand-500" />
-            Before we work together
-          </div>
-          <h2
-            className="font-display text-3xl md:text-4xl font-bold leading-tight "
-            style={{ color: "var(--cream-text)" }}
-          >
-            Let's make sure{" "}
-            <span className="text-brand-500">we're a good fit</span>
-          </h2>
-          <p className="mb-10" style={{ color: "var(--muted-warm)" }}>
-            <i>If these sound like you, we'll probably work well together.</i>
-          </p>
-
-          <div className="grid sm:grid-cols-2 gap-x-8 gap-y-5">
-            {WHO_ITS_FOR.map((item, i) => (
-              <div key={i} className="flex items-start gap-3">
-                <CheckCircle2
-                  className="h-5 w-5 shrink-0 mt-0.5"
-                  style={{ color: "var(--brand-500)" }}
-                />
-                <span
-                  className="text-[16px] leading-relaxed"
-                  style={{ color: "var(--muted-warm)" }}
-                >
-                  {item}
-                </span>
+        {/* FAQ */}
+        <section className="pt-5 pb-20">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="mb-16">
+              <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-500 mb-6">
+                <span className="block w-6 h-px bg-brand-500" />
+                Frequently Asked Questions
               </div>
-            ))}
+
+              <h2
+                className="font-display text-4xl md:text-5xl font-bold leading-tight mb-4"
+                style={{ color: "var(--cream-text)" }}
+              >
+                A few things
+                <br />
+                <span className="text-brand-500">people usually ask.</span>
+              </h2>
+
+              <p
+                className="max-w-4xl leading-relaxed"
+                style={{ color: "var(--muted-warm)" }}
+              >
+                Everything else is easier to discuss on the first call, but
+                these are the questions that come up most often.
+              </p>
+            </div>
+
+            <div className="border-t border-white/10">
+              {faqs.map((faq, index) => (
+                <div
+                  key={index}
+                  className="py-10 border-b border-white/10 grid md:grid-cols-[320px_1fr] gap-8"
+                >
+                  <h3
+                    className="text-xl font-semibold leading-snug"
+                    style={{ color: "var(--cream-text)" }}
+                  >
+                    {faq.question}
+                  </h3>
+
+                  <p
+                    className="leading-8 max-w-3xl"
+                    style={{ color: "var(--muted-warm)" }}
+                  >
+                    {faq.answer}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-        <div className="section-divider mb-20" />
+        </section>
 
         {/* ── FINAL CTA ── */}
         <section className="pt-10 pb-10">
@@ -479,15 +557,16 @@ const FirstProjectsPage = () => {
                 className="font-display text-3xl md:text-5xl font-bold leading-tight mb-6 text-center "
                 style={{ color: "var(--cream-text)" }}
               >
-                Tell me what's broken.
+                Let's discuss your project.
               </h2>
               <p
                 className="text-lg mb-10 leading-relaxed mx-auto max-w-2xl sm:text-justify md:text-center"
                 style={{ color: "var(--muted-warm)" }}
               >
-                We'll start with a discovery call. I'll then work on it and come
-                back on a second call with a straight answer — whether it's
-                fixable, and how I'd approach it. No pitch. No pressure.
+                We'll start with a discovery call. On the second call, I'll show
+                you exactly what I'd build, how I'd approach it, and what it'll
+                cost. If I'm not the right fit, I'll tell you before you spend
+                anything.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-md mx-auto">
                 <Link href="/contact" className="w-full">
@@ -498,7 +577,7 @@ const FirstProjectsPage = () => {
                     Let's talk <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
-                <Link href="/builds" className="w-full">
+                <Link href="/automatedworkflow" className="w-full">
                   <Button
                     size="lg"
                     variant="outline"

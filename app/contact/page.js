@@ -52,7 +52,7 @@ const ContactPage = () => {
           <h1 className="font-display text-4xl md:text-7xl lg:text-[5.5rem] leading-[1.05] font-semibold mb-6">
             Tell me what's{" "}
             <span className="text-brand-gradient font-display text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.05] font-semibold">
-              broken.
+              broken
             </span>
           </h1>
           <p className="text-lg text-muted-foreground">
