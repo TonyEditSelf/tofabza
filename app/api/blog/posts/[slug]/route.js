@@ -40,8 +40,10 @@ export async function PUT(request, { params }) {
     }
 
     const body = await request.json();
+    const payload = normalizePostPayload(body, { existingPost });
     const data = {
-      ...normalizePostPayload(body, { existingPost }),
+      ...payload,
+      createdAt: payload.publishedAt || existingPost.createdAt,
       updatedAt: new Date(),
     };
 

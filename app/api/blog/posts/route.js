@@ -64,9 +64,10 @@ export async function POST(request) {
     const body = await request.json();
     const now = new Date();
 
+    const payload = normalizePostPayload(body, { authorId: adminUser._id });
     const data = {
-      ...normalizePostPayload(body, { authorId: adminUser._id }),
-      createdAt: now,
+      ...payload,
+      createdAt: payload.publishedAt || now,
       updatedAt: now,
     };
 
