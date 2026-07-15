@@ -56,7 +56,7 @@ export default async function BlogPostPage({ params }) {
       <div className="bg-navy-gradient pt-24 pb-16 px-4 md:px-8 border-b border-border">
         <div className="max-w-4xl mx-auto space-y-8">
           <Link
-            href="/journal"
+            href="/blog"
             className="inline-flex items-center text-accent hover:text-brand-500 transition-colors"
           >
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Journal
@@ -126,44 +126,42 @@ export default async function BlogPostPage({ params }) {
         )}
 
         {/* Content Area */}
-        <div className="flex flex-col lg:flex-row gap-12">
-          {/* Main Content */}
-          <div className="lg:w-3/4">
-            <article
-              className="prose prose-invert prose-lg max-w-none 
-                prose-headings:font-display prose-headings:text-brand-gradient 
-                prose-a:text-accent hover:prose-a:text-brand-400 prose-a:transition-colors
-                prose-blockquote:border-l-accent prose-blockquote:bg-accent/5 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:not-italic prose-blockquote:font-normal prose-blockquote:text-foreground
-                prose-pre:bg-navy-900 prose-pre:border prose-pre:border-border
-                prose-img:rounded-xl prose-img:shadow-lg"
-              dangerouslySetInnerHTML={{ __html: post.content }}
-            />
+        <div className="mt-12">
+          <article
+            className="prose prose-invert prose-lg max-w-none 
+              prose-headings:font-display prose-headings:text-brand-gradient 
+              prose-a:text-accent hover:prose-a:text-brand-400 prose-a:transition-colors
+              prose-blockquote:border-l-accent prose-blockquote:bg-accent/5 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:not-italic prose-blockquote:font-normal prose-blockquote:text-foreground
+              prose-pre:bg-navy-900 prose-pre:border prose-pre:border-border
+              prose-img:rounded-xl prose-img:shadow-lg"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
 
+          <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row gap-6 justify-between items-start md:items-center">
             {/* Tags */}
-            {post.tags && post.tags.length > 0 && (
-              <div className="mt-12 pt-8 border-t border-border flex flex-wrap gap-2 items-center">
-                <span className="text-sm font-medium text-muted-foreground mr-2">
-                  Tags:
-                </span>
-                {post.tags.map((tag) => (
-                  <Badge
-                    key={tag}
-                    variant="outline"
-                    className="text-muted-foreground"
-                  >
-                    #{tag}
-                  </Badge>
-                ))}
-              </div>
-            )}
-          </div>
+            <div className="flex flex-wrap gap-2 items-center">
+              {post.tags && post.tags.length > 0 && (
+                <>
+                  <span className="text-sm font-medium text-muted-foreground mr-2">
+                    Tags:
+                  </span>
+                  {post.tags.map((tag) => (
+                    <Badge
+                      key={tag}
+                      variant="outline"
+                      className="text-muted-foreground"
+                    >
+                      #{tag}
+                    </Badge>
+                  ))}
+                </>
+              )}
+            </div>
 
-          {/* Sticky Sidebar */}
-          <div className="lg:w-1/4">
-            <div className="sticky top-24 space-y-8">
-              <div className="glass-card p-6 rounded-xl space-y-4">
-                <ShareButtons title={post.title} slug={post.slug} />
-              </div>
+            {/* Share */}
+            <div className="flex items-center gap-4">
+              <span className="text-sm font-medium text-muted-foreground">Share this post:</span>
+              <ShareButtons title={post.title} slug={post.slug} />
             </div>
           </div>
         </div>
@@ -180,7 +178,7 @@ export default async function BlogPostPage({ params }) {
               {relatedPosts.map((relatedPost) => (
                 <Link
                   key={relatedPost._id}
-                  href={`/journal/${relatedPost.slug}`}
+                  href={`/blog/${relatedPost.slug}`}
                   className="group block h-full"
                 >
                   <Card className="h-full flex flex-col bg-card border-border hover:border-accent/50 transition-colors duration-300">

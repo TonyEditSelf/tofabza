@@ -663,7 +663,7 @@ function FinalCTA() {
             </p>
             <div className="flex flex-col justify-center gap-3 sm:flex-row">
               <PrimaryButton href="/contact">Book a call</PrimaryButton>
-              <SecondaryButton href="/journal">Tofabza blog</SecondaryButton>
+              <SecondaryButton href="/blog">Tofabza blog</SecondaryButton>
             </div>
           </div>
         </div>

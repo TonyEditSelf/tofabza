@@ -47,7 +47,7 @@ export default async function BlogIndexPage({ searchParams }) {
           {/* Filters & Search */}
           <div className="flex flex-col md:flex-row justify-center items-center gap-6 pt-12">
             <div className="flex flex-wrap justify-center gap-2">
-              <Link href="/journal">
+              <Link href="/blog">
                 <Badge
                   variant={!categorySlug ? "default" : "outline"}
                   className="cursor-pointer text-sm px-4 py-1"
@@ -56,7 +56,7 @@ export default async function BlogIndexPage({ searchParams }) {
                 </Badge>
               </Link>
               {categories.map((cat) => (
-                <Link key={cat._id} href={`/journal?category=${cat.slug}`}>
+                <Link key={cat._id} href={`/blog?category=${cat.slug}`}>
                   <Badge
                     variant={categorySlug === cat.slug ? "default" : "outline"}
                     className="cursor-pointer text-sm px-4 py-1"
@@ -68,7 +68,7 @@ export default async function BlogIndexPage({ searchParams }) {
             </div>
 
             <form
-              action="/journal"
+              action="/blog"
               method="GET"
               className="relative w-full md:w-72"
             >
@@ -95,7 +95,7 @@ export default async function BlogIndexPage({ searchParams }) {
         {featuredPost && (
           <section>
             <Link
-              href={`/journal/${featuredPost.slug}`}
+              href={`/blog/${featuredPost.slug}`}
               className="group block"
             >
               <div className="glass-card rounded-xl overflow-hidden glass-card-hover flex flex-col md:flex-row">
@@ -170,7 +170,7 @@ export default async function BlogIndexPage({ searchParams }) {
               {gridPosts.map((post) => (
                 <Link
                   key={post._id}
-                  href={`/journal/${post.slug}`}
+                  href={`/blog/${post.slug}`}
                   className="group block h-full"
                 >
                   <Card className="h-full flex flex-col bg-card border-border hover:border-accent/50 transition-colors duration-300">
@@ -234,7 +234,7 @@ export default async function BlogIndexPage({ searchParams }) {
         {totalPages > 1 && (
           <div className="flex items-center justify-center gap-2 pt-8 border-t border-border section-divider">
             <Link
-              href={`/journal?page=${Math.max(1, page - 1)}${q ? `&q=${q}` : ""}${categorySlug ? `&category=${categorySlug}` : ""}`}
+              href={`/blog?page=${Math.max(1, page - 1)}${q ? `&q=${q}` : ""}${categorySlug ? `&category=${categorySlug}` : ""}`}
             >
               <Button variant="outline" disabled={page === 1}>
                 Previous
@@ -244,7 +244,7 @@ export default async function BlogIndexPage({ searchParams }) {
               Page {page} of {totalPages}
             </div>
             <Link
-              href={`/journal?page=${Math.min(totalPages, page + 1)}${q ? `&q=${q}` : ""}${categorySlug ? `&category=${categorySlug}` : ""}`}
+              href={`/blog?page=${Math.min(totalPages, page + 1)}${q ? `&q=${q}` : ""}${categorySlug ? `&category=${categorySlug}` : ""}`}
             >
               <Button variant="outline" disabled={page === totalPages}>
                 Next
