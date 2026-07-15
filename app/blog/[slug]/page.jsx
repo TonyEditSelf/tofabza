@@ -59,7 +59,7 @@ export default async function BlogPostPage({ params }) {
             href="/blog"
             className="inline-flex items-center text-accent hover:text-brand-500 transition-colors"
           >
-            <ArrowLeft className="mr-2 h-4 w-4" /> Back to Journal
+            <ArrowLeft className="mr-2 h-4 w-4" /> Back to blog
           </Link>
 
           <div className="flex flex-wrap gap-2">
@@ -160,7 +160,9 @@ export default async function BlogPostPage({ params }) {
 
             {/* Share */}
             <div className="flex items-center gap-4">
-              <span className="text-sm font-medium text-muted-foreground">Share this post:</span>
+              <span className="text-sm font-medium text-muted-foreground">
+                Share this post:
+              </span>
               <ShareButtons title={post.title} slug={post.slug} />
             </div>
           </div>
